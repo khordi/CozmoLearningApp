@@ -1,0 +1,121 @@
+WindowManager:
+    MainWindow:
+    AlegbraWindow:
+    TrigPythWindow:
+    GeometryWindow:
+
+
+<MainWindow>:
+    name: "main"
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'cozmo.png'
+
+    GridLayout:
+        cols: 1
+        spacing: 10
+
+        Label:
+            color: 0,0,0,1
+            bold: True
+            text: "Please choose a subject to learn"
+            halign: 'center'
+            size_hint: None, None
+            size: 600,50
+            
+
+        GridLayout:
+            cols: 3
+            spacing:2
+            padding:2
+
+            Button:
+                backgrond_normal: ''
+                size_hint: None, None
+                size: 200, 200
+                text: "Algebra"
+                font_size: 30
+
+                on_release: 
+                    app.root.current = "algebrawindow"
+                    root.manager.transition.direction = "left"
+
+            Button:
+                size_hint: None, None
+                size: 200, 200 
+                text: "Trigonometry \n         and \n  Pythagoras"
+                font_size: 30
+
+                on_release: 
+                    app.root.current = "trigpythwindow"
+                    root.manager.transition.direction = "left"
+
+            Button:
+                size_hint: None, None
+                size: 200, 200 
+                text: "Geometry"
+                font_size: 30
+
+                on_release: 
+                    app.root.current = "geometrywindow"
+                    root.manager.transition.direction = "left"
+
+            GridLayout:
+                cols:2
+                spacing: 300
+                
+                Button:
+                    size_hint: None, None
+                    size: 200, 200 
+                    text: "      Student \n Leaderboards"
+                    font_size: 30
+
+                    on_release: 
+                        app.root.current = "trigpythwindow"
+                        root.manager.transition.direction = "left"
+
+                Button:
+                    size_hint: None, None
+                    size: 100, 100 
+                    text: "Help"
+                    font_size: 30
+
+                    on_release: root.btn()
+<P>:
+    Label:
+        text: "Enjoy your sleep on saturday :)"
+        size_hint: 0.6, 0.2
+        pos_hint: {"x":0.2, "top":1}
+
+
+
+<AlegbraWindow>:
+    name: "algebrawindow"
+    
+    Button:
+        text: "algebraa"
+        on_release: 
+            app.root.current = "main"
+            root.manager.transition.direction = "right"
+
+<TrigPythWindow>:
+    name: "trigpythwindow"
+    
+    Button:
+        text: "trigpythwindow"
+        on_release: 
+            app.root.current = "main"
+            root.manager.transition.direction = "right"
+
+<GeometryWindow>:
+    name: "geometrywindow"
+    
+    Button:
+        text: "geometrywindow"
+        on_release: 
+            app.root.current = "main"
+            root.manager.transition.direction = "right"
+
