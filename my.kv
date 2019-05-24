@@ -1,4 +1,6 @@
+#: import FadeTransition kivy.uix.screenmanager.FadeTransition
 WindowManager:
+    transition: FadeTransition()
     MainWindow:
     AlegbraWindow:
     TrigPythWindow:
@@ -86,7 +88,7 @@ WindowManager:
                     on_release: root.btn()
 <HELP>:
     Label:
-        text: "Enjoy your sleep on saturday :)"
+        text: "Join the 181 boys"
         size_hint: 0.6, 0.2
         pos_hint: {"x":0.2, "top":1}
 

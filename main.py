@@ -7,7 +7,7 @@ import sympy as sp
 
 from kivy.app import App
 from kivy.lang import Builder
-from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.uix.screenmanager import ScreenManager, Screen, NoTransition, FadeTransition
 from kivy.config import Config
 from kivy.core.window import Window
 from kivy.uix.popup import Popup
@@ -62,6 +62,7 @@ class GeometryWindow(Screen):
 
 class WindowManager(ScreenManager):
     pass
+
 
 
 kv = Builder.load_file("my.kv")
