@@ -84,7 +84,7 @@ WindowManager:
                     font_size: 30
 
                     on_release: root.btn()
-<P>:
+<HELP>:
     Label:
         text: "Enjoy your sleep on saturday :)"
         size_hint: 0.6, 0.2
@@ -93,18 +93,55 @@ WindowManager:
 
 
 <AlegbraWindow>:
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'cozmo.png'
+
     name: "algebrawindow"
-    
-    Button:
-        text: "algebraa"
-        on_release: 
-            app.root.current = "main"
-            root.manager.transition.direction = "right"
+
+    GridLayout:
+        cols: 2
+        padding: 200,20
+        spacing: 50, 20
+
+
+        
+        Button:
+            size_hint: None, None
+            size: 200, 100         
+            text: "Tutorial"
+            on_release: root.algebraSolver()
+
+        Button:
+            size_hint: None, None
+            size: 150, 100         
+            text: "Back"
+            on_release: root.algebraSolver()
+        
+        GridLayout:
+            cols: 1
+
+        GridLayout:
+            cols: 1
+            padding: -250,0
+            Button:
+                size_hint: None, None
+                size: 200, 100         
+                text: "Questions and Answers"
+                on_release: root.algebraSolver()
+
+            
+
 
 <TrigPythWindow>:
     name: "trigpythwindow"
     
     Button:
+        size_hint: None, None
+        size: 200, 200 
         text: "trigpythwindow"
         on_release: 
             app.root.current = "main"
