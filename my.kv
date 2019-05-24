@@ -103,35 +103,42 @@ WindowManager:
     name: "algebrawindow"
 
     GridLayout:
-        cols: 2
-        padding: 200,20
-        spacing: 50, 20
+        cols: 1
+        padding: 110,40
+        #spacing: 50, 20
 
-
-        
         Button:
             size_hint: None, None
-            size: 200, 100         
+            size: 400, 100         
             text: "Tutorial"
             on_release: root.algebraSolver()
 
-        Button:
-            size_hint: None, None
-            size: 150, 100         
-            text: "Back"
-            on_release: root.algebraSolver()
+        #Button:
+        #    size_hint: None, None
+        #    size: 150, 100         
+        #    text: "Back"
+        #    on_release: root.algebraSolver()
         
-        GridLayout:
-            cols: 1
 
         GridLayout:
             cols: 1
-            padding: -250,0
+            padding: 0,40
+            Button:
+                size_hint: None, None
+                size: 400, 100         
+                text: "Questions and Answers"
+                on_release: root.algebraSolver()
+
+        GridLayout:
+            cols: 1
+            padding: 100,-20
             Button:
                 size_hint: None, None
                 size: 200, 100         
-                text: "Questions and Answers"
-                on_release: root.algebraSolver()
+                text: "Back"
+                on_release: 
+                    app.root.current = "main"
+                    root.manager.transition.direction = "right"
 
             
 
