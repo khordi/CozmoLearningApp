@@ -310,6 +310,142 @@ WindowManager:
 
 
 <TrigPythTutorial>:
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'cozmo.png'
+
+    name: "trigpythtutorial"
+
+    GridLayout:
+        spacing: 2
+        padding: 2.5
+
+        cols: 3
+
+        Button:
+            id: expression_button
+            size_hint: None, None
+            size: 200, 200
+            font_size:30
+            color: 1,0.5,0,1        
+            text: "1"
+            on_release: 
+                
+        Button:
+            id: button_one
+            size_hint: None, None
+            size: 200, 200
+            font_size:30
+            color: 1,0.5,0,1
+            text: "2"
+            on_release: 
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+        Button:
+            size_hint: None, None
+            size: 200, 200
+            font_size:30
+            color: 1,0.5,0,1
+            text_size: self.size     
+            #halign: 'center'    
+            text: "3"
+            on_release: 
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+        Button:
+            size_hint: None, None
+            size: 200, 200   
+            text: "4"
+            on_release: 
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+        Button:
+            size_hint: None, None
+            size: 200, 200   
+            text: "5"
+            on_release: 
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+        Button:
+            size_hint: None, None
+            size: 200, 200   
+            text: "6"
+            on_release: 
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
 <GeometryTutorial>:
 
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'cozmo.png'
+
+    name: "geometrytutorial"
+
+    GridLayout:
+        spacing: 2
+        padding: 2.5
+
+        cols: 3
+
+        Button:
+            id: expression_button
+            size_hint: None, None
+            size: 200, 200
+            font_size:30
+            color: 1,0.5,0,1        
+            text: "1"
+            on_release: 
+
+                
+        Button:
+            id: button_one
+            size_hint: None, None
+            size: 200, 200
+            font_size:30
+            color: 1,0.5,0,1
+            text: "2"
+            on_release: 
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+        Button:
+            size_hint: None, None
+            size: 200, 200
+            font_size:30
+            color: 1,0.5,0,1
+            text_size: self.size     
+            halign: 'center'    
+            text: "3"
+            on_release: 
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+        Button:
+            size_hint: None, None
+            size: 200, 200   
+            text: "4"
+            on_release: 
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+        Button:
+            size_hint: None, None
+            size: 200, 200   
+            text: "5"
+            on_release: 
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+        Button:
+            size_hint: None, None
+            size: 200, 200   
+            text: "6"
+            on_release: 
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+#----------------------------------------------------------------------------------------
+<AlegbraQnA>:
+<TrigPythQnA>:
+<GeometryQnA>:
 #----------------------------------------------------------------------------------------
