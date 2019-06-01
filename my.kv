@@ -2,11 +2,14 @@
 WindowManager:
     transition: FadeTransition()
     MainWindow:
+
     AlegbraWindow:
     TrigPythWindow:
     GeometryWindow:
-    AlgebraTutorial:
 
+    AlgebraTutorial:
+    TrigPythTutorial:
+    GeometryTutorial:
 #----------------------------------------------------------------------------------------
 <MainWindow>:
     name: "main"
@@ -94,7 +97,6 @@ WindowManager:
         pos_hint: {"x":0.2, "top":1}
 
 #----------------------------------------------------------------------------------------
-
 <AlegbraWindow>:
     name: "mainalgebra"
 
@@ -151,27 +153,89 @@ WindowManager:
 <TrigPythWindow>:
     name: "trigpythwindow"
     
-    Button:
-        size_hint: None, None
-        size: 200, 200 
-        text: "trigpythwindow"
-        on_release: 
-            app.root.current = "main"
-            root.manager.transition.direction = "right"
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'cozmo.png'
 
-#----------------------------------------------------------------------------------------
+    GridLayout:
+        cols: 1
+        padding: 110,40
+        #spacing: 50, 20
+
+        Button:
+            size_hint: None, None
+            size: 400, 100         
+            text: "Tutorial"
+            on_release:  
+                app.root.current = "trigpythtutorial"
+                root.manager.transition.direction = "left"
+        
+
+        GridLayout:
+            cols: 1
+            padding: 0,40
+            Button:
+                size_hint: None, None
+                size: 400, 100         
+                text: "Questions and Answers"
+                on_release: 
+
+        GridLayout:
+            cols: 1
+            padding: 100,-20
+            Button:
+                size_hint: None, None
+                size: 200, 100         
+                text: "Back"
+                on_release: 
+                    app.root.current = "main"
+                    root.manager.transition.direction = "right"
 
 <GeometryWindow>:
     name: "geometrywindow"
     
-    Button:
-        text: "geometrywindow"
-        on_release: 
-            app.root.current = "main"
-            root.manager.transition.direction = "right"
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'cozmo.png'
+
+    GridLayout:
+        cols: 1
+        padding: 110,40
+        #spacing: 50, 20
+
+        Button:
+            size_hint: None, None
+            size: 400, 100         
+            text: "Tutorial"
+            on_release:  
+                app.root.current = "geometrytutorial"
+                root.manager.transition.direction = "left"
+
+        GridLayout:
+            cols: 1
+            padding: 0,40
+            Button:
+                size_hint: None, None
+                size: 400, 100         
+                text: "Questions and Answers"
+                on_release: 
+
+        GridLayout:
+            cols: 1
+            padding: 100,-20
+            Button:
+                size_hint: None, None
+                size: 200, 100         
+                text: "Back"
+                on_release: 
+                    app.root.current = "main"
+                    root.manager.transition.direction = "right"
 
 #----------------------------------------------------------------------------------------
-
 <AlgebraTutorial>:
 
     canvas.before:
@@ -244,5 +308,8 @@ WindowManager:
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
 
-#----------------------------------------------------------------------------------------
 
+<TrigPythTutorial>:
+<GeometryTutorial>:
+
+#----------------------------------------------------------------------------------------

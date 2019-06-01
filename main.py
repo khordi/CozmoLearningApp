@@ -1,5 +1,9 @@
 import cozmo
+from cozmo.objects import LightCube1Id, LightCube2Id, LightCube3Id
 from PIL import Image, ImageDraw, ImageFont
+
+import time
+import asyncio
 
 from sympy.interactive import printing
 printing.init_printing(use_latex=True)
@@ -21,8 +25,9 @@ def cozmo_button(self: cozmo.robot.Robot):
     self.say_text("hi").wait_for_completed()
 
 def expression_variables(self: cozmo.robot.Robot):
-    #self.say_text("Expressions and variables", play_excited_animation=True,voice_pitch=-1).wait_for_completed()
-    self.say_text("An algebraic expression comprises both numbers and variables together with at least one arithmetic operation.",use_cozmo_voice=True, voice_pitch=-1,duration_scalar=0.7).wait_for_completed()
+    self.say_text("Welcome to expressions and variables", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
+    #self.say_text("An algebraic expression comprises both numbers and variables together with at least one arithmetic operation. An example of this is:", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
+    return
 
 #------------------------------write text on Cozmos face---------------------------------------------
 
@@ -46,18 +51,34 @@ except:
 #--------------------------------
 def make_equation_image():
     
-    time_text = "test"
+    time_text = "2x + 4x = 0"
 
     return make_text_image(time_text, 8, 6, _math_font)
 
-def displaytext(robot: cozmo.robot.Robot):
+def displaytext(self: cozmo.robot.Robot):
+    cube1 = self.world.get_light_cube(LightCube1Id)  # looks like a paperclip
+    cube2 = self.world.get_light_cube(LightCube2Id)  # looks like a lamp / heart
 
     while True:
         math_image = make_equation_image()                                           # Create the updated image with this time
         oled_face_data = cozmo.oled_face.convert_image_to_screen_data(math_image)
-        robot.display_oled_face_image(oled_face_data, 1000.0)                       # display for 1 second
+        self.display_oled_face_image(oled_face_data, 1000.0)                       # display for 1 second
+        time.sleep(5)
+        break
 
-    cozmo.run_program(displaytext)
+    if ('cube1','cube2') is not None:
+        cube1.set_lights(cozmo.lights.green_light)
+    else:
+        cozmo.logger.warning("Cozmo is not connected to a LightCube1Id cube - check the battery.")
+    
+    try:
+        self.say_text("Tap the Green cube if you are ready to move onto the next tutorial. you can come back anytime an revisit this one, i'd me more than happy to help", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
+        self.say_text("", play_excited_animation=True, voice_pitch=0,duration_scalar=0.6).wait_for_completed()
+        cube1.wait_for_tap()
+
+    except:
+        return
+    
 
     
 #------------First Screen-------------------------------------------
@@ -106,8 +127,15 @@ class AlgebraTutorial(Screen):
         def checkSection(self):
             self.ids['expression_button'].background_color = 0,1,0,0.5
         def expression_variables(self):
+            cozmo.run_program(expression_variables)
             cozmo.run_program(displaytext)
-            cozmo.run_program(expression_variables)        
+
+class TrigPythTutorial(Screen):
+    pass
+
+class GeometryTutorial(Screen):
+    pass
+        
         
 
 
