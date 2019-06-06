@@ -1,4 +1,5 @@
 #: import FadeTransition kivy.uix.screenmanager.FadeTransition
+
 WindowManager:
     transition: FadeTransition()
     MainWindow:
@@ -96,8 +97,11 @@ WindowManager:
         size_hint: 0.6, 0.2
         pos_hint: {"x":0.2, "top":1}
 
+
 #----------------------------------------------------------------------------------------
 <AlegbraWindow>:
+
+    name: "algebrawindow"
 
     canvas.before:
         Rectangle:
@@ -235,13 +239,13 @@ WindowManager:
 #----------------------------------------------------------------------------------------
 <AlgebraTutorial>:
 
+    name: "algebratutorial"
+
     canvas.before:
         Rectangle:
             pos: self.pos
             size: self.size
             source: 'cozmo.png'
-
-    name: "algebratutorial"
 
     GridLayout:
         spacing: 2
@@ -261,7 +265,7 @@ WindowManager:
                # root.manager.transition.direction = "right"
                 root.checkSection()
                 root.expression_variables()
-                
+
         Button:
             id: button_one
             size_hint: None, None
@@ -272,6 +276,7 @@ WindowManager:
             on_release: 
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
+                
         Button:
             size_hint: None, None
             size: 200, 200
@@ -308,17 +313,44 @@ WindowManager:
             on_release: 
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
+        Button:
+            size_hint: None, None
+            size: 200, 200   
+            text: "Algebraic \n Equations"
+            on_release: 
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+        Button:
+            size_hint: None, None
+            size: 200, 200   
+            text: "Algebraic \n Equations"
+            on_release: 
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+
+        GridLayout:
+            cols: 1
+            size_hint: None, None
+            size: 200, 200  
+
+            Button:
+                size_hint: None, None
+                size: 200, 100         
+                text: "Back"
+                on_release: 
+                    app.root.current = "algebrawindow"
+                    root.manager.transition.direction = "right"
 
 
 <TrigPythTutorial>:
+
+    name: "trigpythtutorial"
 
     canvas.before:
         Rectangle:
             pos: self.pos
             size: self.size
             source: 'cozmo.png'
-
-    name: "trigpythtutorial"
 
     GridLayout:
         spacing: 2
@@ -377,15 +409,43 @@ WindowManager:
             on_release: 
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
+
+        Button:
+            size_hint: None, None
+            size: 200, 200   
+            text: "Algebraic \n Equations"
+            on_release: 
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+        Button:
+            size_hint: None, None
+            size: 200, 200   
+            text: "Algebraic \n Equations"
+            on_release: 
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+
+        GridLayout:
+            cols: 1
+            size_hint: None, None
+            size: 200, 200  
+
+            Button:
+                size_hint: None, None
+                size: 200, 100         
+                text: "Back"
+                on_release: 
+                    app.root.current = "algebrawindow"
+                    root.manager.transition.direction = "right"
 <GeometryTutorial>:
+
+    name: "geometrytutorial"
 
     canvas.before:
         Rectangle:
             pos: self.pos
             size: self.size
             source: 'cozmo.png'
-
-    name: "geometrytutorial"
 
     GridLayout:
         spacing: 2
@@ -445,8 +505,46 @@ WindowManager:
             on_release: 
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
+
+        Button:
+            size_hint: None, None
+            size: 200, 200   
+            text: "Algebraic \n Equations"
+            on_release: 
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+        Button:
+            size_hint: None, None
+            size: 200, 200   
+            text: "Algebraic \n Equations"
+            on_release: 
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+
+        GridLayout:
+            cols: 1
+            size_hint: None, None
+            size: 200, 200  
+
+            Button:
+                size_hint: None, None
+                size: 200, 100         
+                text: "Back"
+                on_release: 
+                    app.root.current = "algebrawindow"
+                    root.manager.transition.direction = "right"
 #----------------------------------------------------------------------------------------
 <AlegbraQnA>:
+
+    name : "algebraqna"
+
 <TrigPythQnA>:
+
+    name: "trigpythqna"
+
 <GeometryQnA>:
+
+    name: "geometryqna"
+
 #----------------------------------------------------------------------------------------
+

@@ -1,7 +1,7 @@
 import cozmo
 from cozmo.objects import LightCube1Id, LightCube2Id, LightCube3Id
-from PIL import Image, ImageDraw, ImageFont
 
+from PIL import Image, ImageDraw, ImageFont
 import time
 import asyncio
 
@@ -17,20 +17,34 @@ from kivy.config import Config
 from kivy.core.window import Window
 from kivy.uix.popup import Popup
 from kivy.uix.floatlayout import FloatLayout
-#-----------------------------------------------------------------
+#----------------------------------------------------------------
 def cozmo_program(self: cozmo.robot.Robot):
     self.say_text("Hello and welcome to Cozmo Learning", play_excited_animation=True,voice_pitch=-1).wait_for_completed()
-
 def cozmo_button(self: cozmo.robot.Robot):
     self.say_text("hi").wait_for_completed()
+#----------------------------------------------------------------
+
+#---------------------Algebra Tutorials--------------------------
 
 def expression_variables(self: cozmo.robot.Robot):
     self.say_text("Welcome to expressions and variables", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
-    #self.say_text("An algebraic expression comprises both numbers and variables together with at least one arithmetic operation. An example of this is:", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
+    self.say_text("An algebraic expression is made of both numbers and variables aswell as an arithmetic operation. An example of this is:", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
     return
+    
+def sub_evaluate(self: cozmo.robot.Robot):
+    pass
 
-#------------------------------write text on Cozmos face---------------------------------------------
+def expression_words(self: cozmo.robot.Robot):
+    pass
 
+def combining_liketerms(self: cozmo.robot.Robot):
+    pass
+
+def algebraic_equations(self: cozmo.robot.Robot):
+    pass
+#----------------------------------------------------------------
+
+#--------------------Display writing on Cozmo--------------------
 
 def make_text_image(text_to_draw, x, y, font=None):
 
@@ -41,20 +55,16 @@ def make_text_image(text_to_draw, x, y, font=None):
     dc.text((x, y), text_to_draw, fill=(255, 255, 255, 255), font=font)    # draw the text
 
     return text_image
-
-#-------get font --------------
-_math_font = None
+_math_font = None  #try removing the try and except and = this to font etc
 try:
     _math_font = ImageFont.truetype("arial.ttf", 20)
 except:
     pass
-#--------------------------------
 def make_equation_image():
     
     time_text = "2x + 4x = 0"
 
     return make_text_image(time_text, 8, 6, _math_font)
-
 def displaytext(self: cozmo.robot.Robot):
     cube1 = self.world.get_light_cube(LightCube1Id)  # looks like a paperclip
     cube2 = self.world.get_light_cube(LightCube2Id)  # looks like a lamp / heart
@@ -72,29 +82,26 @@ def displaytext(self: cozmo.robot.Robot):
         cozmo.logger.warning("Cozmo is not connected to a LightCube1Id cube - check the battery.")
     
     try:
-        self.say_text("Tap the Green cube if you are ready to move onto the next tutorial. you can come back anytime an revisit this one, i'd me more than happy to help", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
+        self.say_text("Tap the Green cube if you are ready to move onto the next tutorial. You can come back anytime an revisit this topic, i'd be happy to help", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
         self.say_text("", play_excited_animation=True, voice_pitch=0,duration_scalar=0.6).wait_for_completed()
         cube1.wait_for_tap()
 
     except:
         return
     
-
-    
-#------------First Screen-------------------------------------------
+#----------------------First Screen------------------------------
 class MainWindow(Screen):
     def on_pre_enter(self):
-        Window.size = (608,600)
+        Window.size = (608,608)
     def btn(self):
         show_popup()
         #cozmo.run_program(cozmo_button)
     
     #cozmo.run_program(cozmo_program)
 
-
 class AlegbraWindow(Screen):
     def on_pre_enter(self):
-        Window.size = (608,600)
+        Window.size = (608,608)
     def algebraSolver(self):
         #x = 0
         #y = 0
@@ -113,40 +120,51 @@ class AlegbraWindow(Screen):
 
 class TrigPythWindow(Screen):
     def on_pre_enter(self):
-        Window.size = (608,600)
+        Window.size = (608,608)
 
 class GeometryWindow(Screen):
     def on_pre_enter(self):
-        Window.size = (608,600)
+        Window.size = (608,608)
 
 #----------------------------------------------------------------
 #-----------------------Tutorials--------------------------------
 class AlgebraTutorial(Screen):
+
         def on_pre_enter(self):
-            Window.size = (608,600)
+            Window.size = (608,608)
+
         def checkSection(self):
             self.ids['expression_button'].background_color = 0,1,0,0.5
+
         def expression_variables(self):
             cozmo.run_program(expression_variables)
             cozmo.run_program(displaytext)
+
+        def sub_evaluate(self)
+            cozmo.run_program(sub_evaluate)
+
+        def expression_words(self):
+            cozmo.run_program(expression_words)
+        
+        def combining_liketerms(self):
+            cozmo.run_program(combining_liketerms)
+
+        def algebraic_equations(self):
+            cozmo.run_program(algebraic_equations)
+        #def
+        #def
 
 class TrigPythTutorial(Screen):
     pass
 
 class GeometryTutorial(Screen):
     pass
-        
-        
-
-
+#----------------------------------------------------------------
 
 class WindowManager(ScreenManager):
     pass
 
-
-
 kv = Builder.load_file("my.kv")
-
 
 class MyMainApp(App):
     def build(self):
@@ -163,9 +181,6 @@ def show_popup():
     # Create the popup window
 
     popupWindow.open() # show the popup
-
-
-
 
     
 if __name__ == "__main__":
