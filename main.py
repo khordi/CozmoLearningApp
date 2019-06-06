@@ -30,18 +30,26 @@ def expression_variables(self: cozmo.robot.Robot):
     self.say_text("Welcome to expressions and variables", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
     self.say_text("An algebraic expression is made of both numbers and variables aswell as an arithmetic operation. An example of this is:", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
     return
-    
+
 def sub_evaluate(self: cozmo.robot.Robot):
-    pass
+    self.say_text("Welcome to substitution and evaluation", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
+
+    return
 
 def expression_words(self: cozmo.robot.Robot):
-    pass
+    self.say_text("Welcome to expression and word problems", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
+
+    return
 
 def combining_liketerms(self: cozmo.robot.Robot):
-    pass
+    self.say_text("Welcome to combining like terms", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
+
+    return
 
 def algebraic_equations(self: cozmo.robot.Robot):
-    pass
+    self.say_text("Welcome to algebraic equations", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
+
+    return
 #----------------------------------------------------------------
 
 #--------------------Display writing on Cozmo--------------------
@@ -140,7 +148,7 @@ class AlgebraTutorial(Screen):
             cozmo.run_program(expression_variables)
             cozmo.run_program(displaytext)
 
-        def sub_evaluate(self)
+        def sub_evaluate(self):
             cozmo.run_program(sub_evaluate)
 
         def expression_words(self):
