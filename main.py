@@ -41,9 +41,22 @@ def expression_variables(self: cozmo.robot.Robot):
     self.say_text("An algebraic expression is made of both numbers and variables aswell as an arithmetic operation. An example of this is:", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
     return
 
-def sub_evaluate(self: cozmo.robot.Robot):
-    self.say_text("Welcome to substitution and evaluation", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
+def combining_liketerms1(self: cozmo.robot.Robot):
+    self.say_text("Welcome to combining like terms", play_excited_animation=True, voice_pitch=0,duration_scalar=0.6).wait_for_completed()
+    self.say_text("Combining like terms or variables can help make expressions easier to understand and work with. For example:", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
+    return
 
+def combining_liketerms2(self: cozmo.robot.Robot):
+    self.say_text("This can be simplified to:", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
+    return
+
+def sub_evaluate(self: cozmo.robot.Robot):
+    self.say_text("Welcome to substitution and evaluation", play_excited_animation=True, voice_pitch=0,duration_scalar=0.6).wait_for_completed()
+    self.say_text("An expression can be evaluated if the variables are known to us. For example:", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
+    return
+def sub_evaluate2(self: cozmo.robot.Robot):
+    #self.say_text(, voice_pitch=0,duration_scalar=0.6).wait_for_completed()
+    self.say_text("Where x = 2 and y =1. If we substitute these into our expression and evaluate, then we will get:", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
     return
 
 def expression_words(self: cozmo.robot.Robot):
@@ -51,15 +64,7 @@ def expression_words(self: cozmo.robot.Robot):
 
     return
 
-def combining_liketerms1(self: cozmo.robot.Robot):
-    self.say_text("Welcome to combining like terms", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
-    self.say_text("Combining like terms or variables can help make expressions easier to understand and work with. For example:", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
-    return
 
-def combining_liketerms2(self: cozmo.robot.Robot):
-    self.say_text("This can be simplified to:", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
-
-    return
 
 def algebraic_equations(self: cozmo.robot.Robot):
     self.say_text("Welcome to algebraic equations", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
@@ -81,7 +86,7 @@ def make_text_image(text_to_draw, x, y, font=None):
     
 _math_font = None  #try removing the try and except and = this to font etc
 try:
-    _math_font = ImageFont.truetype("arial.ttf", 30)
+    _math_font = ImageFont.truetype("arial.ttf", 25)
 except:
     pass
 #----------------------------------------------------------------
@@ -114,20 +119,35 @@ def displaytext_1(self: cozmo.robot.Robot):
 
 def displaytext_2(self: cozmo.robot.Robot):
     while True:
-        math_image = make_text_image("2x + 2y + 5y +7x", 8, 6, _math_font)                                          # Create the updated image with this time
+        math_image = make_text_image("2x + 2y + 5y +7x", 8, 6, _math_font)  # Create the updated image with this time
         oled_face_data = cozmo.oled_face.convert_image_to_screen_data(math_image)
-        self.display_oled_face_image(oled_face_data, 2000.0)                       # display for 1 second
-        time.sleep(5)
+        self.display_oled_face_image(oled_face_data, 2000.0).wait_for_completed() # display for 1 second
         break
     return
 
 def displaytext_3(self: cozmo.robot.Robot):
     while True:
-        math_image = make_text_image("9x + 7y", 8, 6, _math_font)                                          # Create the updated image with this time
+        math_image = make_text_image("9x + 7y", 8, 6, _math_font)    # Create the updated image with this time
         oled_face_data = cozmo.oled_face.convert_image_to_screen_data(math_image)
-        self.display_oled_face_image(oled_face_data, 2000.0)                       # display for 1 second
-        time.sleep(5)
+        self.display_oled_face_image(oled_face_data, 2000.0).wait_for_completed()   # display for 1 second
         break
+    return
+
+def displaytext_4(self: cozmo.robot.Robot):
+    while True:
+        math_image = make_text_image("2x + 2y", 8, 6, _math_font)  # Create the updated image with this time
+        oled_face_data = cozmo.oled_face.convert_image_to_screen_data(math_image)
+        self.display_oled_face_image(oled_face_data, 2000.0)wait_for_completed()  # display for 1 second
+        break
+    return
+
+def displaytext_5(self: cozmo.robot.Robot):
+    while True:
+        math_image = make_text_image("2(2) + 2(1)", 8, 6, _math_font)  # Create the updated image with this time
+        oled_face_data = cozmo.oled_face.convert_image_to_screen_data(math_image)
+        self.display_oled_face_image(oled_face_data, 2000.0).wait_for_completed()  # display for 1 second
+        break
+    self.say_text("Which equals to 6", play_excited_animation=True, voice_pitch=0,duration_scalar=0.6).wait_for_completed()
     return
     
 #----------------------First Screen------------------------------
@@ -188,20 +208,24 @@ class AlgebraTutorial(Screen):
         
 
     def expression_variables(self): #introducing expressions with a variable
-        cozmo.run_program(expression_variables)
-        cozmo.run_program(get_in_position)
-        cozmo.run_program(displaytext_1)
+        #cozmo.run_program(expression_variables)
+        #cozmo.run_program(get_in_position)
+        #cozmo.run_program(displaytext_1)
         return
 
     def combining_liketerms(self):
-        cozmo.run_program(combining_liketerms1)
-        cozmo.run_program(displaytext_2)
-        cozmo.run_program(combining_liketerms2)
-        cozmo.run_program(displaytext_3)
+        #cozmo.run_program(combining_liketerms1)
+        #cozmo.run_program(displaytext_2)
+        #cozmo.run_program(combining_liketerms2)
+        #cozmo.run_program(displaytext_3)
         return
 
     def sub_evaluate(self): #introducing expressions with more than one variable
         #cozmo.run_program(sub_evaluate)
+        #cozmo.run_program(displaytext_4)
+        cozmo.run_program(sub_evaluate2)
+        cozmo.run_program(displaytext_5)
+
         return
 
     def expression_words(self): #word example of using past three topics

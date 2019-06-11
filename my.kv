@@ -257,6 +257,7 @@ WindowManager:
                     y: self.parent.y 
                     x: self.parent.center_x
 
+
 #----------------------------------------------------------------------------------------
 <AlgebraTutorial>:
 
@@ -309,8 +310,7 @@ WindowManager:
             color: 1,0.5,0,1
             text: "Substitution \n        and \n   Evaluating"
             on_release: 
-                app.root.current = "main"
-                root.manager.transition.direction = "right"
+                root.sub_evaluate()
                 
 #Evaluating Expression and Word Problems Button
         Button:
