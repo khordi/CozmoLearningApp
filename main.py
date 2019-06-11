@@ -17,17 +17,27 @@ from kivy.config import Config
 from kivy.core.window import Window
 from kivy.uix.popup import Popup
 from kivy.uix.floatlayout import FloatLayout
-#----------------------------------------------------------------
+#------------------Basic Cozmo movements-------------------------
 def cozmo_program(self: cozmo.robot.Robot):
     self.say_text("Hello and welcome to Cozmo Learning", play_excited_animation=True,voice_pitch=-1).wait_for_completed()
 def cozmo_button(self: cozmo.robot.Robot):
     self.say_text("hi").wait_for_completed()
+
+def get_in_position(self: cozmo.robot.Robot):
+    '''If necessary, Move Cozmo's Head and Lift to make it easy to see Cozmo's face'''
+    if (self.lift_height.distance_mm > 45) or (self.head_angle.degrees < 40):
+        with self.perform_off_charger():
+            lift_action = self.set_lift_height(0.0, in_parallel=True)
+            head_action = self.set_head_angle(cozmo.robot.MAX_HEAD_ANGLE,
+                                               in_parallel=True)
+            lift_action.wait_for_completed()
+            head_action.wait_for_completed()
 #----------------------------------------------------------------
 
 #---------------------Algebra Tutorials--------------------------
 
 def expression_variables(self: cozmo.robot.Robot):
-    self.say_text("Welcome to expressions and variables", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
+    self.say_text("Welcome to expressions and variables", play_excited_animation=True,voice_pitch=0,duration_scalar=0.6).wait_for_completed()
     self.say_text("An algebraic expression is made of both numbers and variables aswell as an arithmetic operation. An example of this is:", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
     return
 
@@ -37,12 +47,17 @@ def sub_evaluate(self: cozmo.robot.Robot):
     return
 
 def expression_words(self: cozmo.robot.Robot):
-    self.say_text("Welcome to expression and word problems", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
+    self.say_text("Welcome to expression and word problems",play_excited_animation=True, voice_pitch=0,duration_scalar=0.6).wait_for_completed()
 
     return
 
-def combining_liketerms(self: cozmo.robot.Robot):
+def combining_liketerms1(self: cozmo.robot.Robot):
     self.say_text("Welcome to combining like terms", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
+    self.say_text("Combining like terms or variables can help make expressions easier to understand and work with. For example:", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
+    return
+
+def combining_liketerms2(self: cozmo.robot.Robot):
+    self.say_text("This can be simplified to:", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
 
     return
 
@@ -63,29 +78,29 @@ def make_text_image(text_to_draw, x, y, font=None):
     dc.text((x, y), text_to_draw, fill=(255, 255, 255, 255), font=font)    # draw the text
 
     return text_image
+    
 _math_font = None  #try removing the try and except and = this to font etc
 try:
-    _math_font = ImageFont.truetype("arial.ttf", 20)
+    _math_font = ImageFont.truetype("arial.ttf", 30)
 except:
     pass
-def make_equation_image():
-    
-    time_text = "2x + 4x = 0"
+#----------------------------------------------------------------
 
-    return make_text_image(time_text, 8, 6, _math_font)
-def displaytext(self: cozmo.robot.Robot):
+def displaytext_1(self: cozmo.robot.Robot):
     cube1 = self.world.get_light_cube(LightCube1Id)  # looks like a paperclip
-    cube2 = self.world.get_light_cube(LightCube2Id)  # looks like a lamp / heart
+    #cube2 = self.world.get_light_cube(LightCube2Id)  # looks like a lamp / heart
 
     while True:
-        math_image = make_equation_image()                                           # Create the updated image with this time
+        math_image = make_text_image("2x + 4", 8, 6, _math_font)                                          # Create the updated image with this time
         oled_face_data = cozmo.oled_face.convert_image_to_screen_data(math_image)
-        self.display_oled_face_image(oled_face_data, 1000.0)                       # display for 1 second
+        self.display_oled_face_image(oled_face_data, 2000.0)                       # display for 1 second
         time.sleep(5)
         break
 
-    if ('cube1','cube2') is not None:
+    if ('cube1') is not None:
         cube1.set_lights(cozmo.lights.green_light)
+        #cube2.set_lights(cozmo.lights.red_light)
+
     else:
         cozmo.logger.warning("Cozmo is not connected to a LightCube1Id cube - check the battery.")
     
@@ -96,6 +111,24 @@ def displaytext(self: cozmo.robot.Robot):
 
     except:
         return
+
+def displaytext_2(self: cozmo.robot.Robot):
+    while True:
+        math_image = make_text_image("2x + 2y + 5y +7x", 8, 6, _math_font)                                          # Create the updated image with this time
+        oled_face_data = cozmo.oled_face.convert_image_to_screen_data(math_image)
+        self.display_oled_face_image(oled_face_data, 2000.0)                       # display for 1 second
+        time.sleep(5)
+        break
+    return
+
+def displaytext_3(self: cozmo.robot.Robot):
+    while True:
+        math_image = make_text_image("9x + 7y", 8, 6, _math_font)                                          # Create the updated image with this time
+        oled_face_data = cozmo.oled_face.convert_image_to_screen_data(math_image)
+        self.display_oled_face_image(oled_face_data, 2000.0)                       # display for 1 second
+        time.sleep(5)
+        break
+    return
     
 #----------------------First Screen------------------------------
 class MainWindow(Screen):
@@ -108,6 +141,7 @@ class MainWindow(Screen):
     #cozmo.run_program(cozmo_program)
 
 class AlegbraWindow(Screen):
+
     def on_pre_enter(self):
         Window.size = (608,608)
     def algebraSolver(self):
@@ -138,29 +172,45 @@ class GeometryWindow(Screen):
 #-----------------------Tutorials--------------------------------
 class AlgebraTutorial(Screen):
 
-        def on_pre_enter(self):
-            Window.size = (608,608)
+    def enableButtonSub(self):
+        self.ids.button_sub.disabled = False
+    def enableButtonComb(self):
+        self.ids.combining_button.disabled = False
 
-        def checkSection(self):
-            self.ids['expression_button'].background_color = 0,1,0,0.5
+    def on_pre_enter(self):
+        Window.size = (608,608)
 
-        def expression_variables(self):
-            cozmo.run_program(expression_variables)
-            cozmo.run_program(displaytext)
-
-        def sub_evaluate(self):
-            cozmo.run_program(sub_evaluate)
-
-        def expression_words(self):
-            cozmo.run_program(expression_words)
+    def completedOne(self):
+        self.ids.expression_button.background_color = 0,1,0,0.5
         
-        def combining_liketerms(self):
-            cozmo.run_program(combining_liketerms)
+    def completedTwo(self):
+        self.ids.combining_button.background_color = 0,1,0,0.5
+        
 
-        def algebraic_equations(self):
-            cozmo.run_program(algebraic_equations)
-        #def
-        #def
+    def expression_variables(self): #introducing expressions with a variable
+        cozmo.run_program(expression_variables)
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(displaytext_1)
+        return
+
+    def combining_liketerms(self):
+        cozmo.run_program(combining_liketerms1)
+        cozmo.run_program(displaytext_2)
+        cozmo.run_program(combining_liketerms2)
+        cozmo.run_program(displaytext_3)
+        return
+
+    def sub_evaluate(self): #introducing expressions with more than one variable
+        #cozmo.run_program(sub_evaluate)
+        return
+
+    def expression_words(self): #word example of using past three topics
+        cozmo.run_program(expression_words)
+    
+    def algebraic_equations(self):
+        cozmo.run_program(algebraic_equations)
+    #def
+    #def
 
 class TrigPythTutorial(Screen):
     pass

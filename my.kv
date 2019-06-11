@@ -51,6 +51,7 @@ WindowManager:
                     root.manager.transition.direction = "left"
 
             Button:
+                id:trig
                 size_hint: None, None
                 size: 200, 200 
                 text: "Trigonometry \n         and \n  Pythagoras"
@@ -145,10 +146,16 @@ WindowManager:
                 size_hint: None, None
                 size: 200, 100         
                 text: "Back"
+                bold: True
+                text_size: 130,0
+                font_size: 30
                 on_release: 
                     app.root.current = "main"
                     root.manager.transition.direction = "right"
-
+                Image:
+                    source: "./backarrow.png"
+                    y: self.parent.y 
+                    x: self.parent.center_x
  #----------------------------------------------------------------------------------------           
 
 <TrigPythWindow>:
@@ -190,9 +197,16 @@ WindowManager:
                 size_hint: None, None
                 size: 200, 100         
                 text: "Back"
+                bold: True
+                text_size: 130,0
+                font_size: 30
                 on_release: 
                     app.root.current = "main"
                     root.manager.transition.direction = "right"
+                Image:
+                    source: "./backarrow.png"
+                    y: self.parent.y 
+                    x: self.parent.center_x
 
 <GeometryWindow>:
     name: "geometrywindow"
@@ -232,9 +246,16 @@ WindowManager:
                 size_hint: None, None
                 size: 200, 100         
                 text: "Back"
+                bold: True
+                text_size: 130,0
+                font_size: 30
                 on_release: 
                     app.root.current = "main"
                     root.manager.transition.direction = "right"
+                Image:
+                    source: "./backarrow.png"
+                    y: self.parent.y 
+                    x: self.parent.center_x
 
 #----------------------------------------------------------------------------------------
 <AlgebraTutorial>:
@@ -253,6 +274,7 @@ WindowManager:
 
         cols: 3
 
+#Expression and Variables Button
         Button:
             id: expression_button
             size_hint: None, None
@@ -261,13 +283,26 @@ WindowManager:
             color: 1,0.5,0,1        
             text: "Expressions \n        and \n   Variables"
             on_release: 
-               # app.root.current = "mainalgebra"
-               # root.manager.transition.direction = "right"
-                root.checkSection()
+                root.completedOne()
                 root.expression_variables()
-
+                root.enableButtonComb()
+#Combining Like Terms Button
         Button:
-            id: button_one
+            disabled: True
+            id: combining_button
+            size_hint: None, None
+            size: 200, 200
+            font_size:30
+            color: 1,0.5,0,1  
+            text: " Combining \n Like Terms"
+            on_release:
+                root.completedTwo() 
+                root.combining_liketerms()
+                root.enableButtonSub()
+#Substitution and Evaluating Button
+        Button:
+            disabled: True
+            id: button_sub
             size_hint: None, None
             size: 200, 200
             font_size:30
@@ -277,7 +312,9 @@ WindowManager:
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
                 
+#Evaluating Expression and Word Problems Button
         Button:
+            disabled: True           
             size_hint: None, None
             size: 200, 200
             font_size:30
@@ -288,16 +325,9 @@ WindowManager:
             on_release: 
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
+#Algebraic Equations Button        
         Button:
-            size_hint: None, None
-            size: 200, 200
-            font_size:30
-            color: 1,0.5,0,1  
-            text: " Combining \n Like Terms"
-            on_release: 
-                app.root.current = "main"
-                root.manager.transition.direction = "right"
-        Button:
+            disabled: True
             size_hint: None, None
             size: 200, 200
             font_size:30
@@ -306,21 +336,27 @@ WindowManager:
             on_release: 
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
+# ... Button        
         Button:
+            disabled: True
             size_hint: None, None
             size: 200, 200   
             text: "Algebraic \n Equations"
             on_release: 
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
+# ... Button                
         Button:
+            disabled: True
             size_hint: None, None
             size: 200, 200   
             text: "Algebraic \n Equations"
             on_release: 
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
+# ... Button                
         Button:
+            disabled: True
             size_hint: None, None
             size: 200, 200   
             text: "Algebraic \n Equations"
@@ -328,6 +364,7 @@ WindowManager:
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
 
+        
         GridLayout:
             cols: 1
             size_hint: None, None
@@ -337,9 +374,17 @@ WindowManager:
                 size_hint: None, None
                 size: 200, 100         
                 text: "Back"
+                bold: True
+                text_size: 130,0
+                font_size: 30
                 on_release: 
                     app.root.current = "algebrawindow"
                     root.manager.transition.direction = "right"
+                Image:
+                    source: "./backarrow.png"
+                    y: self.parent.y 
+                    x: self.parent.center_x 
+
 
 
 <TrigPythTutorial>:
@@ -434,9 +479,16 @@ WindowManager:
                 size_hint: None, None
                 size: 200, 100         
                 text: "Back"
+                bold: True
+                text_size: 130,0
+                font_size: 30
                 on_release: 
                     app.root.current = "algebrawindow"
                     root.manager.transition.direction = "right"
+                Image:
+                    source: "./backarrow.png"
+                    y: self.parent.y 
+                    x: self.parent.center_x
 <GeometryTutorial>:
 
     name: "geometrytutorial"
@@ -530,9 +582,16 @@ WindowManager:
                 size_hint: None, None
                 size: 200, 100         
                 text: "Back"
+                bold: True
+                text_size: 130,0
+                font_size: 30
                 on_release: 
                     app.root.current = "algebrawindow"
                     root.manager.transition.direction = "right"
+                Image:
+                    source: "./backarrow.png"
+                    y: self.parent.y 
+                    x: self.parent.center_x
 #----------------------------------------------------------------------------------------
 <AlegbraQnA>:
 
