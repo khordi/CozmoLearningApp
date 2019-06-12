@@ -28,7 +28,7 @@ WindowManager:
         Label:
             color: 0,0,0,1
             bold: True
-            text: "Please choose a subject to learn"
+            text: "Please choose a topic to learn"
             halign: 'center'
             size_hint: None, None
             size: 600,50
@@ -284,7 +284,7 @@ WindowManager:
             color: 1,0.5,0,1        
             text: "Expressions \n        and \n   Variables"
             on_release: 
-                root.completedOne()
+                root.completed1()
                 root.expression_variables()
                 root.enableButtonComb()
 #Combining Like Terms Button
@@ -297,7 +297,7 @@ WindowManager:
             color: 1,0.5,0,1  
             text: " Combining \n Like Terms"
             on_release:
-                root.completedTwo() 
+                root.completed2() 
                 root.combining_liketerms()
                 root.enableButtonSub()
 #Substitution and Evaluating Button
@@ -309,11 +309,14 @@ WindowManager:
             font_size:30
             color: 1,0.5,0,1
             text: "Substitution \n        and \n   Evaluating"
-            on_release: 
+            on_release:
+                root.completed3()              
                 root.sub_evaluate()
+                root.enableButtonExp()
                 
 #Evaluating Expression and Word Problems Button
         Button:
+            id: expression_words_button
             disabled: True           
             size_hint: None, None
             size: 200, 200
@@ -322,9 +325,9 @@ WindowManager:
             text_size: self.size     
             halign: 'center'    
             text: "Evaluating \n Expressions \n and \n Word \n Problems"
-            on_release: 
-                app.root.current = "main"
-                root.manager.transition.direction = "right"
+            on_release:
+                root.completed4() 
+                root.expression_words()
 #Algebraic Equations Button        
         Button:
             disabled: True

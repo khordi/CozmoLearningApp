@@ -17,6 +17,9 @@ from kivy.config import Config
 from kivy.core.window import Window
 from kivy.uix.popup import Popup
 from kivy.uix.floatlayout import FloatLayout
+
+
+
 #------------------Basic Cozmo movements-------------------------
 def cozmo_program(self: cozmo.robot.Robot):
     self.say_text("Hello and welcome to Cozmo Learning", play_excited_animation=True,voice_pitch=-1).wait_for_completed()
@@ -32,6 +35,9 @@ def get_in_position(self: cozmo.robot.Robot):
                                                in_parallel=True)
             lift_action.wait_for_completed()
             head_action.wait_for_completed()
+
+
+
 #----------------------------------------------------------------
 
 #---------------------Algebra Tutorials--------------------------
@@ -54,14 +60,12 @@ def sub_evaluate(self: cozmo.robot.Robot):
     self.say_text("Welcome to substitution and evaluation", play_excited_animation=True, voice_pitch=0,duration_scalar=0.6).wait_for_completed()
     self.say_text("An expression can be evaluated if the variables are known to us. For example:", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
     return
-def sub_evaluate2(self: cozmo.robot.Robot):
-    #self.say_text(, voice_pitch=0,duration_scalar=0.6).wait_for_completed()
-    self.say_text("Where x = 2 and y =1. If we substitute these into our expression and evaluate, then we will get:", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
-    return
+
 
 def expression_words(self: cozmo.robot.Robot):
     self.say_text("Welcome to expression and word problems",play_excited_animation=True, voice_pitch=0,duration_scalar=0.6).wait_for_completed()
-
+    self.say_text("Lets test everything you have learned so far! Are you ready?", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
+    self.say_text("A raffle is being held to make money for charity. The individual cost of participating in the raffle is give by the following expression:", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
     return
 
 
@@ -92,7 +96,7 @@ except:
 #----------------------------------------------------------------
 
 def displaytext_1(self: cozmo.robot.Robot):
-    cube1 = self.world.get_light_cube(LightCube1Id)  # looks like a paperclip
+    cube2 = self.world.get_light_cube(LightCube2Id)  # looks like a paperclip
     #cube2 = self.world.get_light_cube(LightCube2Id)  # looks like a lamp / heart
 
     while True:
@@ -102,8 +106,8 @@ def displaytext_1(self: cozmo.robot.Robot):
         time.sleep(5)
         break
 
-    if ('cube1') is not None:
-        cube1.set_lights(cozmo.lights.green_light)
+    if ('cube2') is not None:
+        cube2.set_lights(cozmo.lights.green_light)
         #cube2.set_lights(cozmo.lights.red_light)
 
     else:
@@ -112,7 +116,7 @@ def displaytext_1(self: cozmo.robot.Robot):
     try:
         self.say_text("Tap the Green cube if you are ready to move onto the next tutorial. You can come back anytime an revisit this topic, i'd be happy to help", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
         self.say_text("", play_excited_animation=True, voice_pitch=0,duration_scalar=0.6).wait_for_completed()
-        cube1.wait_for_tap()
+        cube2.wait_for_tap()
 
     except:
         return
@@ -137,18 +141,48 @@ def displaytext_4(self: cozmo.robot.Robot):
     while True:
         math_image = make_text_image("2x + 2y", 8, 6, _math_font)  # Create the updated image with this time
         oled_face_data = cozmo.oled_face.convert_image_to_screen_data(math_image)
-        self.display_oled_face_image(oled_face_data, 2000.0)wait_for_completed()  # display for 1 second
+        self.display_oled_face_image(oled_face_data, 2000.0, in_parallel=True)
+        self.say_text("Where x = 2 and y =1. If we substitute these into our expression and evaluate, then we will get:", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()
         break
+        self.play_anim()
     return
 
 def displaytext_5(self: cozmo.robot.Robot):
     while True:
         math_image = make_text_image("2(2) + 2(1)", 8, 6, _math_font)  # Create the updated image with this time
         oled_face_data = cozmo.oled_face.convert_image_to_screen_data(math_image)
-        self.display_oled_face_image(oled_face_data, 2000.0).wait_for_completed()  # display for 1 second
+        self.display_oled_face_image(oled_face_data, 2000.0, in_parallel=True)  # display for 1 second
+        self.say_text("Which equals to 6", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()
         break
-    self.say_text("Which equals to 6", play_excited_animation=True, voice_pitch=0,duration_scalar=0.6).wait_for_completed()
     return
+
+def displaytext_6(self: cozmo.robot.Robot):
+    cube2 = self.world.get_light_cube(LightCube2Id)  # looks like a paperclip
+    tap = 0
+    while True:
+        math_image = make_text_image("3t + 4t + 4", 8, 6, _math_font)  # Create the updated image with this time
+        oled_face_data = cozmo.oled_face.convert_image_to_screen_data(math_image)
+        self.display_oled_face_image(oled_face_data, 2000.0, in_parallel=True)  # display for 1 second
+        self.say_text("Where t represents the number of tickets someone purchases. Evaluate the expression when t=4.", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()
+        break
+    
+    if ('cube2') is not None:
+        cube2.set_lights(cozmo.lights.blue_light)
+        #cube2.set_lights(cozmo.lights.red_light)
+
+    else:
+        cozmo.logger.warning("Cozmo is not connected to a LightCube1Id cube - check the battery.")
+    
+    
+    #self.say_text("When you have worked out the answer, tap the blue cube equal to the amount you calculated for the answer", play_excited_animation=True, voice_pitch=0,duration_scalar=0.6).wait_for_completed()
+
+    while tap < 5:
+        
+        cube2.wait_for_tap()
+        tap += 1  # This is the same as count = count + 1   
+
+    time.sleep(1)
+    return None
     
 #----------------------First Screen------------------------------
 class MainWindow(Screen):
@@ -192,19 +226,34 @@ class GeometryWindow(Screen):
 #-----------------------Tutorials--------------------------------
 class AlgebraTutorial(Screen):
 
+
+
     def enableButtonSub(self):
         self.ids.button_sub.disabled = False
     def enableButtonComb(self):
         self.ids.combining_button.disabled = False
+    def enableButtonExp(self):
+        self.ids.expression_words_button.disabled = False
 
     def on_pre_enter(self):
         Window.size = (608,608)
 
-    def completedOne(self):
+    def completed1(self):
         self.ids.expression_button.background_color = 0,1,0,0.5
         
-    def completedTwo(self):
+    def completed2(self):
         self.ids.combining_button.background_color = 0,1,0,0.5
+
+    def completed3(self):
+        self.ids.button_sub.background_color = 0,1,0,0.5
+
+    def completed4(self):
+        self.ids.expression_words_button.background_color = 0,1,0,0.5
+
+    def completed5(self):
+        self.ids.combining_button.background_color = 0,1,0,0.5
+
+    
         
 
     def expression_variables(self): #introducing expressions with a variable
@@ -223,13 +272,15 @@ class AlgebraTutorial(Screen):
     def sub_evaluate(self): #introducing expressions with more than one variable
         #cozmo.run_program(sub_evaluate)
         #cozmo.run_program(displaytext_4)
-        cozmo.run_program(sub_evaluate2)
         cozmo.run_program(displaytext_5)
 
         return
 
-    def expression_words(self): #word example of using past three topics
+    def expression_words(self: cozmo.robot.Robot): #word example of using past three topics
         cozmo.run_program(expression_words)
+        cozmo.run_program(displaytext_6)
+        return
+        
     
     def algebraic_equations(self):
         cozmo.run_program(algebraic_equations)
@@ -267,6 +318,8 @@ def show_popup():
     
 if __name__ == "__main__":
     MyMainApp().run()
+
+
 
 
 
