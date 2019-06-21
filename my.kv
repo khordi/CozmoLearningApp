@@ -11,6 +11,10 @@ WindowManager:
     AlgebraTutorial:
     TrigPythTutorial:
     GeometryTutorial:
+
+    AlegbraQnA:
+    TrigPythQnA:
+    GeometryQnA:
 #----------------------------------------------------------------------------------------
 <MainWindow>:
     name: "main"
@@ -122,14 +126,7 @@ WindowManager:
             on_release:  
                 app.root.current = "algebratutorial"
                 root.manager.transition.direction = "left"
-
-        #Button:
-        #    size_hint: None, None
-        #    size: 150, 100         
-        #    text: "Back"
-        #    on_release: root.algebraSolver()
         
-
         GridLayout:
             cols: 1
             padding: 0,40
@@ -137,7 +134,9 @@ WindowManager:
                 size_hint: None, None
                 size: 400, 100         
                 text: "Questions and Answers"
-                on_release: root.algebraSolver()
+                on_release:
+                    app.root.current = "algebraqna"
+                    root.manager.transition.direction = "left"
 
         GridLayout:
             cols: 1
@@ -188,7 +187,9 @@ WindowManager:
                 size_hint: None, None
                 size: 400, 100         
                 text: "Questions and Answers"
-                on_release: 
+                on_release:
+                    app.root.current = "trigpythqna"
+                    root.manager.transition.direction = "left" 
 
         GridLayout:
             cols: 1
@@ -209,6 +210,7 @@ WindowManager:
                     x: self.parent.center_x
 
 <GeometryWindow>:
+
     name: "geometrywindow"
     
     canvas.before:
@@ -237,7 +239,9 @@ WindowManager:
                 size_hint: None, None
                 size: 400, 100         
                 text: "Questions and Answers"
-                on_release: 
+                on_release:
+                    app.root.current = "geometryqna"
+                    root.manager.transition.direction = "left" 
 
         GridLayout:
             cols: 1
@@ -275,7 +279,7 @@ WindowManager:
 
         cols: 3
 
-#Expression and Variables Button
+    #Expression and Variables Button
         Button:
             id: expression_button
             size_hint: None, None
@@ -287,7 +291,7 @@ WindowManager:
                 root.completed1()
                 root.expression_variables()
                 root.enableButtonComb()
-#Combining Like Terms Button
+    #Combining Like Terms Button
         Button:
             disabled: True
             id: combining_button
@@ -300,7 +304,7 @@ WindowManager:
                 root.completed2() 
                 root.combining_liketerms()
                 root.enableButtonSub()
-#Substitution and Evaluating Button
+    #Substitution and Evaluating Button
         Button:
             disabled: True
             id: button_sub
@@ -314,7 +318,7 @@ WindowManager:
                 root.sub_evaluate()
                 root.enableButtonExp()
                 
-#Evaluating Expression and Word Problems Button
+    #Evaluating Expression and Word Problems Button
         Button:
             id: expression_words_button
             disabled: True           
@@ -328,8 +332,10 @@ WindowManager:
             on_release:
                 root.completed4() 
                 root.expression_words()
-#Algebraic Equations Button        
+                root.enableButtonAlge()
+    #Algebraic Equations Button        
         Button:
+            id: algebraic_button
             disabled: True
             size_hint: None, None
             size: 200, 200
@@ -339,7 +345,7 @@ WindowManager:
             on_release: 
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
-# ... Button        
+    # ... Button        
         Button:
             disabled: True
             size_hint: None, None
@@ -348,7 +354,7 @@ WindowManager:
             on_release: 
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
-# ... Button                
+    # ... Button                
         Button:
             disabled: True
             size_hint: None, None
@@ -357,7 +363,7 @@ WindowManager:
             on_release: 
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
-# ... Button                
+    # ... Button                
         Button:
             disabled: True
             size_hint: None, None
@@ -600,13 +606,176 @@ WindowManager:
 
     name : "algebraqna"
 
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'cozmo.png'
+
+    GridLayout:
+        cols: 1
+        padding: 110,40
+        #spacing: 50, 20
+
+        Button:
+            size_hint: None, None
+            size: 400, 100         
+            text: "EASY"
+            on_release:  
+                app.root.current = ""
+                root.manager.transition.direction = ""
+        
+        GridLayout:
+            cols: 1
+            padding: 0,40
+            Button:
+                size_hint: None, None
+                size: 400, 100         
+                text: "MEDIUM"
+                on_release: root.algebraSolver()
+
+        GridLayout:
+            cols: 1
+            padding: 0,40
+            Button:
+                size_hint: None, None
+                size: 400, 100         
+                text: "HARD"
+                on_release: root.algebraSolver()
+
+        GridLayout:
+            cols: 1
+            padding: 100,30
+            Button:
+                size_hint: None, None
+                size: 200, 100         
+                text: "Back"
+                bold: True
+                text_size: 130,0
+                font_size: 30
+                on_release: 
+                    app.root.current = "main"
+                    root.manager.transition.direction = "right"
+                Image:
+                    source: "./backarrow.png"
+                    y: self.parent.y 
+                    x: self.parent.center_x
+
 <TrigPythQnA>:
 
     name: "trigpythqna"
 
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'cozmo.png'
+
+    GridLayout:
+        cols: 1
+        padding: 110,40
+        #spacing: 50, 20
+
+        Button:
+            size_hint: None, None
+            size: 400, 100         
+            text: "EASY"
+            on_release:  
+                app.root.current = ""
+                root.manager.transition.direction = ""
+        
+        GridLayout:
+            cols: 1
+            padding: 0,40
+            Button:
+                size_hint: None, None
+                size: 400, 100         
+                text: "MEDIUM"
+                on_release: root.algebraSolver()
+
+        GridLayout:
+            cols: 1
+            padding: 0,40
+            Button:
+                size_hint: None, None
+                size: 400, 100         
+                text: "HARD"
+                on_release: root.algebraSolver()
+
+        GridLayout:
+            cols: 1
+            padding: 100,30
+            Button:
+                size_hint: None, None
+                size: 200, 100         
+                text: "Back"
+                bold: True
+                text_size: 130,0
+                font_size: 30
+                on_release: 
+                    app.root.current = "main"
+                    root.manager.transition.direction = "right"
+                Image:
+                    source: "./backarrow.png"
+                    y: self.parent.y 
+                    x: self.parent.center_x
 <GeometryQnA>:
 
     name: "geometryqna"
 
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'cozmo.png'
+
+    GridLayout:
+        cols: 1
+        padding: 110,40
+        #spacing: 50, 20
+
+        Button:
+            size_hint: None, None
+            size: 400, 100         
+            text: "EASY"
+            on_release:  
+                app.root.current = ""
+                root.manager.transition.direction = ""
+        
+        GridLayout:
+            cols: 1
+            padding: 0,40
+            Button:
+                size_hint: None, None
+                size: 400, 100         
+                text: "MEDIUM"
+                on_release: 
+
+        GridLayout:
+            cols: 1
+            padding: 0,40
+            Button:
+                size_hint: None, None
+                size: 400, 100         
+                text: "HARD"
+                on_release:
+
+        GridLayout:
+            cols: 1
+            padding: 100,30
+            Button:
+                size_hint: None, None
+                size: 200, 100         
+                text: "Back"
+                bold: True
+                text_size: 130,0
+                font_size: 30
+                on_release: 
+                    app.root.current = "main"
+                    root.manager.transition.direction = "right"
+                Image:
+                    source: "./backarrow.png"
+                    y: self.parent.y 
+                    x: self.parent.center_x
 #----------------------------------------------------------------------------------------
 

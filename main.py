@@ -223,10 +223,8 @@ class GeometryWindow(Screen):
         Window.size = (608,608)
 
 #----------------------------------------------------------------
-#-----------------------Tutorials--------------------------------
+#------------------Tutorials/Q's & A's---------------------------
 class AlgebraTutorial(Screen):
-
-
 
     def enableButtonSub(self):
         self.ids.button_sub.disabled = False
@@ -234,6 +232,8 @@ class AlgebraTutorial(Screen):
         self.ids.combining_button.disabled = False
     def enableButtonExp(self):
         self.ids.expression_words_button.disabled = False
+    def enableButtonAlge(self):
+        self.ids.algebraic_button.disabled = False
 
     def on_pre_enter(self):
         Window.size = (608,608)
@@ -272,25 +272,32 @@ class AlgebraTutorial(Screen):
     def sub_evaluate(self): #introducing expressions with more than one variable
         #cozmo.run_program(sub_evaluate)
         #cozmo.run_program(displaytext_4)
-        cozmo.run_program(displaytext_5)
+    #    cozmo.run_program(displaytext_5)
 
         return
 
     def expression_words(self: cozmo.robot.Robot): #word example of using past three topics
-        cozmo.run_program(expression_words)
-        cozmo.run_program(displaytext_6)
+    #    cozmo.run_program(expression_words)
+    #    cozmo.run_program(displaytext_6)
         return
         
     
     def algebraic_equations(self):
-        cozmo.run_program(algebraic_equations)
+    #    cozmo.run_program(algebraic_equations)
     #def
     #def
+        return
+class AlegbraQnA(Screen):
+    pass
 
 class TrigPythTutorial(Screen):
     pass
+class TrigPythQnA(Screen):
+    pass
 
 class GeometryTutorial(Screen):
+    pass
+class GeometryQnA(Screen):
     pass
 #----------------------------------------------------------------
 
