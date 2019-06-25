@@ -49,10 +49,12 @@ WindowManager:
                 size: 200, 200
                 text: "Algebra"
                 font_size: 30
-
+                
                 on_release: 
                     app.root.current = "algebrawindow"
                     root.manager.transition.direction = "left"
+                    #root.WhatisAlgebra()
+
 
             Button:
                 id:trig
@@ -105,7 +107,6 @@ WindowManager:
 
 #----------------------------------------------------------------------------------------
 <AlegbraWindow>:
-
     name: "algebrawindow"
 
     canvas.before:
@@ -116,7 +117,20 @@ WindowManager:
 
     GridLayout:
         cols: 1
-        padding: 110,40
+        spacing: 10
+
+        Label:
+            color: 0,0,0,1
+            bold: True
+            text: "Algebra"
+            halign: 'center'
+            size_hint: None, None
+            size: 600,50
+            
+
+    GridLayout:
+        cols: 1
+        padding: 100,60
         #spacing: 50, 20
 
         Button:
@@ -168,7 +182,19 @@ WindowManager:
 
     GridLayout:
         cols: 1
-        padding: 110,40
+        spacing: 10
+
+        Label:
+            color: 0,0,0,1
+            bold: True
+            text: "Trigonometry and Pythagoras"
+            halign: 'center'
+            size_hint: None, None
+            size: 600,50
+            
+    GridLayout:
+        cols: 1
+        padding: 100,60
         #spacing: 50, 20
 
         Button:
@@ -221,7 +247,19 @@ WindowManager:
 
     GridLayout:
         cols: 1
-        padding: 110,40
+        spacing: 10
+
+        Label:
+            color: 0,0,0,1
+            bold: True
+            text: "Geometry"
+            halign: 'center'
+            size_hint: None, None
+            size: 600,50
+
+    GridLayout:
+        cols: 1
+        padding: 100,60
         #spacing: 50, 20
 
         Button:
@@ -341,10 +379,10 @@ WindowManager:
             size: 200, 200
             font_size:30
             color: 1,0.5,0,1     
-            text: "  Algebraic \n Equations"
+            text: " Equivalent \n  Algebraic \n Equations"
             on_release: 
-                app.root.current = "main"
-                root.manager.transition.direction = "right"
+                root.algebraic_equations()
+                root.completed5() 
     # ... Button        
         Button:
             disabled: True
@@ -418,8 +456,9 @@ WindowManager:
             size: 200, 200
             font_size:30
             color: 1,0.5,0,1        
-            text: "1"
-            on_release: 
+            text: "Triangle \n   Sides"
+            on_release:
+                root.triangleSides() 
                 
         Button:
             id: button_one
@@ -654,7 +693,7 @@ WindowManager:
                 text_size: 130,0
                 font_size: 30
                 on_release: 
-                    app.root.current = "main"
+                    app.root.current = "algebrawindow"
                     root.manager.transition.direction = "right"
                 Image:
                     source: "./backarrow.png"
@@ -713,7 +752,7 @@ WindowManager:
                 text_size: 130,0
                 font_size: 30
                 on_release: 
-                    app.root.current = "main"
+                    app.root.current = "trigpythwindow"
                     root.manager.transition.direction = "right"
                 Image:
                     source: "./backarrow.png"
@@ -739,8 +778,8 @@ WindowManager:
             size: 400, 100         
             text: "EASY"
             on_release:  
-                app.root.current = ""
-                root.manager.transition.direction = ""
+                app.root.current = "algebrawindow"
+                root.manager.transition.direction = "left"
         
         GridLayout:
             cols: 1
@@ -771,8 +810,8 @@ WindowManager:
                 text_size: 130,0
                 font_size: 30
                 on_release: 
-                    app.root.current = "main"
-                    root.manager.transition.direction = "right"
+                    app.root.current = "geometrytutorial"
+                    root.manager.transition.direction = "left"
                 Image:
                     source: "./backarrow.png"
                     y: self.parent.y 
