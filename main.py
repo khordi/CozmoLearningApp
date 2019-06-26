@@ -129,13 +129,28 @@ class AlegbraQnA(Screen):
     pass
 
 
-
+ 
 
 #----------------------TRIG AND PYTHAG--------------------------
 class TrigPythTutorial(Screen):
+
     def triangleSides(self):
-        cozmo.run_program(displayHypo)
+        cozmo.run_program(triangleSide)
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(displayHOA)
         return
+    
+
+    def sohcahtoa(self):
+        cozmo.run_program(trigratio)
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(displayratio)
+        return
+
+
+
+
+
 
 class TrigPythQnA(Screen):
     pass
