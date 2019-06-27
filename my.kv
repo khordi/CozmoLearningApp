@@ -5,15 +5,15 @@ WindowManager:
     MainWindow:
 
     AlegbraWindow:
-    TrigPythWindow:
+    trigWindow:
     GeometryWindow:
 
     AlgebraTutorial:
-    TrigPythTutorial:
+    trigTutorial:
     GeometryTutorial:
 
     AlegbraQnA:
-    TrigPythQnA:
+    trigQnA:
     GeometryQnA:
 #----------------------------------------------------------------------------------------
 <MainWindow>:
@@ -55,18 +55,6 @@ WindowManager:
                     root.manager.transition.direction = "left"
                     #root.WhatisAlgebra()
 
-
-            Button:
-                id:trig
-                size_hint: None, None
-                size: 200, 200 
-                text: "Trigonometry \n         and \n  Pythagoras"
-                font_size: 30
-
-                on_release: 
-                    app.root.current = "trigpythwindow"
-                    root.manager.transition.direction = "left"
-
             Button:
                 size_hint: None, None
                 size: 200, 200 
@@ -75,6 +63,17 @@ WindowManager:
 
                 on_release: 
                     app.root.current = "geometrywindow"
+                    root.manager.transition.direction = "left"
+                    
+            Button:
+                id:trig
+                size_hint: None, None
+                size: 200, 200 
+                text: "Trigonometry"
+                font_size: 30
+
+                on_release: 
+                    app.root.current = "trigwindow"
                     root.manager.transition.direction = "left"
 
             GridLayout:
@@ -88,7 +87,7 @@ WindowManager:
                     font_size: 30
 
                     on_release: 
-                        app.root.current = "trigpythwindow"
+                        app.root.current = "trigwindow"
                         root.manager.transition.direction = "left"
 
                 Button:
@@ -171,8 +170,8 @@ WindowManager:
                     x: self.parent.center_x
  #----------------------------------------------------------------------------------------           
 
-<TrigPythWindow>:
-    name: "trigpythwindow"
+<trigWindow>:
+    name: "trigwindow"
     
     canvas.before:
         Rectangle:
@@ -187,7 +186,7 @@ WindowManager:
         Label:
             color: 0,0,0,1
             bold: True
-            text: "Trigonometry and Pythagoras"
+            text: "Trigonometry"
             halign: 'center'
             size_hint: None, None
             size: 600,50
@@ -202,7 +201,7 @@ WindowManager:
             size: 400, 100         
             text: "Tutorial"
             on_release:  
-                app.root.current = "trigpythtutorial"
+                app.root.current = "trigtutorial"
                 root.manager.transition.direction = "left"
         
 
@@ -214,7 +213,7 @@ WindowManager:
                 size: 400, 100         
                 text: "Questions and Answers"
                 on_release:
-                    app.root.current = "trigpythqna"
+                    app.root.current = "trigqna"
                     root.manager.transition.direction = "left" 
 
         GridLayout:
@@ -434,9 +433,9 @@ WindowManager:
 
 
 
-<TrigPythTutorial>:
+<trigTutorial>:
 
-    name: "trigpythtutorial"
+    name: "trigtutorial"
 
     canvas.before:
         Rectangle:
@@ -558,7 +557,7 @@ WindowManager:
             size: 200, 200
             font_size:30
             color: 1,0.5,0,1        
-            text: "1"
+            text: "Angles"
             on_release: 
 
                 
@@ -568,7 +567,7 @@ WindowManager:
             size: 200, 200
             font_size:30
             color: 1,0.5,0,1
-            text: "2"
+            text: "Shapes"
             on_release: 
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
@@ -576,30 +575,34 @@ WindowManager:
             size_hint: None, None
             size: 200, 200
             font_size:30
-            color: 1,0.5,0,1
-            text_size: self.size     
-            halign: 'center'    
-            text: "3"
+            color: 1,0.5,0,1        
+            text: "Area"
             on_release: 
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
         Button:
             size_hint: None, None
-            size: 200, 200   
-            text: "4"
+            size: 200, 200
+            font_size:30
+            color: 1,0.5,0,1         
+            text: "Volume"
             on_release: 
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
         Button:
             size_hint: None, None
-            size: 200, 200   
-            text: "5"
+            size: 200, 200
+            font_size:30
+            color: 1,0.5,0,1           
+            text: "Pythagorean \n    theorem"
             on_release: 
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
         Button:
             size_hint: None, None
-            size: 200, 200   
+            size: 200, 200
+            font_size:30
+            color: 1,0.5,0,1           
             text: "6"
             on_release: 
                 app.root.current = "main"
@@ -699,9 +702,9 @@ WindowManager:
                     y: self.parent.y 
                     x: self.parent.center_x
 
-<TrigPythQnA>:
+<trigQnA>:
 
-    name: "trigpythqna"
+    name: "trigqna"
 
     canvas.before:
         Rectangle:
@@ -751,7 +754,7 @@ WindowManager:
                 text_size: 130,0
                 font_size: 30
                 on_release: 
-                    app.root.current = "trigpythwindow"
+                    app.root.current = "trigwindow"
                     root.manager.transition.direction = "right"
                 Image:
                     source: "./backarrow.png"

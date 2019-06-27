@@ -116,7 +116,7 @@ def displayratio(self: cozmo.robot.Robot):
         resized_image = image.resize(cozmo.oled_face.dimensions(), resampling_mode)
         face_image = cozmo.oled_face.convert_image_to_screen_data(resized_image,invert_image=True)
         self.display_oled_face_image(face_image, 3000.0, in_parallel=True)
-        #self.say_text("the opposite over hypotenuse. This is shown as:", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()
+        self.say_text("and can be remember using SOH, where S is sine, O is opposite, and H is hypotenuse", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()
         time.sleep(3)
         break
 
@@ -144,7 +144,7 @@ def displayratio(self: cozmo.robot.Robot):
         resized_image = image.resize(cozmo.oled_face.dimensions(), resampling_mode)
         face_image = cozmo.oled_face.convert_image_to_screen_data(resized_image,invert_image=True)
         self.display_oled_face_image(face_image, 3000.0, in_parallel=True)
-        #self.say_text("the opposite over hypotenuse. This is shown as:", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()
+        self.say_text("and can be remember using CAH, where C is cos, A is adjacent, and H is hypotenuse", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()
         time.sleep(3)
         break
 
@@ -172,7 +172,7 @@ def displayratio(self: cozmo.robot.Robot):
         resized_image = image.resize(cozmo.oled_face.dimensions(), resampling_mode)
         face_image = cozmo.oled_face.convert_image_to_screen_data(resized_image,invert_image=True)
         self.display_oled_face_image(face_image, 3000.0, in_parallel=True)
-        #self.say_text("the opposite over hypotenuse. This is shown as:", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()
+        self.say_text("and can be remember using TOA, where T is tan, O is opposite, and A is adjacent", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()
         time.sleep(3)
         break
     
