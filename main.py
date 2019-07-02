@@ -12,6 +12,7 @@ from kivy.uix.floatlayout import FloatLayout
 
 from algebra import *
 from trig import *
+from geometry import *
 
 
 from sympy.interactive import printing

@@ -465,31 +465,31 @@ WindowManager:
             size: 200, 200
             font_size:30
             color: 1,0.5,0,1
-            text: "  SOH \n  CAH \n  TOA"
+            text: "SOH"
             on_release: 
                 root.sohcahtoa()
         Button:
             size_hint: None, None
             size: 200, 200
             font_size:30
-            color: 1,0.5,0,1
-            text_size: self.size     
-            #halign: 'center'    
-            text: "3"
+            color: 1,0.5,0,1    
+            text: "CAH"
+            on_release: 
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+        Button:
+            size_hint: None, None
+            size: 200, 200
+            font_size:30
+            color: 1,0.5,0,1   
+            text: "TOA"
             on_release: 
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
         Button:
             size_hint: None, None
             size: 200, 200   
-            text: "4"
-            on_release: 
-                app.root.current = "main"
-                root.manager.transition.direction = "right"
-        Button:
-            size_hint: None, None
-            size: 200, 200   
-            text: "5"
+            text: ""
             on_release: 
                 app.root.current = "main"
                 root.manager.transition.direction = "right"

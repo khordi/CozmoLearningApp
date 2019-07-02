@@ -177,3 +177,5 @@ def displayratio(self: cozmo.robot.Robot):
         break
     
     return
+
+def
