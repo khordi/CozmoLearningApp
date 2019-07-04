@@ -14,7 +14,7 @@ from algebra import *
 from trig import *
 from geometry import *
 
-
+ 
 from sympy.interactive import printing
 printing.init_printing(use_latex=True)
 from sympy import Eq, solve_linear_system, Matrix
@@ -48,7 +48,7 @@ class AlegbraWindow(Screen):
         print(solve_linear_system(system,x,y))
 
 
-class trigWindow(Screen):
+class TrigWindow(Screen):
     pass
 
 class GeometryWindow(Screen):
@@ -93,35 +93,34 @@ class AlgebraTutorial(Screen):
         
 
     def expression_variables(self): #introducing expressions with a variable
-        #cozmo.run_program(expression_variables)
-        #cozmo.run_program(get_in_position)
-        #cozmo.run_program(displaytext_1)
-        #cozmo.run_program(set_lights)
+        cozmo.run_program(expression_variables)
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(displaytext_1)
         return
 
     def combining_liketerms(self):
-        #cozmo.run_program(combining_liketerms1)
-        #cozmo.run_program(displaytext_2)
-        #cozmo.run_program(combining_liketerms2)
-        #cozmo.run_program(displaytext_3)
+        cozmo.run_program(combining_liketerms1)
+        cozmo.run_program(displaytext_2)
+        cozmo.run_program(combining_liketerms2)
+        cozmo.run_program(displaytext_3)
         return
 
     def sub_evaluate(self): #introducing expressions with more than one variable
-        #cozmo.run_program(sub_evaluate)
-        #cozmo.run_program(displaytext_4)
-        #cozmo.run_program(displaytext_5)
+        cozmo.run_program(sub_evaluate)
+        cozmo.run_program(displaytext_4)
+        cozmo.run_program(displaytext_5)
         return
 
     def expression_words(self: cozmo.robot.Robot): #word example of using past three topics
-        #cozmo.run_program(expression_words)
-        #cozmo.run_program(displaytext_6)
+        cozmo.run_program(expression_words)
+        cozmo.run_program(displaytext_6)
         return
         
     
     def algebraic_equations(self):
-        #cozmo.run_program(algebraic_equations)
-        #cozmo.run_program(displaytext_7)
-        #cozmo.run_program(displaytext_8)
+        cozmo.run_program(algebraic_equations)
+        cozmo.run_program(displaytext_7)
+        cozmo.run_program(displaytext_8)
         return
 
 class AlegbraQnA(Screen):
@@ -133,33 +132,61 @@ class AlegbraQnA(Screen):
  
 
 #----------------------TRIG AND PYTHAG--------------------------
-class trigTutorial(Screen):
+class TrigTutorial(Screen):
 
     def triangleSides(self):
-        #cozmo.run_program(triangleSide)
-        #cozmo.run_program(get_in_position)
-        #cozmo.run_program(displayHOA)
+        cozmo.run_program(triangleSide)
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(displayHOA)
         return
     
+    def trigonometricratios(self):
+        cozmo.run_program(trigratio)
+        return
 
-    def sohcahtoa(self):
-        #cozmo.run_program(trigratio)
-        #cozmo.run_program(get_in_position)
-        #cozmo.run_program(displayratio)
+    def soh(self):
+        cozmo.run_program(displaysin)
+        return
+
+    def cah(self):
+        cozmo.run_program(displaycos)
+        return
+
+    def toa(self):
+        cozmo.run_program(displaytan)
         return
 
 
-
-
-
-
-class trigQnA(Screen):
+class TrigQnA(Screen):
     pass
 
 
 #--------------------------GEOMETRY------------------------------
 class GeometryTutorial(Screen):
-    pass
+    
+    def angletut(self):
+        cozmo.run_program(angleTut)
+        return
+
+    def shape(self):
+        cozmo.run_program(shapes)
+        return
+
+    def area(self):
+        cozmo.run_program(areatut)
+        return
+
+    def perimetertut(self):
+        cozmo.run_program(perimeter)
+        return
+
+    def volume(self):
+        cozmo.run_program(volumetut)
+        return
+
+    def pythag(self):
+        cozmo.run_program(pythagoras)
+        return
 class GeometryQnA(Screen):
     pass
     

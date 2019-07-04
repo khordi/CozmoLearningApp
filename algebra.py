@@ -19,17 +19,17 @@ def get_in_position(self: cozmo.robot.Robot):
             lift_action.wait_for_completed()
             head_action.wait_for_completed()
 
-def set_lights(self: cozmo.robot.Robot):
-    cube1 = self.world.get_light_cube(LightCube1Id) 
-    cube2 = self.world.get_light_cube(LightCube2Id)  # looks like a paperclip
-    cube3 = self.world.get_light_cube(LightCube3Id) 
-    if ('cube1','cube2', 'cube3') is not None:
-        cube1.set_light_corners(cozmo.lights.blue_light, cozmo.lights.off_light,cozmo.lights.off_light,cozmo.lights.green_light)
-        cube2.set_light_corners(cozmo.lights.red_light, cozmo.lights.green_light,cozmo.lights.off_light,cozmo.lights.red_light)
-        cube3.set_light_corners(cozmo.lights.blue_light, cozmo.lights.red_light,cozmo.lights.red_light,cozmo.lights.off_light)
+# def set_lights(self: cozmo.robot.Robot):
+#     cube1 = self.world.get_light_cube(LightCube1Id) 
+#     cube2 = self.world.get_light_cube(LightCube2Id)  # looks like a paperclip
+#     cube3 = self.world.get_light_cube(LightCube3Id) 
+#     if ('cube1','cube2', 'cube3') is not None:
+#         cube1.set_light_corners(cozmo.lights.blue_light, cozmo.lights.off_light,cozmo.lights.off_light,cozmo.lights.green_light)
+#         cube2.set_light_corners(cozmo.lights.red_light, cozmo.lights.green_light,cozmo.lights.off_light,cozmo.lights.red_light)
+#         cube3.set_light_corners(cozmo.lights.blue_light, cozmo.lights.red_light,cozmo.lights.red_light,cozmo.lights.off_light)
 
-        time.sleep(20)
-    return
+#         time.sleep(20)
+#     return
 
 #----------------------------------------------------------------
 
@@ -90,7 +90,7 @@ except:
     pass
     
 def displaytext_1(self: cozmo.robot.Robot):
-    cube2 = self.world.get_light_cube(LightCube2Id)  # looks like a paperclip
+    cube1 = self.world.get_light_cube(LightCube1Id)  # looks like a paperclip
     #cube2 = self.world.get_light_cube(LightCube2Id)  # looks like a lamp / heart
 
     while True:
@@ -100,8 +100,8 @@ def displaytext_1(self: cozmo.robot.Robot):
         time.sleep(5)
         break
 
-    if ('cube2') is not None:
-        cube2.set_lights(cozmo.lights.green_light)
+    if ('cube1') is not None:
+        cube1.set_lights(cozmo.lights.green_light)
         #cube2.set_lights(cozmo.lights.red_light)
 
     else:
@@ -110,7 +110,7 @@ def displaytext_1(self: cozmo.robot.Robot):
     try:
         self.say_text("Tap the Green cube if you are ready to move onto the next tutorial. You can come back anytime an revisit this topic, i'd be happy to help", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
         self.say_text("", play_excited_animation=True, voice_pitch=0,duration_scalar=0.6).wait_for_completed()
-        cube2.wait_for_tap()
+        cube1.wait_for_tap()
 
     except:
         return
@@ -150,7 +150,7 @@ def displaytext_5(self: cozmo.robot.Robot):
     return
 
 def displaytext_6(self: cozmo.robot.Robot):
-    cube2 = self.world.get_light_cube(LightCube2Id)  # looks like a paperclip
+    cube1 = self.world.get_light_cube(LightCube1Id)  # looks like a paperclip
     tap = 0
     while True:
         math_image = make_text_image("3t + 4t + 4", 8, 6, _math_font)  # Create the updated image with this time
@@ -159,8 +159,8 @@ def displaytext_6(self: cozmo.robot.Robot):
         self.say_text("Where t represents the number of tickets someone purchases. Evaluate the expression when t=4.", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()
         break
     
-    if ('cube2') is not None:
-        cube2.set_lights(cozmo.lights.blue_light)
+    if ('cube1') is not None:
+        cube1.set_lights(cozmo.lights.blue_light)
         #cube2.set_lights(cozmo.lights.red_light)
 
     else:
@@ -171,7 +171,7 @@ def displaytext_6(self: cozmo.robot.Robot):
 
     while tap < 5:
         
-        cube2.wait_for_tap()
+        cube1.wait_for_tap()
         tap += 1  # This is the same as count = count + 1   
 
     time.sleep(1)

@@ -7,7 +7,7 @@ from displayText import *
 current_directory = os.path.dirname(os.path.realpath(__file__))
 
 def triangleSide(self: cozmo.robot.Robot):
-    self.say_text("Welcome to learning about trigonometric ratios", play_excited_animation=True,voice_pitch=-1,duration_scalar=0.6).wait_for_completed()
+    self.say_text("Welcome to learning about triangle definitions!", play_excited_animation=True,voice_pitch=-1,duration_scalar=0.6).wait_for_completed()
     self.say_text("In trigonometry we use special words to describe the sides of right angle triangles. which are labelled as H,O,A and refer to the length of the sides.",voice_pitch=-1,duration_scalar=0.6).wait_for_completed()
     return
 
@@ -88,9 +88,11 @@ def trigratio(self: cozmo.robot.Robot):
         self.say_text(" and tangent", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()
 
         break
+    self.say_text("These ratios can be remembered using the phrase SOH CAH TOA", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()
+
     return
 
-def displayratio(self: cozmo.robot.Robot):
+def displaysin(self: cozmo.robot.Robot):
     
     while True:
         resampling_mode = Image.NEAREST
@@ -120,6 +122,8 @@ def displayratio(self: cozmo.robot.Robot):
         time.sleep(3)
         break
 
+def displaycos(self: cozmo.robot.Robot):
+
     while True:
         resampling_mode = Image.NEAREST
         image_name = os.path.join(current_directory, "face_images", "ratioA.png")
@@ -144,9 +148,12 @@ def displayratio(self: cozmo.robot.Robot):
         resized_image = image.resize(cozmo.oled_face.dimensions(), resampling_mode)
         face_image = cozmo.oled_face.convert_image_to_screen_data(resized_image,invert_image=True)
         self.display_oled_face_image(face_image, 3000.0, in_parallel=True)
-        self.say_text("and can be remember using CAH, where C is cos, A is adjacent, and H is hypotenuse", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()
+        self.say_text("and can be remembered using cah, where C is cos, A is adjacent, and H is hypotenuse", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()
         time.sleep(3)
         break
+    return
+
+def displaytan(self: cozmo.robot.Robot):
 
     while True:
         resampling_mode = Image.NEAREST
@@ -175,7 +182,4 @@ def displayratio(self: cozmo.robot.Robot):
         self.say_text("and can be remember using TOA, where T is tan, O is opposite, and A is adjacent", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()
         time.sleep(3)
         break
-    
     return
-
-def

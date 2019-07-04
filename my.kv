@@ -5,15 +5,15 @@ WindowManager:
     MainWindow:
 
     AlegbraWindow:
-    trigWindow:
+    TrigWindow:
     GeometryWindow:
 
     AlgebraTutorial:
-    trigTutorial:
+    TrigTutorial:
     GeometryTutorial:
 
     AlegbraQnA:
-    trigQnA:
+    TrigQnA:
     GeometryQnA:
 #----------------------------------------------------------------------------------------
 <MainWindow>:
@@ -170,7 +170,7 @@ WindowManager:
                     x: self.parent.center_x
  #----------------------------------------------------------------------------------------           
 
-<trigWindow>:
+<TrigWindow>:
     name: "trigwindow"
     
     canvas.before:
@@ -387,30 +387,28 @@ WindowManager:
             disabled: True
             size_hint: None, None
             size: 200, 200   
-            text: "Algebraic \n Equations"
+            text: ""
             on_release: 
-                app.root.current = "main"
-                root.manager.transition.direction = "right"
-    # ... Button                
-        Button:
-            disabled: True
-            size_hint: None, None
-            size: 200, 200   
-            text: "Algebraic \n Equations"
-            on_release: 
-                app.root.current = "main"
-                root.manager.transition.direction = "right"
-    # ... Button                
-        Button:
-            disabled: True
-            size_hint: None, None
-            size: 200, 200   
-            text: "Algebraic \n Equations"
-            on_release: 
-                app.root.current = "main"
-                root.manager.transition.direction = "right"
 
-        
+
+    # ... Button                
+        Button:
+            disabled: True
+            size_hint: None, None
+            size: 200, 200   
+            text: ""
+            on_release: 
+
+
+    # ... Button                
+        Button:
+            disabled: True
+            size_hint: None, None
+            size: 200, 200   
+            text: ""
+            on_release: 
+
+
         GridLayout:
             cols: 1
             size_hint: None, None
@@ -433,7 +431,7 @@ WindowManager:
 
 
 
-<trigTutorial>:
+<TrigTutorial>:
 
     name: "trigtutorial"
 
@@ -455,10 +453,19 @@ WindowManager:
             size: 200, 200
             font_size:30
             color: 1,0.5,0,1        
-            text: "Triangle \n   Sides"
+            text: "   Triangle \n      Side \n Definitions"
             on_release:
                 root.triangleSides() 
-                
+
+        Button: 
+            size_hint: None, None
+            size: 200, 200
+            font_size:30
+            color: 1,0.5,0,1
+            text: " Trigonometric \n         Ratios"
+            on_release: 
+                root.trigonometricratios()
+
         Button:
             id: button_one
             size_hint: None, None
@@ -467,7 +474,8 @@ WindowManager:
             color: 1,0.5,0,1
             text: "SOH"
             on_release: 
-                root.sohcahtoa()
+                root.soh()
+
         Button:
             size_hint: None, None
             size: 200, 200
@@ -475,8 +483,8 @@ WindowManager:
             color: 1,0.5,0,1    
             text: "CAH"
             on_release: 
-                app.root.current = "main"
-                root.manager.transition.direction = "right"
+                root.cah()
+
         Button:
             size_hint: None, None
             size: 200, 200
@@ -484,37 +492,31 @@ WindowManager:
             color: 1,0.5,0,1   
             text: "TOA"
             on_release: 
-                app.root.current = "main"
-                root.manager.transition.direction = "right"
-        Button:
-            size_hint: None, None
-            size: 200, 200   
-            text: ""
-            on_release: 
-                app.root.current = "main"
-                root.manager.transition.direction = "right"
-        Button:
-            size_hint: None, None
-            size: 200, 200   
-            text: "6"
-            on_release: 
-                app.root.current = "main"
-                root.manager.transition.direction = "right"
+                root.toa()
 
         Button:
             size_hint: None, None
-            size: 200, 200   
-            text: "Algebraic \n Equations"
+            size: 200, 200
+            font_size:30
+            color: 1,0.5,0,1   
+            text: ""
             on_release: 
-                app.root.current = "main"
-                root.manager.transition.direction = "right"
+
         Button:
             size_hint: None, None
-            size: 200, 200   
-            text: "Algebraic \n Equations"
+            size: 200, 200
+            font_size:30
+            color: 1,0.5,0,1   
+            text: ""
             on_release: 
-                app.root.current = "main"
-                root.manager.transition.direction = "right"
+
+        Button:
+            size_hint: None, None
+            size: 200, 200
+            font_size:30
+            color: 1,0.5,0,1   
+            text: ""
+            on_release: 
 
         GridLayout:
             cols: 1
@@ -552,25 +554,23 @@ WindowManager:
         cols: 3
 
         Button:
-            id: expression_button
             size_hint: None, None
             size: 200, 200
             font_size:30
             color: 1,0.5,0,1        
             text: "Angles"
-            on_release: 
-
-                
+            on_release:
+                root.angletut() 
+     
         Button:
-            id: button_one
             size_hint: None, None
             size: 200, 200
             font_size:30
             color: 1,0.5,0,1
             text: "Shapes"
             on_release: 
-                app.root.current = "main"
-                root.manager.transition.direction = "right"
+                root.shape()
+
         Button:
             size_hint: None, None
             size: 200, 200
@@ -578,8 +578,17 @@ WindowManager:
             color: 1,0.5,0,1        
             text: "Area"
             on_release: 
-                app.root.current = "main"
-                root.manager.transition.direction = "right"
+                root.area()
+
+        Button:
+            size_hint: None, None
+            size: 200, 200
+            font_size:30
+            color: 1,0.5,0,1        
+            text: "Perimeter"
+            on_release: 
+                root.perimetertut()
+
         Button:
             size_hint: None, None
             size: 200, 200
@@ -587,8 +596,8 @@ WindowManager:
             color: 1,0.5,0,1         
             text: "Volume"
             on_release: 
-                app.root.current = "main"
-                root.manager.transition.direction = "right"
+                root.volume()
+
         Button:
             size_hint: None, None
             size: 200, 200
@@ -596,32 +605,20 @@ WindowManager:
             color: 1,0.5,0,1           
             text: "Pythagorean \n    theorem"
             on_release: 
-                app.root.current = "main"
-                root.manager.transition.direction = "right"
+                root.pythag()
         Button:
             size_hint: None, None
             size: 200, 200
             font_size:30
             color: 1,0.5,0,1           
-            text: "6"
+            text: ""
             on_release: 
-                app.root.current = "main"
-                root.manager.transition.direction = "right"
 
         Button:
             size_hint: None, None
             size: 200, 200   
-            text: "Algebraic \n Equations"
+            text: ""
             on_release: 
-                app.root.current = "main"
-                root.manager.transition.direction = "right"
-        Button:
-            size_hint: None, None
-            size: 200, 200   
-            text: "Algebraic \n Equations"
-            on_release: 
-                app.root.current = "main"
-                root.manager.transition.direction = "right"
 
         GridLayout:
             cols: 1
@@ -702,7 +699,7 @@ WindowManager:
                     y: self.parent.y 
                     x: self.parent.center_x
 
-<trigQnA>:
+<TrigQnA>:
 
     name: "trigqna"
 
