@@ -9,6 +9,8 @@ from kivy.uix.screenmanager import ScreenManager, Screen, NoTransition, FadeTran
 from kivy.core.window import Window
 from kivy.uix.popup import Popup
 from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.label import Label
+from kivy.properties import ObjectProperty
 
 from algebra import *
 from trig import *
@@ -19,7 +21,7 @@ from sympy.interactive import printing
 printing.init_printing(use_latex=True)
 from sympy import Eq, solve_linear_system, Matrix
 import sympy as sp
-#----------------------First Screen------------------------------
+#----------------------Main Screen------------------------------
 class MainWindow(Screen):
     def btn(self):
         show_popup()
@@ -47,12 +49,33 @@ class AlegbraWindow(Screen):
         system = Matrix((row1,row2))
         print(solve_linear_system(system,x,y))
 
+    def titleSection(self):
+
+        appendFile = open('answers.txt', 'a')
+        appendFile.write('\n')
+        appendFile.write('\n Algebra Answers')
+        appendFile.close()
 
 class TrigWindow(Screen):
+    def titleSection(self):
+
+        appendFile = open('answers.txt', 'a')
+        appendFile.write('\n')
+        appendFile.write('\n Trig Answers')
+        appendFile.close()    
     pass
 
 class GeometryWindow(Screen):
+    def titleSection(self):
+
+        appendFile = open('answers.txt', 'a')
+        appendFile.write('\n')
+        appendFile.write('\n Geometry Answers')
+        appendFile.close()    
     pass
+
+#----------------------------Database---------------------------
+
 
 #-----------------Tutorials/Q's & A's--------------------------------------------------------------
 
@@ -123,13 +146,146 @@ class AlgebraTutorial(Screen):
         cozmo.run_program(displaytext_8)
         return
 
-class AlegbraQnA(Screen):
-# needs completed, make up 10 questions easy,medium and hard difficulty
-#
-    pass
+class Algebra1(Screen):
+    answer = ObjectProperty(None)
 
+    def submit(self):
 
- 
+        appendFile = open('answers.txt', 'a')
+        appendFile.write('\n Answer 1 = ')
+        appendFile.write(self.answer.text)
+        appendFile.close()
+        self.reset()
+        
+    def reset(self):
+        self.answer.text = ""
+
+class Algebra2(Screen):
+    answer = ObjectProperty(None)
+
+    def submit(self):
+
+        appendFile = open('answers.txt', 'a')
+        appendFile.write('\n Answer 2 = ')
+        appendFile.write(self.answer.text)
+        appendFile.close()
+        self.reset()
+        
+    def reset(self):
+        self.answer.text = ""
+
+class Algebra3(Screen):
+    answer = ObjectProperty(None)
+
+    def submit(self):
+
+        appendFile = open('answers.txt', 'a')
+        appendFile.write('\n Answer 3 = ')        
+        appendFile.write(self.answer.text)
+        appendFile.close()
+        self.reset()
+        
+    def reset(self):
+        self.answer.text = ""        
+
+class Algebra4(Screen):
+    answer = ObjectProperty(None)
+
+    def submit(self):
+
+        appendFile = open('answers.txt', 'a')
+        appendFile.write('\n Answer 4 = ')
+        appendFile.write(self.answer.text)
+        appendFile.close()
+        self.reset()
+        
+    def reset(self):
+        self.answer.text = ""        
+
+class Algebra5(Screen):
+    answer = ObjectProperty(None)
+
+    def submit(self):
+
+        appendFile = open('answers.txt', 'a')
+        appendFile.write('\n Answer 5 = ')
+        appendFile.write(self.answer.text)
+        appendFile.close()
+        self.reset()
+        
+    def reset(self):
+        self.answer.text = ""
+
+class Algebra6(Screen):
+    answer = ObjectProperty(None)
+
+    def submit(self):
+
+        appendFile = open('answers.txt', 'a')
+        appendFile.write('\n Answer 6 = ')
+        appendFile.write(self.answer.text)
+        appendFile.close()
+        self.reset()
+        
+    def reset(self):
+        self.answer.text = ""        
+
+class Algebra7(Screen):
+    answer = ObjectProperty(None)
+
+    def submit(self):
+
+        appendFile = open('answers.txt', 'a')
+        appendFile.write('\n Answer 7 = ')
+        appendFile.write(self.answer.text)
+        appendFile.close()
+        self.reset()
+        
+    def reset(self):
+        self.answer.text = ""        
+
+class Algebra8(Screen):
+    answer = ObjectProperty(None)
+
+    def submit(self):
+
+        appendFile = open('answers.txt', 'a')
+        appendFile.write('\n Answer 8 = ')
+        appendFile.write(self.answer.text)
+        appendFile.close()
+        self.reset()
+        
+    def reset(self):
+        self.answer.text = ""        
+
+class Algebra9(Screen):
+    answer = ObjectProperty(None)
+
+    def submit(self):
+
+        appendFile = open('answers.txt', 'a')
+        appendFile.write('\n Answer 9 = ')
+        appendFile.write(self.answer.text)
+        appendFile.close()
+        self.reset()
+        
+    def reset(self):
+        self.answer.text = ""        
+
+class Algebra10(Screen):
+    answer = ObjectProperty(None)
+
+    def submit(self):
+
+        appendFile = open('answers.txt', 'a')
+        appendFile.write('\n Answer 10 = ')
+        appendFile.write(self.answer.text)
+        appendFile.close()
+        self.reset()
+        
+    def reset(self):
+        self.answer.text = ""        
+
 
 #----------------------TRIG AND PYTHAG--------------------------
 class TrigTutorial(Screen):
@@ -157,9 +313,145 @@ class TrigTutorial(Screen):
         return
 
 
-class TrigQnA(Screen):
-    pass
+class Trig1(Screen):
+    answer = ObjectProperty(None)
 
+    def submit(self):
+
+        appendFile = open('answers.txt', 'a')
+        appendFile.write('\n Answer 1 = ')
+        appendFile.write(self.answer.text)
+        appendFile.close()
+        self.reset()
+        
+    def reset(self):
+        self.answer.text = ""
+
+class Trig2(Screen):
+    answer = ObjectProperty(None)
+
+    def submit(self):
+
+        appendFile = open('answers.txt', 'a')
+        appendFile.write('\n Answer 2 = ')
+        appendFile.write(self.answer.text)
+        appendFile.close()
+        self.reset()
+        
+    def reset(self):
+        self.answer.text = ""
+
+class Trig3(Screen):
+    answer = ObjectProperty(None)
+
+    def submit(self):
+
+        appendFile = open('answers.txt', 'a')
+        appendFile.write('\n Answer 3 = ')        
+        appendFile.write(self.answer.text)
+        appendFile.close()
+        self.reset()
+        
+    def reset(self):
+        self.answer.text = ""        
+
+class Trig4(Screen):
+    answer = ObjectProperty(None)
+
+    def submit(self):
+
+        appendFile = open('answers.txt', 'a')
+        appendFile.write('\n Answer 4 = ')
+        appendFile.write(self.answer.text)
+        appendFile.close()
+        self.reset()
+        
+    def reset(self):
+        self.answer.text = ""        
+
+class Trig5(Screen):
+    answer = ObjectProperty(None)
+
+    def submit(self):
+
+        appendFile = open('answers.txt', 'a')
+        appendFile.write('\n Answer 5 = ')
+        appendFile.write(self.answer.text)
+        appendFile.close()
+        self.reset()
+        
+    def reset(self):
+        self.answer.text = ""
+
+class Trig6(Screen):
+    answer = ObjectProperty(None)
+
+    def submit(self):
+
+        appendFile = open('answers.txt', 'a')
+        appendFile.write('\n Answer 6 = ')
+        appendFile.write(self.answer.text)
+        appendFile.close()
+        self.reset()
+        
+    def reset(self):
+        self.answer.text = ""        
+
+class Trig7(Screen):
+    answer = ObjectProperty(None)
+
+    def submit(self):
+
+        appendFile = open('answers.txt', 'a')
+        appendFile.write('\n Answer 7 = ')
+        appendFile.write(self.answer.text)
+        appendFile.close()
+        self.reset()
+        
+    def reset(self):
+        self.answer.text = ""        
+
+class Trig8(Screen):
+    answer = ObjectProperty(None)
+
+    def submit(self):
+
+        appendFile = open('answers.txt', 'a')
+        appendFile.write('\n Answer 8 = ')
+        appendFile.write(self.answer.text)
+        appendFile.close()
+        self.reset()
+        
+    def reset(self):
+        self.answer.text = ""        
+
+class Trig9(Screen):
+    answer = ObjectProperty(None)
+
+    def submit(self):
+
+        appendFile = open('answers.txt', 'a')
+        appendFile.write('\n Answer 9 = ')
+        appendFile.write(self.answer.text)
+        appendFile.close()
+        self.reset()
+        
+    def reset(self):
+        self.answer.text = ""        
+
+class Trig10(Screen):
+    answer = ObjectProperty(None)
+
+    def submit(self):
+
+        appendFile = open('answers.txt', 'a')
+        appendFile.write('\n Answer 10 = ')
+        appendFile.write(self.answer.text)
+        appendFile.close()
+        self.reset()
+        
+    def reset(self):
+        self.answer.text = ""        
 
 #--------------------------GEOMETRY------------------------------
 class GeometryTutorial(Screen):
@@ -187,15 +479,154 @@ class GeometryTutorial(Screen):
     def pythag(self):
         cozmo.run_program(pythagoras)
         return
-class GeometryQnA(Screen):
-    pass
-    
+
+class Geometry1(Screen):
+    answer = ObjectProperty(None)
+
+    def submit(self):
+
+        appendFile = open('answers.txt', 'a')
+        appendFile.write('\n Answer 1 = ')
+        appendFile.write(self.answer.text)
+        appendFile.close()
+        self.reset()
+        
+    def reset(self):
+        self.answer.text = ""
+
+class Geometry2(Screen):
+    answer = ObjectProperty(None)
+
+    def submit(self):
+
+        appendFile = open('answers.txt', 'a')
+        appendFile.write('\n Answer 2 = ')
+        appendFile.write(self.answer.text)
+        appendFile.close()
+        self.reset()
+        
+    def reset(self):
+        self.answer.text = ""
+
+class Geometry3(Screen):
+    answer = ObjectProperty(None)
+
+    def submit(self):
+
+        appendFile = open('answers.txt', 'a')
+        appendFile.write('\n Answer 3 = ')        
+        appendFile.write(self.answer.text)
+        appendFile.close()
+        self.reset()
+        
+    def reset(self):
+        self.answer.text = ""        
+
+class Geometry4(Screen):
+    answer = ObjectProperty(None)
+
+    def submit(self):
+
+        appendFile = open('answers.txt', 'a')
+        appendFile.write('\n Answer 4 = ')
+        appendFile.write(self.answer.text)
+        appendFile.close()
+        self.reset()
+        
+    def reset(self):
+        self.answer.text = ""        
+
+class Geometry5(Screen):
+    answer = ObjectProperty(None)
+
+    def submit(self):
+
+        appendFile = open('answers.txt', 'a')
+        appendFile.write('\n Answer 5 = ')
+        appendFile.write(self.answer.text)
+        appendFile.close()
+        self.reset()
+        
+    def reset(self):
+        self.answer.text = ""
+
+class Geometry6(Screen):
+    answer = ObjectProperty(None)
+
+    def submit(self):
+
+        appendFile = open('answers.txt', 'a')
+        appendFile.write('\n Answer 6 = ')
+        appendFile.write(self.answer.text)
+        appendFile.close()
+        self.reset()
+        
+    def reset(self):
+        self.answer.text = ""        
+
+class Geometry7(Screen):
+    answer = ObjectProperty(None)
+
+    def submit(self):
+
+        appendFile = open('answers.txt', 'a')
+        appendFile.write('\n Answer 7 = ')
+        appendFile.write(self.answer.text)
+        appendFile.close()
+        self.reset()
+        
+    def reset(self):
+        self.answer.text = ""        
+
+class Geometry8(Screen):
+    answer = ObjectProperty(None)
+
+    def submit(self):
+
+        appendFile = open('answers.txt', 'a')
+        appendFile.write('\n Answer 8 = ')
+        appendFile.write(self.answer.text)
+        appendFile.close()
+        self.reset()
+        
+    def reset(self):
+        self.answer.text = ""        
+
+class Geometry9(Screen):
+    answer = ObjectProperty(None)
+
+    def submit(self):
+
+        appendFile = open('answers.txt', 'a')
+        appendFile.write('\n Answer 9 = ')
+        appendFile.write(self.answer.text)
+        appendFile.close()
+        self.reset()
+        
+    def reset(self):
+        self.answer.text = ""        
+
+class Geometry10(Screen):
+    answer = ObjectProperty(None)
+
+    def submit(self):
+
+        appendFile = open('answers.txt', 'a')
+        appendFile.write('\n Answer 10 = ')
+        appendFile.write(self.answer.text)
+        appendFile.close()
+        self.reset()
+        
+    def reset(self):
+        self.answer.text = ""        
+  
 #----------------------------------------------------------------
 
 class WindowManager(ScreenManager):
     pass
 
 kv = Builder.load_file("my.kv")
+
 
 class MyMainApp(App):
     def build(self):

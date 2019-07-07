@@ -8,13 +8,42 @@ WindowManager:
     TrigWindow:
     GeometryWindow:
 
-    AlgebraTutorial:
+    TrigTutorial:
     TrigTutorial:
     GeometryTutorial:
 
-    AlegbraQnA:
-    TrigQnA:
-    GeometryQnA:
+    Algebra1:
+    Algebra2:
+    Algebra3:
+    Algebra4:
+    Algebra5:
+    Algebra6:
+    Algebra7:
+    Algebra8:
+    Algebra9:
+    Algebra10:
+    
+    Geometry1:
+    Geometry2:
+    Geometry3:
+    Geometry4:
+    Geometry5:
+    Geometry6:
+    Geometry7:
+    Geometry8:
+    Geometry9:
+    Geometry10:
+
+    Trig1:
+    Trig2:
+    Trig3:
+    Trig4:
+    Trig5:
+    Trig6:
+    Trig7:
+    Trig8:
+    Trig9:
+    Trig10:
 #----------------------------------------------------------------------------------------
 <MainWindow>:
     name: "main"
@@ -148,7 +177,8 @@ WindowManager:
                 size: 400, 100         
                 text: "Questions and Answers"
                 on_release:
-                    app.root.current = "algebraqna"
+                    root.titleSection()
+                    app.root.current = "algebra1"
                     root.manager.transition.direction = "left"
 
         GridLayout:
@@ -200,7 +230,7 @@ WindowManager:
             size_hint: None, None
             size: 400, 100         
             text: "Tutorial"
-            on_release:  
+            on_release:
                 app.root.current = "trigtutorial"
                 root.manager.transition.direction = "left"
         
@@ -213,7 +243,8 @@ WindowManager:
                 size: 400, 100         
                 text: "Questions and Answers"
                 on_release:
-                    app.root.current = "trigqna"
+                    root.titleSection()
+                    app.root.current = "trig1"
                     root.manager.transition.direction = "left" 
 
         GridLayout:
@@ -277,7 +308,8 @@ WindowManager:
                 size: 400, 100         
                 text: "Questions and Answers"
                 on_release:
-                    app.root.current = "geometryqna"
+                    root.titleSection()
+                    app.root.current = "geometry1"
                     root.manager.transition.direction = "left" 
 
         GridLayout:
@@ -640,68 +672,11 @@ WindowManager:
                     y: self.parent.y 
                     x: self.parent.center_x
 #----------------------------------------------------------------------------------------
-<AlegbraQnA>:
+#algebra questions
+<Algebra1>:
 
-    name : "algebraqna"
-
-    canvas.before:
-        Rectangle:
-            pos: self.pos
-            size: self.size
-            source: 'cozmo.png'
-
-    GridLayout:
-        cols: 1
-        padding: 110,40
-        #spacing: 50, 20
-
-        Button:
-            size_hint: None, None
-            size: 400, 100         
-            text: "EASY"
-            on_release:  
-                app.root.current = ""
-                root.manager.transition.direction = ""
-        
-        GridLayout:
-            cols: 1
-            padding: 0,40
-            Button:
-                size_hint: None, None
-                size: 400, 100         
-                text: "MEDIUM"
-                on_release: root.algebraSolver()
-
-        GridLayout:
-            cols: 1
-            padding: 0,40
-            Button:
-                size_hint: None, None
-                size: 400, 100         
-                text: "HARD"
-                on_release: root.algebraSolver()
-
-        GridLayout:
-            cols: 1
-            padding: 100,30
-            Button:
-                size_hint: None, None
-                size: 200, 100         
-                text: "Back"
-                bold: True
-                text_size: 130,0
-                font_size: 30
-                on_release: 
-                    app.root.current = "algebrawindow"
-                    root.manager.transition.direction = "right"
-                Image:
-                    source: "./backarrow.png"
-                    y: self.parent.y 
-                    x: self.parent.center_x
-
-<TrigQnA>:
-
-    name: "trigqna"
+    name : "algebra1"
+    answer: answer
 
     canvas.before:
         Rectangle:
@@ -709,111 +684,1411 @@ WindowManager:
             size: self.size
             source: 'cozmo.png'
 
-    GridLayout:
-        cols: 1
-        padding: 110,40
-        #spacing: 50, 20
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+            Label:
+                text: "Question 1"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Answer: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.12
+                id: answer
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
 
         Button:
-            size_hint: None, None
-            size: 400, 100         
-            text: "EASY"
-            on_release:  
-                app.root.current = ""
-                root.manager.transition.direction = ""
-        
-        GridLayout:
-            cols: 1
-            padding: 0,40
-            Button:
-                size_hint: None, None
-                size: 400, 100         
-                text: "MEDIUM"
-                on_release: root.algebraSolver()
-
-        GridLayout:
-            cols: 1
-            padding: 0,40
-            Button:
-                size_hint: None, None
-                size: 400, 100         
-                text: "HARD"
-                on_release: root.algebraSolver()
-
-        GridLayout:
-            cols: 1
-            padding: 100,30
-            Button:
-                size_hint: None, None
-                size: 200, 100         
-                text: "Back"
-                bold: True
-                text_size: 130,0
-                font_size: 30
-                on_release: 
-                    app.root.current = "trigwindow"
-                    root.manager.transition.direction = "right"
-                Image:
-                    source: "./backarrow.png"
-                    y: self.parent.y 
-                    x: self.parent.center_x
-<GeometryQnA>:
-
-    name: "geometryqna"
-
-    canvas.before:
-        Rectangle:
-            pos: self.pos
-            size: self.size
-            source: 'cozmo.png'
-
-    GridLayout:
-        cols: 1
-        padding: 110,40
-        #spacing: 50, 20
-
-        Button:
-            size_hint: None, None
-            size: 400, 100         
-            text: "EASY"
-            on_release:  
-                app.root.current = "algebrawindow"
+            pos_hint:{"x":0.2,"y":0.3}
+            size_hint: 0.6, 0.15
+            text: "Submit"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.submit()
                 root.manager.transition.direction = "left"
-        
-        GridLayout:
-            cols: 1
-            padding: 0,40
-            Button:
-                size_hint: None, None
-                size: 400, 100         
-                text: "MEDIUM"
-                on_release: 
+                app.root.current = "algebra2"
 
-        GridLayout:
-            cols: 1
-            padding: 0,40
-            Button:
-                size_hint: None, None
-                size: 400, 100         
-                text: "HARD"
-                on_release:
+<Algebra2>:
 
-        GridLayout:
-            cols: 1
-            padding: 100,30
-            Button:
-                size_hint: None, None
-                size: 200, 100         
-                text: "Back"
-                bold: True
-                text_size: 130,0
-                font_size: 30
-                on_release: 
-                    app.root.current = "geometrytutorial"
-                    root.manager.transition.direction = "left"
-                Image:
-                    source: "./backarrow.png"
-                    y: self.parent.y 
-                    x: self.parent.center_x
+    name : "algebra2"
+    answer: answer
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'cozmo.png'
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+            Label:
+                text: "Question 2"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Answer: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.12
+                id: answer
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.3}
+            size_hint: 0.6, 0.15
+            text: "Submit"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.submit()
+                root.manager.transition.direction = "left"
+                app.root.current = "algebra3"
+
+<Algebra3>:
+
+    name : "algebra3"
+    answer: answer
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'cozmo.png'
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+            Label:
+                text: "Question 3"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Answer: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.12
+                id: answer
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.3}
+            size_hint: 0.6, 0.15
+            text: "Submit"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.submit()
+                root.manager.transition.direction = "left"
+                app.root.current = "algebra4"
+
+<Algebra4>:
+
+    name : "algebra4"
+    answer: answer
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'cozmo.png'
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+            Label:
+                text: "Question 4"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Answer: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.12
+                id: answer
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.3}
+            size_hint: 0.6, 0.15
+            text: "Submit"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.submit()
+                root.manager.transition.direction = "left"
+                app.root.current = "algebra5"
+
+<Algebra5>:
+
+    name : "algebra5"
+    answer: answer
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'cozmo.png'
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+            Label:
+                text: "Question 5"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Answer: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.12
+                id: answer
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.3}
+            size_hint: 0.6, 0.15
+            text: "Submit"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.submit()
+                root.manager.transition.direction = "left"
+                app.root.current = "algebra6"
+
+<Algebra6>:
+
+    name : "algebra6"
+    answer: answer
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'cozmo.png'
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+            Label:
+                text: "Question 6"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Answer: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.12
+                id: answer
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.3}
+            size_hint: 0.6, 0.15
+            text: "Submit"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.submit()
+                root.manager.transition.direction = "left"
+                app.root.current = "algebra7"
+
+<Algebra7>:
+
+    name : "algebra7"
+    answer: answer
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'cozmo.png'
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+            Label:
+                text: "Question 7"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Answer: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.12
+                id: answer
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.3}
+            size_hint: 0.6, 0.15
+            text: "Submit"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.submit()
+                root.manager.transition.direction = "left"
+                app.root.current = "algebra8"
+
+<Algebra8>:
+
+    name : "algebra8"
+    answer: answer
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'cozmo.png'
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+            Label:
+                text: "Question 8"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Answer: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.12
+                id: answer
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.3}
+            size_hint: 0.6, 0.15
+            text: "Submit"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.submit()
+                root.manager.transition.direction = "left"
+                app.root.current = "algebra9"
+
+<Algebra9>:
+
+    name : "algebra9"
+    answer: answer
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'cozmo.png'
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+            Label:
+                text: "Question 9"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Answer: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.12
+                id: answer
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.3}
+            size_hint: 0.6, 0.15
+            text: "Submit"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.submit()
+                root.manager.transition.direction = "left"
+                app.root.current = "algebra10"
+
+<algebra10>:
+
+    name : "algebra10"
+    answer: answer
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'cozmo.png'
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+            Label:
+                text: "Question 10"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Answer: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.12
+                id: answer
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.3}
+            size_hint: 0.6, 0.15
+            text: "Submit"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.submit()
+                root.manager.transition.direction = "left"
+                app.root.current = "algebrawindow"
+
 #----------------------------------------------------------------------------------------
+#geometry questions
+<Geometry1>:
+
+    name : "geometry1"
+    answer: answer
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'cozmo.png'
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+            Label:
+                text: "Question 1"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Answer: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.12
+                id: answer
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.3}
+            size_hint: 0.6, 0.15
+            text: "Submit"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.submit()
+                root.manager.transition.direction = "left"
+                app.root.current = "geometry2"
+
+<Geometry2>:
+
+    name : "geometry2"
+    answer: answer
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'cozmo.png'
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+            Label:
+                text: "Question 2"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Answer: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.12
+                id: answer
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.3}
+            size_hint: 0.6, 0.15
+            text: "Submit"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.submit()
+                root.manager.transition.direction = "left"
+                app.root.current = "geometry3"
+
+<Geometry3>:
+
+    name : "geometry3"
+    answer: answer
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'cozmo.png'
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+            Label:
+                text: "Question 3"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Answer: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.12
+                id: answer
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.3}
+            size_hint: 0.6, 0.15
+            text: "Submit"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.submit()
+                root.manager.transition.direction = "left"
+                app.root.current = "geometry4"
+
+<Geometry4>:
+
+    name : "geometry4"
+    answer: answer
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'cozmo.png'
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+            Label:
+                text: "Question 4"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Answer: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.12
+                id: answer
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.3}
+            size_hint: 0.6, 0.15
+            text: "Submit"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.submit()
+                root.manager.transition.direction = "left"
+                app.root.current = "geometry5"
+
+<Geometry5>:
+
+    name : "geometry5"
+    answer: answer
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'cozmo.png'
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+            Label:
+                text: "Question 5"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Answer: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.12
+                id: answer
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.3}
+            size_hint: 0.6, 0.15
+            text: "Submit"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.submit()
+                root.manager.transition.direction = "left"
+                app.root.current = "geometry6"
+
+<Geometry6>:
+
+    name : "geometry6"
+    answer: answer
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'cozmo.png'
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+            Label:
+                text: "Question 6"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Answer: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.12
+                id: answer
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.3}
+            size_hint: 0.6, 0.15
+            text: "Submit"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.submit()
+                root.manager.transition.direction = "left"
+                app.root.current = "geometry7"
+
+<Geometry7>:
+
+    name : "geometry7"
+    answer: answer
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'cozmo.png'
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+            Label:
+                text: "Question 7"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Answer: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.12
+                id: answer
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.3}
+            size_hint: 0.6, 0.15
+            text: "Submit"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.submit()
+                root.manager.transition.direction = "left"
+                app.root.current = "geometry8"
+
+<Geometry8>:
+
+    name : "geometry8"
+    answer: answer
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'cozmo.png'
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+            Label:
+                text: "Question 8"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Answer: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.12
+                id: answer
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.3}
+            size_hint: 0.6, 0.15
+            text: "Submit"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.submit()
+                root.manager.transition.direction = "left"
+                app.root.current = "geometry9"
+
+<Geometry9>:
+
+    name : "geometry9"
+    answer: answer
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'cozmo.png'
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+            Label:
+                text: "Question 9"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Answer: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.12
+                id: answer
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.3}
+            size_hint: 0.6, 0.15
+            text: "Submit"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.submit()
+                root.manager.transition.direction = "left"
+                app.root.current = "geometry10"
+
+<Geometry10>:
+
+    name : "geometry10"
+    answer: answer
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'cozmo.png'
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+            Label:
+                text: "Question 10"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Answer: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.12
+                id: answer
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.3}
+            size_hint: 0.6, 0.15
+            text: "Submit"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.submit()
+                root.manager.transition.direction = "left"
+                app.root.current = "geometrywindow"
+
+#----------------------------------------------------------------------------------------
+#trig questions
+<Trig1>:
+
+    name : "trig1"
+    answer: answer
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'cozmo.png'
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+            Label:
+                text: "Question 1"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Answer: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.12
+                id: answer
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.3}
+            size_hint: 0.6, 0.15
+            text: "Submit"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.submit()
+                root.manager.transition.direction = "left"
+                app.root.current = "trig2"
+
+<Trig2>:
+
+    name : "trig2"
+    answer: answer
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'cozmo.png'
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+            Label:
+                text: "Question 2"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Answer: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.12
+                id: answer
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.3}
+            size_hint: 0.6, 0.15
+            text: "Submit"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.submit()
+                root.manager.transition.direction = "left"
+                app.root.current = "trig3"
+
+<Trig3>:
+
+    name : "trig3"
+    answer: answer
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'cozmo.png'
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+            Label:
+                text: "Question 3"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Answer: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.12
+                id: answer
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.3}
+            size_hint: 0.6, 0.15
+            text: "Submit"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.submit()
+                root.manager.transition.direction = "left"
+                app.root.current = "trig4"
+
+<Trig4>:
+
+    name : "trig4"
+    answer: answer
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'cozmo.png'
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+            Label:
+                text: "Question 4"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Answer: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.12
+                id: answer
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.3}
+            size_hint: 0.6, 0.15
+            text: "Submit"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.submit()
+                root.manager.transition.direction = "left"
+                app.root.current = "trig5"
+
+<Trig5>:
+
+    name : "trig5"
+    answer: answer
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'cozmo.png'
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+            Label:
+                text: "Question 5"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Answer: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.12
+                id: answer
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.3}
+            size_hint: 0.6, 0.15
+            text: "Submit"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.submit()
+                root.manager.transition.direction = "left"
+                app.root.current = "trig6"
+
+<Trig6>:
+
+    name : "trig6"
+    answer: answer
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'cozmo.png'
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+            Label:
+                text: "Question 6"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Answer: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.12
+                id: answer
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.3}
+            size_hint: 0.6, 0.15
+            text: "Submit"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.submit()
+                root.manager.transition.direction = "left"
+                app.root.current = "trig7"
+
+<Trig7>:
+
+    name : "trig7"
+    answer: answer
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'cozmo.png'
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+            Label:
+                text: "Question 7"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Answer: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.12
+                id: answer
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.3}
+            size_hint: 0.6, 0.15
+            text: "Submit"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.submit()
+                root.manager.transition.direction = "left"
+                app.root.current = "trig8"
+
+<Trig8>:
+
+    name : "trig8"
+    answer: answer
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'cozmo.png'
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+            Label:
+                text: "Question 8"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Answer: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.12
+                id: answer
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.3}
+            size_hint: 0.6, 0.15
+            text: "Submit"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.submit()
+                root.manager.transition.direction = "left"
+                app.root.current = "trig9"
+
+<Trig9>:
+
+    name : "trig9"
+    answer: answer
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'cozmo.png'
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+            Label:
+                text: "Question 9"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Answer: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.12
+                id: answer
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.3}
+            size_hint: 0.6, 0.15
+            text: "Submit"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.submit()
+                root.manager.transition.direction = "left"
+                app.root.current = "trig10"
+
+<Trig10>:
+
+    name : "trig10"
+    answer: answer
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'cozmo.png'
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+            Label:
+                text: "Question 10"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Answer: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.12
+                id: answer
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.3}
+            size_hint: 0.6, 0.15
+            text: "Submit"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.submit()
+                root.manager.transition.direction = "left"
+                app.root.current = "trigwindow"
+
+#----------------------------------------------------------------------------------------
+
+
+
 
