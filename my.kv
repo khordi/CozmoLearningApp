@@ -8,7 +8,7 @@ WindowManager:
     TrigWindow:
     GeometryWindow:
 
-    TrigTutorial:
+    AlgebraTutorial:
     TrigTutorial:
     GeometryTutorial:
 
@@ -59,13 +59,15 @@ WindowManager:
         spacing: 10
 
         Label:
-            color: 0,0,0,1
+            color: 1,1,1,1
+            outline_width:1
+            outline_color: 0,0,0,1
             bold: True
             text: "Please choose a topic to learn"
             halign: 'center'
             size_hint: None, None
             size: 600,50
-            
+            font_size: 25
 
         GridLayout:
             cols: 3
@@ -73,11 +75,15 @@ WindowManager:
             padding:2
 
             Button:
-                backgrond_normal: ''
+                background_normal: ''
+                background_color: 0.90, 0.4, 0.1, 0.8
                 size_hint: None, None
                 size: 200, 200
                 text: "Algebra"
                 font_size: 30
+                color: 1,1,1,1
+                outline_width:1
+                outline_color: 0,0,0,1
                 
                 on_release: 
                     app.root.current = "algebrawindow"
@@ -85,54 +91,117 @@ WindowManager:
                     #root.WhatisAlgebra()
 
             Button:
+                background_normal: ''
+                background_color: 0.90, 0.4, 0.1, 0.8               
                 size_hint: None, None
                 size: 200, 200 
                 text: "Geometry"
                 font_size: 30
-
+                color: 1,1,1,1
+                outline_width:1
+                outline_color: 0,0,0,1
                 on_release: 
                     app.root.current = "geometrywindow"
                     root.manager.transition.direction = "left"
                     
             Button:
+                background_normal: ''
+                background_color: 0.90, 0.4, 0.1, 0.8
                 id:trig
                 size_hint: None, None
                 size: 200, 200 
                 text: "Trigonometry"
                 font_size: 30
-
+                color: 1,1,1,1
+                outline_width:1
+                outline_color: 0,0,0,1
                 on_release: 
                     app.root.current = "trigwindow"
                     root.manager.transition.direction = "left"
 
-            GridLayout:
+            FloatLayout:
                 cols:2
                 spacing: 300
                 
-                Button:
-                    size_hint: None, None
-                    size: 200, 200 
-                    text: "      Student \n Leaderboards"
-                    font_size: 30
+                #Button:
+                #    size_hint: None, None
+                #    size: 200, 200 
+                #    text: "      Student \n Leaderboards"
+                #    font_size: 30
 
-                    on_release: 
-                        app.root.current = "trigwindow"
-                        root.manager.transition.direction = "left"
+                #    on_release: 
+                #        app.root.current = "trigwindow"
+                #        root.manager.transition.direction = "left"
 
                 Button:
+                    background_normal: ''
+                    background_color: 0.90, 0.4, 0.1, 0.8
                     size_hint: None, None
-                    size: 100, 100 
+                    size: 400, 100 
                     text: "Help"
                     font_size: 30
-
+                    pos_hint: {"x":0.5, "top":0.6}
                     on_release: root.btn()
 <HELP>:
     Label:
-        text: "Join the 181 boys"
+        text: "1. Select a topic from the three categories available."
+
         size_hint: 0.6, 0.2
         pos_hint: {"x":0.2, "top":1}
 
+    Label:
+        text: "2. Once a topic has been selected you can choose:"
 
+        size_hint: 0.6, 0.2
+        pos_hint: {"x":0.2, "top":0.87}
+
+    Label:
+        text: "Tutorial - To learn more about the topic"
+
+        size_hint: 0.6, 0.2
+        pos_hint: {"x":0.2, "top":0.77}
+
+    Label:
+        text: "Or"
+
+        size_hint: 0.6, 0.2
+        pos_hint: {"x":0.2, "top":0.70}
+    
+    Label:
+        text: "Q & A - To test your knowledge on the topic"
+
+        size_hint: 0.6, 0.2
+        pos_hint: {"x":0.2, "top":0.63}
+
+    Label:
+        text: "This App allows Cozmo to teach you advanced maths."
+
+        size_hint: 0.6, 0.2
+        pos_hint: {"x":0.2, "top":0.40}
+    
+    Label:
+        text: "He will use his face, actions and cubes to engage with"
+
+        size_hint: 0.6, 0.2
+        pos_hint: {"x":0.2, "top":0.34}
+    
+    Label:
+        text: "you while learning the topics. If you get stuck hit the"
+
+        size_hint: 0.6, 0.2
+        pos_hint: {"x":0.2, "top":0.28}
+    
+    Label:
+        text: "alert button at the start so your teacher knows you"
+
+        size_hint: 0.6, 0.2
+        pos_hint: {"x":0.2, "top":0.22}
+
+    Label:
+        text: "need additional help navigating the App."
+
+        size_hint: 0.6, 0.2
+        pos_hint: {"x":0.2, "top":0.16}
 #----------------------------------------------------------------------------------------
 <AlegbraWindow>:
     name: "algebrawindow"
@@ -162,9 +231,15 @@ WindowManager:
         #spacing: 50, 20
 
         Button:
+
+            background_normal: ''
+            background_color: 0.90, 0.4, 0.1, 0.8
             size_hint: None, None
             size: 400, 100         
             text: "Tutorial"
+            font_size: 25
+            outline_width:1
+            outline_color: 0,0,0,1
             on_release:  
                 app.root.current = "algebratutorial"
                 root.manager.transition.direction = "left"
@@ -173,9 +248,15 @@ WindowManager:
             cols: 1
             padding: 0,40
             Button:
+                background_normal: ''
+                background_color: 0.90, 0.4, 0.1, 0.8        
                 size_hint: None, None
                 size: 400, 100         
                 text: "Questions and Answers"
+                font_size: 25
+                outline_width:1
+                outline_color: 0,0,0,1
+
                 on_release:
                     root.titleSection()
                     app.root.current = "algebra1"
@@ -191,6 +272,10 @@ WindowManager:
                 bold: True
                 text_size: 130,0
                 font_size: 30
+                font_size: 30
+                outline_width:1
+                outline_color: 0,0,0,1
+
                 on_release: 
                     app.root.current = "main"
                     root.manager.transition.direction = "right"
@@ -227,9 +312,14 @@ WindowManager:
         #spacing: 50, 20
 
         Button:
+            background_normal: ''
+            background_color: 0.90, 0.4, 0.1, 0.8
             size_hint: None, None
             size: 400, 100         
             text: "Tutorial"
+            font_size: 25
+            outline_width:1
+            outline_color: 0,0,0,1
             on_release:
                 app.root.current = "trigtutorial"
                 root.manager.transition.direction = "left"
@@ -239,9 +329,14 @@ WindowManager:
             cols: 1
             padding: 0,40
             Button:
+                background_normal: ''
+                background_color: 0.90, 0.4, 0.1, 0.8        
                 size_hint: None, None
                 size: 400, 100         
                 text: "Questions and Answers"
+                font_size: 25
+                outline_width:1
+                outline_color: 0,0,0,1
                 on_release:
                     root.titleSection()
                     app.root.current = "trig1"
@@ -257,6 +352,8 @@ WindowManager:
                 bold: True
                 text_size: 130,0
                 font_size: 30
+                outline_width:1
+                outline_color: 0,0,0,1
                 on_release: 
                     app.root.current = "main"
                     root.manager.transition.direction = "right"
@@ -293,8 +390,15 @@ WindowManager:
         #spacing: 50, 20
 
         Button:
+            background_normal: ''
+            background_color: 0.90, 0.4, 0.1, 0.8
             size_hint: None, None
             size: 400, 100         
+            text: "Tutorial"
+            font_size: 25
+            outline_width:1
+            outline_color: 0,0,0,1
+         
             text: "Tutorial"
             on_release:  
                 app.root.current = "geometrytutorial"
@@ -304,9 +408,14 @@ WindowManager:
             cols: 1
             padding: 0,40
             Button:
+                background_normal: ''
+                background_color: 0.90, 0.4, 0.1, 0.8        
                 size_hint: None, None
                 size: 400, 100         
                 text: "Questions and Answers"
+                font_size: 25
+                outline_width:1
+                outline_color: 0,0,0,1
                 on_release:
                     root.titleSection()
                     app.root.current = "geometry1"
@@ -322,6 +431,8 @@ WindowManager:
                 bold: True
                 text_size: 130,0
                 font_size: 30
+                outline_width:1
+                outline_color: 0,0,0,1
                 on_release: 
                     app.root.current = "main"
                     root.manager.transition.direction = "right"
@@ -355,7 +466,7 @@ WindowManager:
             size: 200, 200
             font_size:30
             color: 1,0.5,0,1        
-            text: "Expressions \n        and \n   Variables"
+            text: "Expressions \n        and \n   Variables"            
             on_release: 
                 root.completed1()
                 root.expression_variables()
@@ -563,7 +674,7 @@ WindowManager:
                 text_size: 130,0
                 font_size: 30
                 on_release: 
-                    app.root.current = "algebrawindow"
+                    app.root.current = "trigwindow"
                     root.manager.transition.direction = "right"
                 Image:
                     source: "./backarrow.png"
@@ -590,7 +701,7 @@ WindowManager:
             size: 200, 200
             font_size:30
             color: 1,0.5,0,1        
-            text: "Angles"
+            text: "Angles"     
             on_release:
                 root.angletut() 
      
@@ -664,8 +775,10 @@ WindowManager:
                 bold: True
                 text_size: 130,0
                 font_size: 30
+                outline_width:1
+                outline_color: 0,0,0,1
                 on_release: 
-                    app.root.current = "algebrawindow"
+                    app.root.current = "geometrywindow"
                     root.manager.transition.direction = "right"
                 Image:
                     source: "./backarrow.png"

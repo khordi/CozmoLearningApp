@@ -21,7 +21,9 @@ from sympy.interactive import printing
 printing.init_printing(use_latex=True)
 from sympy import Eq, solve_linear_system, Matrix
 import sympy as sp
+
 #----------------------Main Screen------------------------------
+
 class MainWindow(Screen):
     def btn(self):
         show_popup()
@@ -74,15 +76,10 @@ class GeometryWindow(Screen):
         appendFile.close()    
     pass
 
-#----------------------------Database---------------------------
-
-
-#-----------------Tutorials/Q's & A's--------------------------------------------------------------
-
-
 #--------------------------ALGEBRA------------------------------
+
 class AlgebraTutorial(Screen):
-# call cozmo functions here to link up kivy and cozmo
+
     # enable buttons
     def enableButtonSub(self):
         self.ids.button_sub.disabled = False
@@ -145,6 +142,8 @@ class AlgebraTutorial(Screen):
         cozmo.run_program(displaytext_7)
         cozmo.run_program(displaytext_8)
         return
+
+#---------------------------------------------
 
 class Algebra1(Screen):
     answer = ObjectProperty(None)
@@ -286,8 +285,9 @@ class Algebra10(Screen):
     def reset(self):
         self.answer.text = ""        
 
-
+#---------------------------------------------
 #----------------------TRIG AND PYTHAG--------------------------
+
 class TrigTutorial(Screen):
 
     def triangleSides(self):
@@ -312,6 +312,7 @@ class TrigTutorial(Screen):
         cozmo.run_program(displaytan)
         return
 
+#---------------------------------------------
 
 class Trig1(Screen):
     answer = ObjectProperty(None)
@@ -453,7 +454,9 @@ class Trig10(Screen):
     def reset(self):
         self.answer.text = ""        
 
+#---------------------------------------------
 #--------------------------GEOMETRY------------------------------
+
 class GeometryTutorial(Screen):
     
     def angletut(self):
@@ -479,6 +482,8 @@ class GeometryTutorial(Screen):
     def pythag(self):
         cozmo.run_program(pythagoras)
         return
+
+#---------------------------------------------
 
 class Geometry1(Screen):
     answer = ObjectProperty(None)
@@ -620,6 +625,7 @@ class Geometry10(Screen):
     def reset(self):
         self.answer.text = ""        
   
+#---------------------------------------------
 #----------------------------------------------------------------
 
 class WindowManager(ScreenManager):
