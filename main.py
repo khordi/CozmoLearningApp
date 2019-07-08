@@ -104,10 +104,10 @@ class AlgebraTutorial(Screen):
         self.ids.button_sub.background_color = 0,1,0,0.5
 
     def completed4(self):
-        self.ids.expression_words_button.background_color = 0,1,0,0.5
+        self.ids.algebraic_button.background_color = 0,1,0,0.5
 
     def completed5(self):
-        self.ids.algebraic_button.background_color = 0,1,0,0.5
+        self.ids.expression_words_button.background_color = 0,1,0,0.5
 
     
         
@@ -120,29 +120,30 @@ class AlgebraTutorial(Screen):
 
     def combining_liketerms(self):
         cozmo.run_program(combining_liketerms1)
+        cozmo.run_program(get_in_position)
         cozmo.run_program(displaytext_2)
-        cozmo.run_program(combining_liketerms2)
         cozmo.run_program(displaytext_3)
         return
 
     def sub_evaluate(self): #introducing expressions with more than one variable
         cozmo.run_program(sub_evaluate)
+        cozmo.run_program(get_in_position)
         cozmo.run_program(displaytext_4)
         cozmo.run_program(displaytext_5)
         return
 
-    def expression_words(self: cozmo.robot.Robot): #word example of using past three topics
-        cozmo.run_program(expression_words)
-        cozmo.run_program(displaytext_6)
-        return
-        
-    
     def algebraic_equations(self):
         cozmo.run_program(algebraic_equations)
+        cozmo.run_program(get_in_position)        
         cozmo.run_program(displaytext_7)
         cozmo.run_program(displaytext_8)
         return
 
+    def expression_words(self: cozmo.robot.Robot): #word example of using past three topics
+        cozmo.run_program(expression_words)
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(displaytext_6)
+        return
 #---------------------------------------------
 
 class Algebra1(Screen):

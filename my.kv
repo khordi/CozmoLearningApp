@@ -496,22 +496,6 @@ WindowManager:
             on_release:
                 root.completed3()              
                 root.sub_evaluate()
-                root.enableButtonExp()
-                
-    #Evaluating Expression and Word Problems Button
-        Button:
-            id: expression_words_button
-            disabled: True           
-            size_hint: None, None
-            size: 200, 200
-            font_size:30
-            color: 1,0.5,0,1
-            text_size: self.size     
-            halign: 'center'    
-            text: "Evaluating \n Expressions \n and \n Word \n Problems"
-            on_release:
-                root.completed4() 
-                root.expression_words()
                 root.enableButtonAlge()
     #Algebraic Equations Button        
         Button:
@@ -524,7 +508,25 @@ WindowManager:
             text: " Equivalent \n  Algebraic \n Equations"
             on_release: 
                 root.algebraic_equations()
+                root.completed4()
+                root.enableButtonExp() 
+
+    #Evaluating Expression and Word Problems Button
+        Button:
+            id: expression_words_button
+            disabled: True           
+            size_hint: None, None
+            size: 200, 200
+            font_size:30
+            color: 1,0.5,0,1
+            text_size: self.size     
+            halign: 'center'    
+            text: "Evaluating \n Expressions \n and \n Word \n Problems"
+            on_release:
                 root.completed5() 
+                root.expression_words()
+                
+
     # ... Button        
         Button:
             disabled: True
@@ -564,6 +566,8 @@ WindowManager:
                 bold: True
                 text_size: 130,0
                 font_size: 30
+                outline_width:1
+                outline_color: 0,0,0,1
                 on_release: 
                     app.root.current = "algebrawindow"
                     root.manager.transition.direction = "right"
@@ -673,6 +677,8 @@ WindowManager:
                 bold: True
                 text_size: 130,0
                 font_size: 30
+                outline_width:1
+                outline_color: 0,0,0,1
                 on_release: 
                     app.root.current = "trigwindow"
                     root.manager.transition.direction = "right"
