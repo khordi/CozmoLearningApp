@@ -342,7 +342,7 @@ WindowManager:
                     root.titleSection()
                     app.root.current = "trig1"
                     root.manager.transition.direction = "left" 
-
+                    root.question()
         GridLayout:
             cols: 1
             padding: 100,-20
@@ -420,7 +420,8 @@ WindowManager:
                 on_release:
                     root.titleSection()
                     app.root.current = "geometry1"
-                    root.manager.transition.direction = "left" 
+                    root.manager.transition.direction = "left"
+                    #root.question() 
 
         GridLayout:
             cols: 1
@@ -470,7 +471,7 @@ WindowManager:
             text: "Expressions \n        and \n   Variables"            
             on_release: 
                 root.completed1()
-                root.expression_variables()
+                #root.expression_variables()
                 root.enableButtonComb()
     #Combining Like Terms Button
         Button:
@@ -483,7 +484,7 @@ WindowManager:
             text: " Combining \n Like Terms"
             on_release:
                 root.completed2() 
-                root.combining_liketerms()
+                #root.combining_liketerms()
                 root.enableButtonSub()
     #Substitution and Evaluating Button
         Button:
@@ -496,7 +497,7 @@ WindowManager:
             text: "Substitution \n        and \n   Evaluating"
             on_release:
                 root.completed3()              
-                root.sub_evaluate()
+                #root.sub_evaluate()
                 root.enableButtonAlge()
     #Algebraic Equations Button        
         Button:
@@ -509,7 +510,7 @@ WindowManager:
             text: " Equivalent \n  Algebraic \n Equations"
             on_release: 
                 root.algebraic_equations()
-                root.completed4()
+                #root.completed4()
                 root.enableButtonExp() 
 
     #Evaluating Expression and Word Problems Button
@@ -596,16 +597,19 @@ WindowManager:
         cols: 3
 
         Button:
-            id: expression_button
+            id: triangledef
             size_hint: None, None
             size: 200, 200
             font_size:30
             color: 1,0.5,0,1        
             text: "   Triangle \n      Side \n Definitions"
             on_release:
-                root.triangleSides() 
-
+                root.completed1()                 
+                root.triangleSides()
+                root.enableButtonRatios()
         Button: 
+            id: trigratios
+            disabled: True
             size_hint: None, None
             size: 200, 200
             font_size:30
@@ -613,9 +617,11 @@ WindowManager:
             text: " Trigonometric \n         Ratios"
             on_release: 
                 root.trigonometricratios()
-
+                root.completed2()
+                root.enableButtonSoh()
         Button:
-            id: button_one
+            id: soh_button
+            disabled: True
             size_hint: None, None
             size: 200, 200
             font_size:30
@@ -623,8 +629,11 @@ WindowManager:
             text: "SOH"
             on_release: 
                 root.soh()
-
+                root.completed3()
+                root.enableButtonCah()
         Button:
+            id: cah_button
+            disabled: True
             size_hint: None, None
             size: 200, 200
             font_size:30
@@ -632,8 +641,11 @@ WindowManager:
             text: "CAH"
             on_release: 
                 root.cah()
-
+                root.completed4()
+                root.enableButtonToa()
         Button:
+            id: toa_button            
+            disabled: True
             size_hint: None, None
             size: 200, 200
             font_size:30
@@ -641,8 +653,9 @@ WindowManager:
             text: "TOA"
             on_release: 
                 root.toa()
-
+                root.completed5()
         Button:
+            disabled: True
             size_hint: None, None
             size: 200, 200
             font_size:30
@@ -651,6 +664,7 @@ WindowManager:
             on_release: 
 
         Button:
+            disabled: True
             size_hint: None, None
             size: 200, 200
             font_size:30
@@ -659,6 +673,7 @@ WindowManager:
             on_release: 
 
         Button:
+            disabled: True
             size_hint: None, None
             size: 200, 200
             font_size:30
@@ -704,6 +719,7 @@ WindowManager:
         cols: 3
 
         Button:
+            id: angles_button
             size_hint: None, None
             size: 200, 200
             font_size:30
@@ -711,8 +727,11 @@ WindowManager:
             text: "Angles"     
             on_release:
                 root.angletut() 
-     
+                root.completed1()     
+                root.enableButtonShapes()
         Button:
+            id: shapes_button
+            disabled: True
             size_hint: None, None
             size: 200, 200
             font_size:30
@@ -720,8 +739,12 @@ WindowManager:
             text: "Shapes"
             on_release: 
                 root.shape()
+                root.completed2()
+                root.enableButtonArea()
 
         Button:
+            id: area_button
+            disabled: True
             size_hint: None, None
             size: 200, 200
             font_size:30
@@ -729,8 +752,12 @@ WindowManager:
             text: "Area"
             on_release: 
                 root.area()
+                root.completed3()
+                root.enableButtonPerimeter()
 
         Button:
+            id: perimeter_button
+            disabled: True
             size_hint: None, None
             size: 200, 200
             font_size:30
@@ -738,8 +765,11 @@ WindowManager:
             text: "Perimeter"
             on_release: 
                 root.perimetertut()
-
+                root.completed4()
+                root.enableButtonVolume()
         Button:
+            id: volume_button
+            disabled: True
             size_hint: None, None
             size: 200, 200
             font_size:30
@@ -747,8 +777,11 @@ WindowManager:
             text: "Volume"
             on_release: 
                 root.volume()
-
+                root.completed5()
+                root.enableButtonPythag()
         Button:
+            id: pythag_button
+            disabled: True
             size_hint: None, None
             size: 200, 200
             font_size:30
@@ -756,7 +789,10 @@ WindowManager:
             text: "Pythagorean \n    theorem"
             on_release: 
                 root.pythag()
+                root.completed6()
+                root.enableButtonShapes()        
         Button:
+            disabled: True
             size_hint: None, None
             size: 200, 200
             font_size:30
@@ -765,6 +801,7 @@ WindowManager:
             on_release: 
 
         Button:
+            disabled: True
             size_hint: None, None
             size: 200, 200   
             text: ""
@@ -920,7 +957,7 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "algebra3"
-                #root.question()
+                root.question()
 
         Button:
             pos_hint:{"x":0.35,"y":0.10}
@@ -987,7 +1024,7 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "algebra4"
-                #root.question()
+                root.question()
 
         Button:
             pos_hint:{"x":0.35,"y":0.10}
@@ -1053,7 +1090,7 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "algebra5"
-                #root.question()
+                root.question()
 
         Button:
             pos_hint:{"x":0.35,"y":0.10}
@@ -1119,7 +1156,7 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "algebra6"
-                #root.question()
+                root.question()
 
         Button:
             pos_hint:{"x":0.35,"y":0.10}
@@ -1185,7 +1222,7 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "algebra7"
-                #root.question()
+                root.question()
 
         Button:
             pos_hint:{"x":0.35,"y":0.10}
@@ -1251,7 +1288,7 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "algebra8"
-                #root.question()
+                root.question()
 
         Button:
             pos_hint:{"x":0.35,"y":0.10}
@@ -1305,7 +1342,7 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "algebra9"
-                #root.question()
+                root.question()
 
         Button:
             pos_hint:{"x":0.35,"y":0.10}
@@ -1609,7 +1646,7 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "geometry4"
-                #root.question()
+                root.question()
 
         Button:
             pos_hint:{"x":0.35,"y":0.10}
@@ -1667,7 +1704,7 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "geometry5"
-                #root.question()
+                root.question()
 
         Button:
             pos_hint:{"x":0.35,"y":0.10}
@@ -1725,7 +1762,7 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "geometry6"
-                #root.question()
+                root.question()
 
         Button:
             pos_hint:{"x":0.35,"y":0.10}
@@ -1783,7 +1820,7 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "geometry7"
-                #root.question()
+                root.question()
 
         Button:
             pos_hint:{"x":0.35,"y":0.10}
@@ -1841,7 +1878,7 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "geometry8"
-                #root.question()
+                root.question()
 
         Button:
             pos_hint:{"x":0.35,"y":0.10}
@@ -1899,7 +1936,7 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "geometry9"
-                #root.question()
+                root.question()
 
         Button:
             pos_hint:{"x":0.35,"y":0.10}
@@ -1956,7 +1993,7 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "geometry10"
-                #root.question()
+                root.question()
 
         Button:
             pos_hint:{"x":0.35,"y":0.10}
@@ -2014,7 +2051,7 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "geometrywindow"
-                #root.question()
+                root.question()
 
         Button:
             pos_hint:{"x":0.35,"y":0.10}
@@ -2073,7 +2110,7 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "trig2"
-
+                root.question()
 <Trig2>:
 
     name : "trig2"
@@ -2120,7 +2157,7 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "trig3"
-
+                root.question()
 <Trig3>:
 
     name : "trig3"
@@ -2167,7 +2204,7 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "trig4"
-
+                root.question()
 <Trig4>:
 
     name : "trig4"
@@ -2214,7 +2251,7 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "trig5"
-
+                root.question()
 <Trig5>:
 
     name : "trig5"
@@ -2261,7 +2298,7 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "trig6"
-
+                root.question()
 <Trig6>:
 
     name : "trig6"
@@ -2308,7 +2345,7 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "trig7"
-
+                root.question()
 <Trig7>:
 
     name : "trig7"
@@ -2355,7 +2392,7 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "trig8"
-
+                root.question()
 <Trig8>:
 
     name : "trig8"
@@ -2402,7 +2439,7 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "trig9"
-
+                root.question()
 <Trig9>:
 
     name : "trig9"
@@ -2449,7 +2486,7 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "trig10"
-
+                root.question()
 <Trig10>:
 
     name : "trig10"
@@ -2496,7 +2533,7 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "trigwindow"
-
+                root.question()
 #----------------------------------------------------------------------------------------
 
 

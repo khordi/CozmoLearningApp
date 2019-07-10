@@ -6,15 +6,19 @@ import os
 
 from PIL import Image, ImageDraw, ImageFont
 
-
+from displayText import *
 current_directory = os.path.dirname(os.path.realpath(__file__))
 
-
+_math_font = None  #try removing the try and except and = this to font etc
+try:
+    _math_font = ImageFont.truetype("arial.ttf", 25)
+except:
+    pass
 
 def angleTut(self: cozmo.robot.Robot):
     #intro to angle with example
     self.say_text("An angle is two rays that share the same vertex. Intersecting lines can also form angles: Angles are also measured in degrees.", play_excited_animation=True,voice_pitch=-1,duration_scalar=0.6).wait_for_completed()
-    self.say_text("As an example, if i drive from point A to point B",voice_pitch=0,duration_scalar=0.6).wait_for_completed()
+    self.say_text("As an example, if i drive from point Ae to point B",voice_pitch=0,duration_scalar=0.6).wait_for_completed()
     self.drive_straight(distance_mm(50), speed_mmps(50)).wait_for_completed()
     self.say_text("turn 45 degrees",voice_pitch=0,duration_scalar=0.6).wait_for_completed()
     self.turn_in_place(degrees(45)).wait_for_completed()
@@ -35,6 +39,8 @@ def angleTut(self: cozmo.robot.Robot):
     self.turn_in_place(degrees(-90)).wait_for_completed()
 
     self.say_text("The forth type is straight angle and is exactly 180 degrees",voice_pitch=0,duration_scalar=0.6).wait_for_completed()
+    self.set_head_angle(degrees(0)).wait_for_completed()
+    
     return 
 
 def shapes(self: cozmo.robot.Robot):
@@ -133,6 +139,7 @@ def shapes(self: cozmo.robot.Robot):
         self.display_oled_face_image(face_image, 2000.0, in_parallel=True)
         self.say_text("The last group is trapezoid, which has 4 sides where 2 are parallel sides and the other 2 are not ", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()       
         break
+    self.set_head_angle(degrees(0)).wait_for_completed()
 
     return
 
@@ -149,17 +156,13 @@ def areatut(self: cozmo.robot.Robot):
         self.display_oled_face_image(face_image, 2000.0, in_parallel=True)
         self.say_text("This simple example shows this rectangle has an area of 8 square units", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()       
         break
-    self.say_text("lets use a practical example, lets 1 of my cubes measure 1 square unit on its length and width. If we join three of my cubes together to make a rectangle how much area do they take up if Area equals length times width", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()       
-
-    #cube1 = self.world.get_light_cube(LightCube1Id) 
-    #cube2 = self.world.get_light_cube(LightCube2Id)  # looks like a paperclip
-    #cube3 = self.world.get_light_cube(LightCube3Id) 
-    #if ('cube1','cube2', 'cube3') is not None:
-    #    cube1.set_light_corners(cozmo.lights.blue_light, cozmo.lights.off_light,cozmo.lights.off_light,cozmo.lights.green_light)
-        #cube2.set_light_corners(cozmo.lights.red_light, cozmo.lights.green_light,cozmo.lights.off_light,cozmo.lights.red_light)
-        #cube3.set_light_corners(cozmo.lights.blue_light, cozmo.lights.red_light,cozmo.lights.red_light,cozmo.lights.off_light)
-
-    #    time.sleep(20)
+    while True:
+        math_image = make_text_image("A = l x w", 8, 6, _math_font)  # Create the updated image with this time
+        oled_face_data = cozmo.oled_face.convert_image_to_screen_data(math_image)
+        self.display_oled_face_image(oled_face_data, 2000.0) # display for 1 second
+        self.say_text("A formula to remember for the area of a rectangle is, Area = length multiplied by width", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()
+        break
+    self.set_head_angle(degrees(0)).wait_for_completed()
 
     return
 
@@ -173,8 +176,9 @@ def perimeter(self: cozmo.robot.Robot):
         resized_image = image.resize(cozmo.oled_face.dimensions(), resampling_mode)
         face_image = cozmo.oled_face.convert_image_to_screen_data(resized_image,invert_image=True)
         self.display_oled_face_image(face_image, 2000.0, in_parallel=True)
-        self.say_text("We can find the perimeter of this shape my simply adding all the side lengths. 2+3+5+3 equals 13 centimeters", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()       
+        self.say_text("We can find the perimeter of this shape by simply adding all the side lengths. 2+3+5+3 equals 13 centimeters", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()       
         break
+    self.set_head_angle(degrees(0)).wait_for_completed()
 
     return
 
@@ -191,7 +195,13 @@ def volumetut(self: cozmo.robot.Robot):
         self.display_oled_face_image(face_image, 2000.0, in_parallel=True)
         self.say_text("For this example the volume is worked out by 8 time 3 times 1 which equals 24 units cubed", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()       
         break
-
+    while True:
+        math_image = make_text_image("V = l*h*w", 8, 6, _math_font)  # Create the updated image with this time
+        oled_face_data = cozmo.oled_face.convert_image_to_screen_data(math_image)
+        self.display_oled_face_image(oled_face_data, 2000.0) # display for 1 second
+        self.say_text("A formula to remember for the volume of a rectangle is, volume = length multiplied by height multiplied by width", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()
+        break
+    self.set_head_angle(degrees(0)).wait_for_completed()
 
     return
 
@@ -216,5 +226,6 @@ def pythagoras(self: cozmo.robot.Robot):
         self.display_oled_face_image(face_image, 2000.0, in_parallel=True)
         self.say_text("This can be written as, Ae squared equals B squared plus C squared", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed() 
         break
+    self.set_head_angle(degrees(0)).wait_for_completed()
 
     return

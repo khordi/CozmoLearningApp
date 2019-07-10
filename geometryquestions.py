@@ -205,7 +205,7 @@ def question6G(self: cozmo.robot.Robot):
     
     while True:
         resampling_mode = Image.BICUBIC
-        image_name = os.path.join(current_directory, "face_images","shapes", "triangleq.png")
+        image_name = os.path.join(current_directory, "face_images", "triangleqg.png")
         image = Image.open(image_name)
         resized_image = image.resize(cozmo.oled_face.dimensions(), resampling_mode)
         face_image = cozmo.oled_face.convert_image_to_screen_data(resized_image,invert_image=True)
@@ -263,7 +263,7 @@ def question10G(self: cozmo.robot.Robot):
 
     while True:
         resampling_mode = Image.NEAREST
-        image_name = os.path.join(current_directory, "face_images","shapes", "trianglex.png")
+        image_name = os.path.join(current_directory, "face_images", "trianglex.png")
         image = Image.open(image_name)
         resized_image = image.resize(cozmo.oled_face.dimensions(), resampling_mode)
         face_image = cozmo.oled_face.convert_image_to_screen_data(resized_image,invert_image=True)

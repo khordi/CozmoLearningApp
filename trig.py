@@ -1,5 +1,7 @@
 import cozmo
 from cozmo.objects import LightCube1Id, LightCube2Id, LightCube3Id
+from cozmo.util import degrees, distance_mm, speed_mmps
+
 import time
 import os
 
@@ -8,7 +10,7 @@ current_directory = os.path.dirname(os.path.realpath(__file__))
 
 def triangleSide(self: cozmo.robot.Robot):
     self.say_text("Welcome to learning about triangle definitions!", play_excited_animation=True,voice_pitch=-1,duration_scalar=0.6).wait_for_completed()
-    self.say_text("In trigonometry we use special words to describe the sides of right angle triangles. which are labelled as H,O,A and refer to the length of the sides.",voice_pitch=-1,duration_scalar=0.6).wait_for_completed()
+    self.say_text("In trigonometry we use special words to describe the sides of right angle triangles. which are labelled as H,O,Ae and refer to the length of the sides.",voice_pitch=-1,duration_scalar=0.6).wait_for_completed()
     return
 
 def displayHOA(self: cozmo.robot.Robot):
@@ -93,7 +95,9 @@ def trigratio(self: cozmo.robot.Robot):
     return
 
 def displaysin(self: cozmo.robot.Robot):
-    
+    self.say_text("Lets learn the ratio sine first", play_excited_animation=True,voice_pitch=-1,duration_scalar=0.6).wait_for_completed()
+    self.set_head_angle(degrees(90)).wait_for_completed()
+
     while True:
         resampling_mode = Image.NEAREST
         image_name = os.path.join(current_directory, "face_images", "ratioO.png")
@@ -118,11 +122,13 @@ def displaysin(self: cozmo.robot.Robot):
         resized_image = image.resize(cozmo.oled_face.dimensions(), resampling_mode)
         face_image = cozmo.oled_face.convert_image_to_screen_data(resized_image,invert_image=True)
         self.display_oled_face_image(face_image, 3000.0, in_parallel=True)
-        self.say_text("and can be remember using SOH, where S is sine, O is opposite, and H is hypotenuse", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()
+        self.say_text("and can be remembered using SOH, where S is sine, O is opposite, and H is hypotenuse", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()
         time.sleep(3)
         break
 
 def displaycos(self: cozmo.robot.Robot):
+    self.say_text("Lets learn the ratio cosine now", play_excited_animation=True,voice_pitch=-1,duration_scalar=0.6).wait_for_completed()
+    self.set_head_angle(degrees(90)).wait_for_completed()
 
     while True:
         resampling_mode = Image.NEAREST
@@ -154,6 +160,8 @@ def displaycos(self: cozmo.robot.Robot):
     return
 
 def displaytan(self: cozmo.robot.Robot):
+    self.say_text("Lastly lets learn the ratio tangent", play_excited_animation=True,voice_pitch=-1,duration_scalar=0.6).wait_for_completed()
+    self.set_head_angle(degrees(90)).wait_for_completed()
 
     while True:
         resampling_mode = Image.NEAREST

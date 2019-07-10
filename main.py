@@ -18,7 +18,7 @@ from geometry import *
 
 from algebraquestions import *
 from geometryquestions import * 
-
+from trigquestions import *
 from sympy.interactive import printing
 printing.init_printing(use_latex=True)
 from sympy import Eq, solve_linear_system, Matrix
@@ -75,8 +75,8 @@ class TrigWindow(Screen):
     pass
 
     def question(self):
-        #cozmo.run_program(get_in_position)
-        #cozmo.run_program(question1G)
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question1T)
         return
 
 class GeometryWindow(Screen):
@@ -89,8 +89,8 @@ class GeometryWindow(Screen):
     pass
 
     def question(self):
-        #cozmo.run_program(get_in_position)
-        #cozmo.run_program(question1G)
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question1G)
         return
 #--------------------------ALGEBRA------------------------------
 
@@ -383,6 +383,31 @@ class Algebra10(Screen):
 #----------------------TRIG AND PYTHAG--------------------------
 
 class TrigTutorial(Screen):
+    
+    def enableButtonRatios(self):
+        self.ids.trigratios.disabled = False
+    def enableButtonSoh(self):
+        self.ids.soh_button.disabled = False
+    def enableButtonCah(self):
+        self.ids.cah_button.disabled = False
+    def enableButtonToa(self):
+        self.ids.toa_button.disabled = False
+
+    def completed1(self):
+        self.ids.triangledef.background_color = 0,1,0,0.5
+        
+    def completed2(self):
+        self.ids.trigratios.background_color = 0,1,0,0.5
+
+    def completed3(self):
+        self.ids.soh_button.background_color = 0,1,0,0.5
+
+    def completed4(self):
+        self.ids.cah_button.background_color = 0,1,0,0.5
+
+    def completed5(self):
+        self.ids.toa_button.background_color = 0,1,0,0.5
+
 
     def triangleSides(self):
         cozmo.run_program(triangleSide)
@@ -424,11 +449,11 @@ class Trig1(Screen):
     
     def question(self):
         cozmo.run_program(get_in_position)
-        cozmo.run_program(question2G)
+        cozmo.run_program(question2T)
 
     def requestion(self):
         cozmo.run_program(get_in_position)
-        cozmo.run_program(question1G)
+        cozmo.run_program(question1T)
 
 class Trig2(Screen):
     answer = ObjectProperty(None)
@@ -446,11 +471,11 @@ class Trig2(Screen):
     
     def question(self):
         cozmo.run_program(get_in_position)
-        cozmo.run_program(question3G)
+        cozmo.run_program(question3T)
 
     def requestion(self):
         cozmo.run_program(get_in_position)
-        cozmo.run_program(question2G)
+        cozmo.run_program(question2T)
 
 class Trig3(Screen):
     answer = ObjectProperty(None)
@@ -468,11 +493,11 @@ class Trig3(Screen):
     
     def question(self):
         cozmo.run_program(get_in_position)
-        cozmo.run_program(question4G)
+        cozmo.run_program(question4T)
 
     def requestion(self):
         cozmo.run_program(get_in_position)
-        cozmo.run_program(question3G)     
+        cozmo.run_program(question3T)     
 
 class Trig4(Screen):
     answer = ObjectProperty(None)
@@ -490,11 +515,11 @@ class Trig4(Screen):
     
     def question(self):
         cozmo.run_program(get_in_position)
-        cozmo.run_program(question5G)
+        cozmo.run_program(question5T)
 
     def requestion(self):
         cozmo.run_program(get_in_position)
-        cozmo.run_program(question4G)    
+        cozmo.run_program(question4T)    
 
 class Trig5(Screen):
     answer = ObjectProperty(None)
@@ -512,11 +537,11 @@ class Trig5(Screen):
     
     def question(self):
         cozmo.run_program(get_in_position)
-        cozmo.run_program(question6G)
+        cozmo.run_program(question6T)
 
     def requestion(self):
         cozmo.run_program(get_in_position)
-        cozmo.run_program(question5G)
+        cozmo.run_program(question5T)
 
 class Trig6(Screen):
     answer = ObjectProperty(None)
@@ -534,11 +559,11 @@ class Trig6(Screen):
     
     def question(self):
         cozmo.run_program(get_in_position)
-        cozmo.run_program(question7G)
+        cozmo.run_program(question7T)
 
     def requestion(self):
         cozmo.run_program(get_in_position)
-        cozmo.run_program(question6G)      
+        cozmo.run_program(question6T)      
 
 class Trig7(Screen):
     answer = ObjectProperty(None)
@@ -556,11 +581,11 @@ class Trig7(Screen):
     
     def question(self):
         cozmo.run_program(get_in_position)
-        cozmo.run_program(question8G)
+        cozmo.run_program(question8T)
 
     def requestion(self):
         cozmo.run_program(get_in_position)
-        cozmo.run_program(question7G)        
+        cozmo.run_program(question7T)        
 
 class Trig8(Screen):
     answer = ObjectProperty(None)
@@ -578,11 +603,11 @@ class Trig8(Screen):
     
     def question(self):
         cozmo.run_program(get_in_position)
-        cozmo.run_program(question9G)
+        cozmo.run_program(question9T)
 
     def requestion(self):
         cozmo.run_program(get_in_position)
-        cozmo.run_program(question8G)     
+        cozmo.run_program(question8T)     
 
 class Trig9(Screen):
     answer = ObjectProperty(None)
@@ -600,11 +625,11 @@ class Trig9(Screen):
     
     def question(self):
         cozmo.run_program(get_in_position)
-        cozmo.run_program(question10G)
+        cozmo.run_program(question10T)
 
     def requestion(self):
         cozmo.run_program(get_in_position)
-        cozmo.run_program(question9G)       
+        cozmo.run_program(question9T)       
 
 class Trig10(Screen):
     answer = ObjectProperty(None)
@@ -622,34 +647,68 @@ class Trig10(Screen):
 
     def requestion(self):
         cozmo.run_program(get_in_position)
-        cozmo.run_program(question10G)   
+        cozmo.run_program(question10T)   
 
 #---------------------------------------------
 #--------------------------GEOMETRY------------------------------
 
 class GeometryTutorial(Screen):
     
+    def enableButtonShapes(self):
+        self.ids.shapes_button.disabled = False
+    def enableButtonArea(self):
+        self.ids.area_button.disabled = False
+    def enableButtonPerimeter(self):
+        self.ids.perimeter_button.disabled = False
+    def enableButtonVolume(self):
+        self.ids.volume_button.disabled = False    
+    def enableButtonPythag(self):
+        self.ids.pythag_button.disabled = False    
+
+    def completed1(self):
+        self.ids.angles_button.background_color = 0,1,0,0.5
+        
+    def completed2(self):
+        self.ids.shapes_button.background_color = 0,1,0,0.5
+
+    def completed3(self):
+        self.ids.area_button.background_color = 0,1,0,0.5
+
+    def completed4(self):
+        self.ids.perimeter_button.background_color = 0,1,0,0.5
+
+    def completed5(self):
+        self.ids.volume_button.background_color = 0,1,0,0.5
+    
+    def completed6(self):
+        self.ids.pythag_button.background_color = 0,1,0,0.5    
+    
     def angletut(self):
         cozmo.run_program(angleTut)
         return
 
     def shape(self):
+        cozmo.run_program(get_in_position)
         cozmo.run_program(shapes)
         return
 
     def area(self):
+        cozmo.run_program(get_in_position)    
         cozmo.run_program(areatut)
         return
 
     def perimetertut(self):
+        cozmo.run_program(get_in_position)            
         cozmo.run_program(perimeter)
         return
 
     def volume(self):
+        cozmo.run_program(get_in_position)                    
         cozmo.run_program(volumetut)
         return
 
     def pythag(self):
+        cozmo.run_program(get_in_position)            
         cozmo.run_program(pythagoras)
         return
 

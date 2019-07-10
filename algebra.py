@@ -75,7 +75,7 @@ def expression_words(self: cozmo.robot.Robot):
     return
 
 def algebraic_equations(self: cozmo.robot.Robot):
-    self.say_text("Welcome to Equivalent algebraic equations", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
+    self.say_text("Welcome to Equivalent algebraic equations",play_excited_animation=True, voice_pitch=0,duration_scalar=0.6).wait_for_completed()
     self.say_text("Finding the equivalent equation can help simplify your questions, for example:", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
     return
 
@@ -143,7 +143,7 @@ def displaytext_3(self: cozmo.robot.Robot):
         math_image = make_text_image("   9x + 7y", 8, 6, _math_font)    # Create the updated image with this time
         oled_face_data = cozmo.oled_face.convert_image_to_screen_data(math_image)
         self.display_oled_face_image(oled_face_data, 2000.0)   # display for 1 second
-        self.say_text("this equation. All we did was add the same terms together. This is the same for all arithmetic operations", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()
+        self.say_text("this expression. All we did was add the same terms together. This is the same for all arithmetic operations", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()
         self.set_head_angle(degrees(0)).wait_for_completed()
         break
 
@@ -202,7 +202,7 @@ def displaytext_5(self: cozmo.robot.Robot):
         math_image = make_text_image("   4 + 2", 8, 6, _math_font)  # Create the updated image with this time
         oled_face_data = cozmo.oled_face.convert_image_to_screen_data(math_image)
         self.display_oled_face_image(oled_face_data, 2000.0, in_parallel=True)  # display for 1 second
-        self.say_text(" this equals 4 + 2, We can then further simply this down which equals 6", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()
+        self.say_text(" this equals 4 + 2, We can then further simplify this down which equals 6", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()
         self.set_head_angle(degrees(0)).wait_for_completed()
 
         break
@@ -289,6 +289,47 @@ def displaytext_6(self: cozmo.robot.Robot):
 
     self.say_text("Well done! Your answer should equal 7 ",play_excited_animation=True,voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()
 
+    if ('cube1') is not None:
+        cube1.set_lights(cozmo.lights.green_light)
+
+    else:
+        cozmo.logger.warning("Cozmo is not connected to a LightCube1Id cube - check the battery.")
+    
+    try:
+        self.say_text("Tap the Green cube if you are ready to move onto the next tutorial. Otherwise, wait for me to create you another problem to try!", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
+        self.say_text("", play_excited_animation=True, voice_pitch=0,duration_scalar=0.6).wait_for_completed()
+        cube1.wait_for_tap(timeout = 4)
+        if ('cube1') is None:
+            cube1.set_lights(cozmo.lights.off_light)            
+
+    except:
+        self.say_text("Ok, lets try another problem!",play_excited_animation=True ,voice_pitch=0,duration_scalar=0.6).wait_for_completed()
+        self.say_text("A shop keeper works out his daily earnings by the following expression:", voice_pitch=0,duration_scalar=0.6).wait_for_completed()
+        tap = 0
+        if ('cube1') is not None:
+            cube1.set_lights(cozmo.lights.blue_light)
+
+        else:
+            cozmo.logger.warning("Cozmo is not connected to a LightCube1Id cube - check the battery.")
+
+        while True:
+            math_image = make_text_image("2t + 1n", 8, 6, _math_font)  # Create the updated image with this time
+            oled_face_data = cozmo.oled_face.convert_image_to_screen_data(math_image)
+            self.display_oled_face_image(oled_face_data, 2000.0, in_parallel=True)  # display for 1 second
+            self.say_text("Evaluate the expression when t = 1 and n = 2, When you have worked out the answer, tap the blue cube equal to the amount you calculated", voice_pitch=0,duration_scalar=0.6,in_parallel=True).wait_for_completed()
+            break
+
+
+
+
+        while tap < 4:
+            
+            cube1.wait_for_tap()
+            tap += 1  # This is the same as count = count + 1   
+
+
+        self.say_text("Congrats! Your answer should equal 4 ",play_excited_animation=True,voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()
+
     return 
 
 def displaytext_7(self: cozmo.robot.Robot):
@@ -332,31 +373,23 @@ def displaytext_8(self: cozmo.robot.Robot):
         get_in_position(self)
         
         while True:
-            math_image = make_text_image(" 3x- 2y - x", 8, 6, _math_font)                                          # Create the updated image with this time
+            math_image = make_text_image("4(4a + 5)", 8, 6, _math_font)                                          # Create the updated image with this time
             oled_face_data = cozmo.oled_face.convert_image_to_screen_data(math_image)
             self.display_oled_face_image(oled_face_data, 2000.0)                       # display for 1 second
-            self.say_text("In this example we see 1 term that we can simplify, this term is x", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()
+            self.say_text("This problem can be written in many ways, for example:", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()
             break
         
         while True:
-            math_image = make_text_image("  2x - 2y", 8, 6, _math_font)    # Create the updated image with this time
+            math_image = make_text_image(" 16a + 20", 8, 6, _math_font)    # Create the updated image with this time
             oled_face_data = cozmo.oled_face.convert_image_to_screen_data(math_image)
-            self.display_oled_face_image(oled_face_data, 2000.0)   # display for 1 second
-            self.say_text("we are left with 2x minus 2y. Where x = 1 and y = 1", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()
+            self.display_oled_face_image(oled_face_data, 3000.0)   # display for 1 second
+            self.say_text("simplifying the expression by multiplying out the brackets will get you this", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()
             break
 
         while True:
-            math_image = make_text_image("2(1) - 2(1)", 8, 6, _math_font)    # Create the updated image with this time
+            math_image = make_text_image("12a+20+4a", 8, 6, _text_font)    # Create the updated image with this time
             oled_face_data = cozmo.oled_face.convert_image_to_screen_data(math_image)
             self.display_oled_face_image(oled_face_data, 2000.0)   # display for 1 second
-            self.say_text("substitute x and y and we get this", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()
+            self.say_text("Or it can be expressed as this equation too. They all mean the same thing.", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()
             break    
-
-        while True:
-            math_image = make_text_image("   2 - 2", 8, 6, _math_font)    # Create the updated image with this time
-            oled_face_data = cozmo.oled_face.convert_image_to_screen_data(math_image)
-            self.display_oled_face_image(oled_face_data, 2000.0)   # display for 1 second
-            self.say_text("simplifying this will leave us with 2 minus 2 which is equal to 0", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()
-            self.set_head_angle(degrees(0)).wait_for_completed()
-            break
     return
