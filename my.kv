@@ -261,6 +261,7 @@ WindowManager:
                     root.titleSection()
                     app.root.current = "algebra1"
                     root.manager.transition.direction = "left"
+                    #root.question()
 
         GridLayout:
             cols: 1
@@ -812,6 +813,7 @@ WindowManager:
             Label:
                 text: "Question 1"
                 size_hint: 0.8, 0.2
+                color: 0,0,0,1
                 pos_hint: {"x":0.1, "top":1}
                 font_size: (root.width**2 + root.height**2) / 14**4
 
@@ -820,15 +822,26 @@ WindowManager:
                 pos_hint: {"x":0, "top":0.8}
                 text: "Answer: "
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+                color: 0,0,0,1
             TextInput:
                 pos_hint: {"x":0.5, "top":0.8}
                 size_hint: 0.4, 0.12
                 id: answer
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
-
-
+                color: 0,0,0,1
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.65}
+                text: "Expression: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+                color: 0,0,0,1
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0.33, "top":0.65}
+                text: "10x + 4y + b"
+                font_size: (root.width**2 + root.height**2) / 14**4
+                color: 0,0,0,1
         Button:
             pos_hint:{"x":0.2,"y":0.3}
             size_hint: 0.6, 0.15
@@ -838,7 +851,16 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "algebra2"
+                root.question()
 
+        Button:
+            pos_hint:{"x":0.35,"y":0.10}
+            size_hint: 0.3, 0.15
+            text: "Repeat Question"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            
+            on_release:
+                root.requestion()
 <Algebra2>:
 
     name : "algebra2"
@@ -861,20 +883,33 @@ WindowManager:
                 size_hint: 0.8, 0.2
                 pos_hint: {"x":0.1, "top":1}
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+                color: 0,0,0,1
             Label:
                 size_hint: 0.5,0.12
                 pos_hint: {"x":0, "top":0.8}
                 text: "Answer: "
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+                color: 0,0,0,1
             TextInput:
                 pos_hint: {"x":0.5, "top":0.8}
                 size_hint: 0.4, 0.12
                 id: answer
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
+                color: 0,0,0,1
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.65}
+                text: "Expression: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+                color: 0,0,0,1
 
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0.33, "top":0.65}
+                text: "7x - 5x + 2y - 2y"
+                font_size: (root.width**2 + root.height**2) / 14**4
+                color: 0,0,0,1
 
         Button:
             pos_hint:{"x":0.2,"y":0.3}
@@ -885,7 +920,15 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "algebra3"
+                #root.question()
 
+        Button:
+            pos_hint:{"x":0.35,"y":0.10}
+            size_hint: 0.3, 0.15
+            text: "Repeat Question"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.requestion()
 <Algebra3>:
 
     name : "algebra3"
@@ -908,13 +951,13 @@ WindowManager:
                 size_hint: 0.8, 0.2
                 pos_hint: {"x":0.1, "top":1}
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+                color: 0,0,0,1
             Label:
                 size_hint: 0.5,0.12
                 pos_hint: {"x":0, "top":0.8}
                 text: "Answer: "
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+                color: 0,0,0,1
             TextInput:
                 pos_hint: {"x":0.5, "top":0.8}
                 size_hint: 0.4, 0.12
@@ -922,6 +965,18 @@ WindowManager:
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
 
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.65}
+                text: "Expression: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+                color: 0,0,0,1
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0.33, "top":0.65}
+                text: "x + 8 = 2y - 7"
+                font_size: (root.width**2 + root.height**2) / 14**4
+                color: 0,0,0,1
 
         Button:
             pos_hint:{"x":0.2,"y":0.3}
@@ -932,7 +987,15 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "algebra4"
+                #root.question()
 
+        Button:
+            pos_hint:{"x":0.35,"y":0.10}
+            size_hint: 0.3, 0.15
+            text: "Repeat Question"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.requestion()
 <Algebra4>:
 
     name : "algebra4"
@@ -955,20 +1018,31 @@ WindowManager:
                 size_hint: 0.8, 0.2
                 pos_hint: {"x":0.1, "top":1}
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+                color: 0,0,0,1
             Label:
                 size_hint: 0.5,0.12
                 pos_hint: {"x":0, "top":0.8}
                 text: "Answer: "
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+                color: 0,0,0,1
             TextInput:
                 pos_hint: {"x":0.5, "top":0.8}
                 size_hint: 0.4, 0.12
                 id: answer
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.65}
+                text: "Expression: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+                color: 0,0,0,1
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0.33, "top":0.65}
+                text: "11x - 4x + 1, where x = 2"
+                font_size: (root.width**2 + root.height**2) / 14**4
+                color: 0,0,0,1
 
         Button:
             pos_hint:{"x":0.2,"y":0.3}
@@ -979,7 +1053,15 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "algebra5"
+                #root.question()
 
+        Button:
+            pos_hint:{"x":0.35,"y":0.10}
+            size_hint: 0.3, 0.15
+            text: "Repeat Question"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.requestion()
 <Algebra5>:
 
     name : "algebra5"
@@ -1002,20 +1084,31 @@ WindowManager:
                 size_hint: 0.8, 0.2
                 pos_hint: {"x":0.1, "top":1}
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+                color: 0,0,0,1
             Label:
                 size_hint: 0.5,0.12
                 pos_hint: {"x":0, "top":0.8}
                 text: "Answer: "
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+                color: 0,0,0,1
             TextInput:
                 pos_hint: {"x":0.5, "top":0.8}
                 size_hint: 0.4, 0.12
                 id: answer
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.65}
+                text: "Expression: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+                color: 0,0,0,1
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0.33, "top":0.65}
+                text: "x - 4y = 2x - 2y, where y = 5"
+                font_size: (root.width**2 + root.height**2) / 14**4
+                color: 0,0,0,1
 
         Button:
             pos_hint:{"x":0.2,"y":0.3}
@@ -1026,7 +1119,15 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "algebra6"
+                #root.question()
 
+        Button:
+            pos_hint:{"x":0.35,"y":0.10}
+            size_hint: 0.3, 0.15
+            text: "Repeat Question"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.requestion()
 <Algebra6>:
 
     name : "algebra6"
@@ -1049,20 +1150,31 @@ WindowManager:
                 size_hint: 0.8, 0.2
                 pos_hint: {"x":0.1, "top":1}
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+                color: 0,0,0,1
             Label:
                 size_hint: 0.5,0.12
                 pos_hint: {"x":0, "top":0.8}
                 text: "Answer: "
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+                color: 0,0,0,1
             TextInput:
                 pos_hint: {"x":0.5, "top":0.8}
                 size_hint: 0.4, 0.12
                 id: answer
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.65}
+                text: "Expression: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+                color: 0,0,0,1
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0.33, "top":0.65}
+                text: "2(3x + 8) + 2"
+                font_size: (root.width**2 + root.height**2) / 14**4
+                color: 0,0,0,1
 
         Button:
             pos_hint:{"x":0.2,"y":0.3}
@@ -1073,7 +1185,15 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "algebra7"
+                #root.question()
 
+        Button:
+            pos_hint:{"x":0.35,"y":0.10}
+            size_hint: 0.3, 0.15
+            text: "Repeat Question"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.requestion()
 <Algebra7>:
 
     name : "algebra7"
@@ -1096,20 +1216,31 @@ WindowManager:
                 size_hint: 0.8, 0.2
                 pos_hint: {"x":0.1, "top":1}
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+                color: 0,0,0,1
             Label:
                 size_hint: 0.5,0.12
                 pos_hint: {"x":0, "top":0.8}
                 text: "Answer: "
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+                color: 0,0,0,1
             TextInput:
                 pos_hint: {"x":0.5, "top":0.8}
                 size_hint: 0.4, 0.12
                 id: answer
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.65}
+                text: "Expression: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+                color: 0,0,0,1
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0.33, "top":0.65}
+                text: "(x + 7) + 2(2y + 2x)"
+                font_size: (root.width**2 + root.height**2) / 14**4
+                color: 0,0,0,1
 
         Button:
             pos_hint:{"x":0.2,"y":0.3}
@@ -1120,7 +1251,15 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "algebra8"
+                #root.question()
 
+        Button:
+            pos_hint:{"x":0.35,"y":0.10}
+            size_hint: 0.3, 0.15
+            text: "Repeat Question"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.requestion()
 <Algebra8>:
 
     name : "algebra8"
@@ -1143,20 +1282,19 @@ WindowManager:
                 size_hint: 0.8, 0.2
                 pos_hint: {"x":0.1, "top":1}
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+                color: 0,0,0,1
             Label:
                 size_hint: 0.5,0.12
                 pos_hint: {"x":0, "top":0.8}
                 text: "Answer: "
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+                color: 0,0,0,1
             TextInput:
                 pos_hint: {"x":0.5, "top":0.8}
                 size_hint: 0.4, 0.12
                 id: answer
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
-
 
         Button:
             pos_hint:{"x":0.2,"y":0.3}
@@ -1167,7 +1305,15 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "algebra9"
+                #root.question()
 
+        Button:
+            pos_hint:{"x":0.35,"y":0.10}
+            size_hint: 0.3, 0.15
+            text: "Repeat Question"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.requestion()
 <Algebra9>:
 
     name : "algebra9"
@@ -1190,20 +1336,31 @@ WindowManager:
                 size_hint: 0.8, 0.2
                 pos_hint: {"x":0.1, "top":1}
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+                color: 0,0,0,1
             Label:
                 size_hint: 0.5,0.12
                 pos_hint: {"x":0, "top":0.8}
                 text: "Answer: "
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+                color: 0,0,0,1
             TextInput:
                 pos_hint: {"x":0.5, "top":0.8}
                 size_hint: 0.4, 0.12
                 id: answer
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":-0.1, "top":0.65}
+                text: "Expression: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+                color: 0,0,0,1
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0.37, "top":0.65}
+                text: "3.5b + 1.5h, where b = burgers and h = hotdogs"
+                font_size: (root.width**2 + root.height**2) / 14**4
+                color: 0,0,0,1
 
         Button:
             pos_hint:{"x":0.2,"y":0.3}
@@ -1214,7 +1371,15 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "algebra10"
+                root.question()
 
+        Button:
+            pos_hint:{"x":0.35,"y":0.10}
+            size_hint: 0.3, 0.15
+            text: "Repeat Question"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.requestion()
 <algebra10>:
 
     name : "algebra10"
@@ -1237,20 +1402,31 @@ WindowManager:
                 size_hint: 0.8, 0.2
                 pos_hint: {"x":0.1, "top":1}
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+                color: 0,0,0,1
             Label:
                 size_hint: 0.5,0.12
                 pos_hint: {"x":0, "top":0.8}
                 text: "Answer: "
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+                color: 0,0,0,1
             TextInput:
                 pos_hint: {"x":0.5, "top":0.8}
                 size_hint: 0.4, 0.12
                 id: answer
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.65}
+                text: "Expression: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+                color: 0,0,0,1
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0.33, "top":0.65}
+                text: "2(1.5t + 8),  where t = days"
+                font_size: (root.width**2 + root.height**2) / 14**4
+                color: 0,0,0,1
 
         Button:
             pos_hint:{"x":0.2,"y":0.3}
@@ -1261,6 +1437,14 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "algebrawindow"
+
+        Button:
+            pos_hint:{"x":0.35,"y":0.10}
+            size_hint: 0.3, 0.15
+            text: "Repeat Question"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.requestion()
 
 #----------------------------------------------------------------------------------------
 #geometry questions
@@ -1284,6 +1468,7 @@ WindowManager:
             Label:
                 text: "Question 1"
                 size_hint: 0.8, 0.2
+                color: 0,0,0,1
                 pos_hint: {"x":0.1, "top":1}
                 font_size: (root.width**2 + root.height**2) / 14**4
 
@@ -1292,15 +1477,13 @@ WindowManager:
                 pos_hint: {"x":0, "top":0.8}
                 text: "Answer: "
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+                color: 0,0,0,1
             TextInput:
                 pos_hint: {"x":0.5, "top":0.8}
                 size_hint: 0.4, 0.12
                 id: answer
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
-
-
         Button:
             pos_hint:{"x":0.2,"y":0.3}
             size_hint: 0.6, 0.15
@@ -1310,6 +1493,16 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "geometry2"
+                root.question()
+
+        Button:
+            pos_hint:{"x":0.35,"y":0.10}
+            size_hint: 0.3, 0.15
+            text: "Repeat Question"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            
+            on_release:
+                root.requestion()
 
 <Geometry2>:
 
@@ -1331,6 +1524,7 @@ WindowManager:
             Label:
                 text: "Question 2"
                 size_hint: 0.8, 0.2
+                color: 0,0,0,1
                 pos_hint: {"x":0.1, "top":1}
                 font_size: (root.width**2 + root.height**2) / 14**4
 
@@ -1339,14 +1533,14 @@ WindowManager:
                 pos_hint: {"x":0, "top":0.8}
                 text: "Answer: "
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+                color: 0,0,0,1
             TextInput:
                 pos_hint: {"x":0.5, "top":0.8}
                 size_hint: 0.4, 0.12
                 id: answer
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+                color: 0,0,0,1
 
         Button:
             pos_hint:{"x":0.2,"y":0.3}
@@ -1357,6 +1551,16 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "geometry3"
+                root.question()
+
+        Button:
+            pos_hint:{"x":0.35,"y":0.10}
+            size_hint: 0.3, 0.15
+            text: "Repeat Question"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            
+            on_release:
+                root.requestion()
 
 <Geometry3>:
 
@@ -1378,6 +1582,7 @@ WindowManager:
             Label:
                 text: "Question 3"
                 size_hint: 0.8, 0.2
+                color: 0,0,0,1
                 pos_hint: {"x":0.1, "top":1}
                 font_size: (root.width**2 + root.height**2) / 14**4
 
@@ -1386,14 +1591,14 @@ WindowManager:
                 pos_hint: {"x":0, "top":0.8}
                 text: "Answer: "
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+                color: 0,0,0,1
             TextInput:
                 pos_hint: {"x":0.5, "top":0.8}
                 size_hint: 0.4, 0.12
                 id: answer
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+                color: 0,0,0,1
 
         Button:
             pos_hint:{"x":0.2,"y":0.3}
@@ -1404,6 +1609,16 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "geometry4"
+                #root.question()
+
+        Button:
+            pos_hint:{"x":0.35,"y":0.10}
+            size_hint: 0.3, 0.15
+            text: "Repeat Question"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            
+            on_release:
+                root.requestion()
 
 <Geometry4>:
 
@@ -1425,6 +1640,7 @@ WindowManager:
             Label:
                 text: "Question 4"
                 size_hint: 0.8, 0.2
+                color: 0,0,0,1
                 pos_hint: {"x":0.1, "top":1}
                 font_size: (root.width**2 + root.height**2) / 14**4
 
@@ -1433,14 +1649,14 @@ WindowManager:
                 pos_hint: {"x":0, "top":0.8}
                 text: "Answer: "
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+                color: 0,0,0,1
             TextInput:
                 pos_hint: {"x":0.5, "top":0.8}
                 size_hint: 0.4, 0.12
                 id: answer
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+                color: 0,0,0,1
 
         Button:
             pos_hint:{"x":0.2,"y":0.3}
@@ -1451,6 +1667,16 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "geometry5"
+                #root.question()
+
+        Button:
+            pos_hint:{"x":0.35,"y":0.10}
+            size_hint: 0.3, 0.15
+            text: "Repeat Question"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            
+            on_release:
+                root.requestion()
 
 <Geometry5>:
 
@@ -1472,6 +1698,7 @@ WindowManager:
             Label:
                 text: "Question 5"
                 size_hint: 0.8, 0.2
+                color: 0,0,0,1
                 pos_hint: {"x":0.1, "top":1}
                 font_size: (root.width**2 + root.height**2) / 14**4
 
@@ -1480,14 +1707,14 @@ WindowManager:
                 pos_hint: {"x":0, "top":0.8}
                 text: "Answer: "
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+                color: 0,0,0,1
             TextInput:
                 pos_hint: {"x":0.5, "top":0.8}
                 size_hint: 0.4, 0.12
                 id: answer
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+                color: 0,0,0,1
 
         Button:
             pos_hint:{"x":0.2,"y":0.3}
@@ -1498,6 +1725,16 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "geometry6"
+                #root.question()
+
+        Button:
+            pos_hint:{"x":0.35,"y":0.10}
+            size_hint: 0.3, 0.15
+            text: "Repeat Question"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            
+            on_release:
+                root.requestion()
 
 <Geometry6>:
 
@@ -1519,6 +1756,7 @@ WindowManager:
             Label:
                 text: "Question 6"
                 size_hint: 0.8, 0.2
+                color: 0,0,0,1
                 pos_hint: {"x":0.1, "top":1}
                 font_size: (root.width**2 + root.height**2) / 14**4
 
@@ -1527,14 +1765,14 @@ WindowManager:
                 pos_hint: {"x":0, "top":0.8}
                 text: "Answer: "
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+                color: 0,0,0,1
             TextInput:
                 pos_hint: {"x":0.5, "top":0.8}
                 size_hint: 0.4, 0.12
                 id: answer
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+                color: 0,0,0,1
 
         Button:
             pos_hint:{"x":0.2,"y":0.3}
@@ -1545,6 +1783,16 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "geometry7"
+                #root.question()
+
+        Button:
+            pos_hint:{"x":0.35,"y":0.10}
+            size_hint: 0.3, 0.15
+            text: "Repeat Question"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            
+            on_release:
+                root.requestion()
 
 <Geometry7>:
 
@@ -1566,6 +1814,7 @@ WindowManager:
             Label:
                 text: "Question 7"
                 size_hint: 0.8, 0.2
+                color: 0,0,0,1
                 pos_hint: {"x":0.1, "top":1}
                 font_size: (root.width**2 + root.height**2) / 14**4
 
@@ -1574,14 +1823,14 @@ WindowManager:
                 pos_hint: {"x":0, "top":0.8}
                 text: "Answer: "
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+                color: 0,0,0,1
             TextInput:
                 pos_hint: {"x":0.5, "top":0.8}
                 size_hint: 0.4, 0.12
                 id: answer
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+                color: 0,0,0,1
 
         Button:
             pos_hint:{"x":0.2,"y":0.3}
@@ -1592,6 +1841,16 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "geometry8"
+                #root.question()
+
+        Button:
+            pos_hint:{"x":0.35,"y":0.10}
+            size_hint: 0.3, 0.15
+            text: "Repeat Question"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            
+            on_release:
+                root.requestion()
 
 <Geometry8>:
 
@@ -1613,6 +1872,7 @@ WindowManager:
             Label:
                 text: "Question 8"
                 size_hint: 0.8, 0.2
+                color: 0,0,0,1
                 pos_hint: {"x":0.1, "top":1}
                 font_size: (root.width**2 + root.height**2) / 14**4
 
@@ -1621,14 +1881,14 @@ WindowManager:
                 pos_hint: {"x":0, "top":0.8}
                 text: "Answer: "
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+                color: 0,0,0,1
             TextInput:
                 pos_hint: {"x":0.5, "top":0.8}
                 size_hint: 0.4, 0.12
                 id: answer
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+                color: 0,0,0,1
 
         Button:
             pos_hint:{"x":0.2,"y":0.3}
@@ -1639,6 +1899,16 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "geometry9"
+                #root.question()
+
+        Button:
+            pos_hint:{"x":0.35,"y":0.10}
+            size_hint: 0.3, 0.15
+            text: "Repeat Question"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            
+            on_release:
+                root.requestion()
 
 <Geometry9>:
 
@@ -1660,6 +1930,7 @@ WindowManager:
             Label:
                 text: "Question 9"
                 size_hint: 0.8, 0.2
+                color: 0,0,0,1
                 pos_hint: {"x":0.1, "top":1}
                 font_size: (root.width**2 + root.height**2) / 14**4
 
@@ -1668,15 +1939,14 @@ WindowManager:
                 pos_hint: {"x":0, "top":0.8}
                 text: "Answer: "
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+                color: 0,0,0,1
             TextInput:
                 pos_hint: {"x":0.5, "top":0.8}
                 size_hint: 0.4, 0.12
                 id: answer
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
-
-
+                color: 0,0,0,1
         Button:
             pos_hint:{"x":0.2,"y":0.3}
             size_hint: 0.6, 0.15
@@ -1686,6 +1956,16 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "geometry10"
+                #root.question()
+
+        Button:
+            pos_hint:{"x":0.35,"y":0.10}
+            size_hint: 0.3, 0.15
+            text: "Repeat Question"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            
+            on_release:
+                root.requestion()
 
 <Geometry10>:
 
@@ -1707,6 +1987,7 @@ WindowManager:
             Label:
                 text: "Question 10"
                 size_hint: 0.8, 0.2
+                color: 0,0,0,1
                 pos_hint: {"x":0.1, "top":1}
                 font_size: (root.width**2 + root.height**2) / 14**4
 
@@ -1715,14 +1996,14 @@ WindowManager:
                 pos_hint: {"x":0, "top":0.8}
                 text: "Answer: "
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+                color: 0,0,0,1
             TextInput:
                 pos_hint: {"x":0.5, "top":0.8}
                 size_hint: 0.4, 0.12
                 id: answer
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
-
+                color: 0,0,0,1
 
         Button:
             pos_hint:{"x":0.2,"y":0.3}
@@ -1733,6 +2014,16 @@ WindowManager:
                 root.submit()
                 root.manager.transition.direction = "left"
                 app.root.current = "geometrywindow"
+                #root.question()
+
+        Button:
+            pos_hint:{"x":0.35,"y":0.10}
+            size_hint: 0.3, 0.15
+            text: "Repeat Question"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            
+            on_release:
+                root.requestion()
 
 #----------------------------------------------------------------------------------------
 #trig questions

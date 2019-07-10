@@ -16,7 +16,9 @@ from algebra import *
 from trig import *
 from geometry import *
 
- 
+from algebraquestions import *
+from geometryquestions import * 
+
 from sympy.interactive import printing
 printing.init_printing(use_latex=True)
 from sympy import Eq, solve_linear_system, Matrix
@@ -58,6 +60,11 @@ class AlegbraWindow(Screen):
         appendFile.write('\n Algebra Answers')
         appendFile.close()
 
+    def question(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question1A)
+        return
+
 class TrigWindow(Screen):
     def titleSection(self):
 
@@ -66,6 +73,11 @@ class TrigWindow(Screen):
         appendFile.write('\n Trig Answers')
         appendFile.close()    
     pass
+
+    def question(self):
+        #cozmo.run_program(get_in_position)
+        #cozmo.run_program(question1G)
+        return
 
 class GeometryWindow(Screen):
     def titleSection(self):
@@ -76,6 +88,10 @@ class GeometryWindow(Screen):
         appendFile.close()    
     pass
 
+    def question(self):
+        #cozmo.run_program(get_in_position)
+        #cozmo.run_program(question1G)
+        return
 #--------------------------ALGEBRA------------------------------
 
 class AlgebraTutorial(Screen):
@@ -159,6 +175,14 @@ class Algebra1(Screen):
         
     def reset(self):
         self.answer.text = ""
+    
+    def question(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question2A)
+
+    def requestion(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question1A)
 
 class Algebra2(Screen):
     answer = ObjectProperty(None)
@@ -174,6 +198,14 @@ class Algebra2(Screen):
     def reset(self):
         self.answer.text = ""
 
+    def question(self):
+        cozmo.run_program(get_in_position)    
+        cozmo.run_program(question3A)
+
+    def requestion(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question2A)
+
 class Algebra3(Screen):
     answer = ObjectProperty(None)
 
@@ -187,6 +219,14 @@ class Algebra3(Screen):
         
     def reset(self):
         self.answer.text = ""        
+
+    def question(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question4A)
+
+    def requestion(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question3A)
 
 class Algebra4(Screen):
     answer = ObjectProperty(None)
@@ -202,6 +242,14 @@ class Algebra4(Screen):
     def reset(self):
         self.answer.text = ""        
 
+    def question(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question5A)
+
+    def requestion(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question4A)
+
 class Algebra5(Screen):
     answer = ObjectProperty(None)
 
@@ -215,6 +263,14 @@ class Algebra5(Screen):
         
     def reset(self):
         self.answer.text = ""
+
+    def question(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question6A)
+
+    def requestion(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question5A)
 
 class Algebra6(Screen):
     answer = ObjectProperty(None)
@@ -230,6 +286,15 @@ class Algebra6(Screen):
     def reset(self):
         self.answer.text = ""        
 
+    def question(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question7A)
+        
+
+    def requestion(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question6A)
+
 class Algebra7(Screen):
     answer = ObjectProperty(None)
 
@@ -243,6 +308,14 @@ class Algebra7(Screen):
         
     def reset(self):
         self.answer.text = ""        
+
+    def question(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question8A)
+
+    def requestion(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question7A)
 
 class Algebra8(Screen):
     answer = ObjectProperty(None)
@@ -258,6 +331,14 @@ class Algebra8(Screen):
     def reset(self):
         self.answer.text = ""        
 
+    def question(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question9A)
+
+    def requestion(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question8A)
+
 class Algebra9(Screen):
     answer = ObjectProperty(None)
 
@@ -271,6 +352,14 @@ class Algebra9(Screen):
         
     def reset(self):
         self.answer.text = ""        
+
+    def question(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question10A)
+
+    def requestion(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question9A)
 
 class Algebra10(Screen):
     answer = ObjectProperty(None)
@@ -286,6 +375,10 @@ class Algebra10(Screen):
     def reset(self):
         self.answer.text = ""        
 
+    def requestion(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question10A)
+        
 #---------------------------------------------
 #----------------------TRIG AND PYTHAG--------------------------
 
@@ -328,6 +421,14 @@ class Trig1(Screen):
         
     def reset(self):
         self.answer.text = ""
+    
+    def question(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question2G)
+
+    def requestion(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question1G)
 
 class Trig2(Screen):
     answer = ObjectProperty(None)
@@ -342,6 +443,14 @@ class Trig2(Screen):
         
     def reset(self):
         self.answer.text = ""
+    
+    def question(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question3G)
+
+    def requestion(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question2G)
 
 class Trig3(Screen):
     answer = ObjectProperty(None)
@@ -355,7 +464,15 @@ class Trig3(Screen):
         self.reset()
         
     def reset(self):
-        self.answer.text = ""        
+        self.answer.text = ""   
+    
+    def question(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question4G)
+
+    def requestion(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question3G)     
 
 class Trig4(Screen):
     answer = ObjectProperty(None)
@@ -369,7 +486,15 @@ class Trig4(Screen):
         self.reset()
         
     def reset(self):
-        self.answer.text = ""        
+        self.answer.text = ""    
+    
+    def question(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question5G)
+
+    def requestion(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question4G)    
 
 class Trig5(Screen):
     answer = ObjectProperty(None)
@@ -384,6 +509,14 @@ class Trig5(Screen):
         
     def reset(self):
         self.answer.text = ""
+    
+    def question(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question6G)
+
+    def requestion(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question5G)
 
 class Trig6(Screen):
     answer = ObjectProperty(None)
@@ -397,7 +530,15 @@ class Trig6(Screen):
         self.reset()
         
     def reset(self):
-        self.answer.text = ""        
+        self.answer.text = ""  
+    
+    def question(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question7G)
+
+    def requestion(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question6G)      
 
 class Trig7(Screen):
     answer = ObjectProperty(None)
@@ -411,7 +552,15 @@ class Trig7(Screen):
         self.reset()
         
     def reset(self):
-        self.answer.text = ""        
+        self.answer.text = ""
+    
+    def question(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question8G)
+
+    def requestion(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question7G)        
 
 class Trig8(Screen):
     answer = ObjectProperty(None)
@@ -425,7 +574,15 @@ class Trig8(Screen):
         self.reset()
         
     def reset(self):
-        self.answer.text = ""        
+        self.answer.text = ""   
+    
+    def question(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question9G)
+
+    def requestion(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question8G)     
 
 class Trig9(Screen):
     answer = ObjectProperty(None)
@@ -439,7 +596,15 @@ class Trig9(Screen):
         self.reset()
         
     def reset(self):
-        self.answer.text = ""        
+        self.answer.text = "" 
+    
+    def question(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question10G)
+
+    def requestion(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question9G)       
 
 class Trig10(Screen):
     answer = ObjectProperty(None)
@@ -453,7 +618,11 @@ class Trig10(Screen):
         self.reset()
         
     def reset(self):
-        self.answer.text = ""        
+        self.answer.text = ""     
+
+    def requestion(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question10G)   
 
 #---------------------------------------------
 #--------------------------GEOMETRY------------------------------
@@ -499,6 +668,14 @@ class Geometry1(Screen):
         
     def reset(self):
         self.answer.text = ""
+    
+    def question(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question2G)
+
+    def requestion(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question1G)
 
 class Geometry2(Screen):
     answer = ObjectProperty(None)
@@ -513,6 +690,14 @@ class Geometry2(Screen):
         
     def reset(self):
         self.answer.text = ""
+    
+    def question(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question3G)
+
+    def requestion(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question2G)
 
 class Geometry3(Screen):
     answer = ObjectProperty(None)
@@ -526,7 +711,15 @@ class Geometry3(Screen):
         self.reset()
         
     def reset(self):
-        self.answer.text = ""        
+        self.answer.text = ""   
+    
+    def question(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question4G)
+
+    def requestion(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question3G)     
 
 class Geometry4(Screen):
     answer = ObjectProperty(None)
@@ -540,7 +733,15 @@ class Geometry4(Screen):
         self.reset()
         
     def reset(self):
-        self.answer.text = ""        
+        self.answer.text = ""    
+    
+    def question(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question5G)
+
+    def requestion(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question4G)    
 
 class Geometry5(Screen):
     answer = ObjectProperty(None)
@@ -555,6 +756,14 @@ class Geometry5(Screen):
         
     def reset(self):
         self.answer.text = ""
+    
+    def question(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question6G)
+
+    def requestion(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question5G)
 
 class Geometry6(Screen):
     answer = ObjectProperty(None)
@@ -568,7 +777,15 @@ class Geometry6(Screen):
         self.reset()
         
     def reset(self):
-        self.answer.text = ""        
+        self.answer.text = ""  
+    
+    def question(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question7G)
+
+    def requestion(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question6G)      
 
 class Geometry7(Screen):
     answer = ObjectProperty(None)
@@ -582,7 +799,15 @@ class Geometry7(Screen):
         self.reset()
         
     def reset(self):
-        self.answer.text = ""        
+        self.answer.text = ""
+    
+    def question(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question8G)
+
+    def requestion(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question7G)        
 
 class Geometry8(Screen):
     answer = ObjectProperty(None)
@@ -596,7 +821,15 @@ class Geometry8(Screen):
         self.reset()
         
     def reset(self):
-        self.answer.text = ""        
+        self.answer.text = ""   
+    
+    def question(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question9G)
+
+    def requestion(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question8G)     
 
 class Geometry9(Screen):
     answer = ObjectProperty(None)
@@ -610,7 +843,15 @@ class Geometry9(Screen):
         self.reset()
         
     def reset(self):
-        self.answer.text = ""        
+        self.answer.text = "" 
+    
+    def question(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question10G)
+
+    def requestion(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question9G)       
 
 class Geometry10(Screen):
     answer = ObjectProperty(None)
@@ -624,8 +865,11 @@ class Geometry10(Screen):
         self.reset()
         
     def reset(self):
-        self.answer.text = ""        
-  
+        self.answer.text = ""     
+
+    def requestion(self):
+        cozmo.run_program(get_in_position)
+        cozmo.run_program(question10G)     
 #---------------------------------------------
 #----------------------------------------------------------------
 

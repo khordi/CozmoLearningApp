@@ -109,7 +109,7 @@ def displaysin(self: cozmo.robot.Robot):
         resized_image = image.resize(cozmo.oled_face.dimensions(), resampling_mode)
         face_image = cozmo.oled_face.convert_image_to_screen_data(resized_image,invert_image=True)
         self.display_oled_face_image(face_image, 3000.0, in_parallel=True)
-        self.say_text("over hypotenuse. This is shown as a fraction:", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()
+        self.say_text("over hypotenuse. This is shown as an expression:", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()
         #time.sleep(1)
 
         resampling_mode = Image.NEAREST
@@ -139,7 +139,7 @@ def displaycos(self: cozmo.robot.Robot):
         resized_image = image.resize(cozmo.oled_face.dimensions(), resampling_mode)
         face_image = cozmo.oled_face.convert_image_to_screen_data(resized_image,invert_image=True)
         self.display_oled_face_image(face_image, 3000.0, in_parallel=True)
-        self.say_text("over hypotenuse. This is shown as a fraction:", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()
+        self.say_text("over hypotenuse. This is shown as an expression:", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()
         #time.sleep(1)
         
         resampling_mode = Image.NEAREST
@@ -170,7 +170,7 @@ def displaytan(self: cozmo.robot.Robot):
         resized_image = image.resize(cozmo.oled_face.dimensions(), resampling_mode)
         face_image = cozmo.oled_face.convert_image_to_screen_data(resized_image,invert_image=True)
         self.display_oled_face_image(face_image, 3000.0, in_parallel=True)
-        self.say_text("over adjacent. This is shown as a fraction:", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()
+        self.say_text("over adjacent. This is shown as an expression:", voice_pitch=0,duration_scalar=0.6, in_parallel=True).wait_for_completed()
         #time.sleep(1)
 
         resampling_mode = Image.NEAREST
